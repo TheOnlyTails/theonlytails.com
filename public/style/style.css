@@ -1,11 +1,8 @@
 :root {
-    --light-color: #EEEEEE;
-    --dark-color: #444;
-    --dark-switch-shadow: #fce477;
-    --light-switch-shadow: #373d4e;
-    --light-accent: #ff6f00;
-    --dark-accent: #cb6722;
-    --switch-shadow-color: var(--dark-switch-shadow);
+  --light-color: #EEEEEE;
+  --dark-color: #444;
+  --light-accent: #ff6f00;
+  --dark-accent: #cb6722;
 }
 
 body {
@@ -24,13 +21,13 @@ body {
 }
 
 #projects {
-    margin: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 2px solid var(--light-accent);
-    max-width: 50%;
+  margin: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid var(--light-accent);
+  max-width: 50%;
 }
 
 h1, h2, h3, h4, h5, h6, a.social {
