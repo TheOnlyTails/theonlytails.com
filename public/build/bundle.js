@@ -11,7 +11,9 @@ var app = (function () {
 
     function noop() {
     }
+
     const identity = x => x;
+
     function assign(tar, src) {
         // @ts-ignore
         for (const k in src)
@@ -1071,7 +1073,7 @@ var app = (function () {
 
         const block = {
             c: function create() {
-                t0 = text("An free and open source mod for ");
+                t0 = text("A free and open source mod for ");
                 a0 = element("a");
                 a0.textContent = "Minecraft";
                 t2 = text(" 1.16,\r\n\t\t\t\t\t\t\t\twritten in Kotlin using the ");
@@ -1079,9 +1081,9 @@ var app = (function () {
                 a1.textContent = "Minecraft Forge\r\n\t\t\t\t\t\t\t\tAPI";
                 t4 = text(".");
                 attr_dev(a0, "href", "https://minecraft.net");
-                add_location(a0, file, 39, 40, 1386);
+                add_location(a0, file, 39, 39, 1385);
                 attr_dev(a1, "href", "https://github.com/MinecraftForge/MinecraftForge");
-                add_location(a1, file, 40, 36, 1475);
+                add_location(a1, file, 40, 36, 1474);
             },
             m: function mount(target, anchor) {
                 insert_dev(target, t0, anchor);
@@ -1150,7 +1152,7 @@ var app = (function () {
                 a.textContent = "Cryptic Cosmos Team";
                 t2 = text(".");
                 attr_dev(a, "href", "https://github.com/Team-Cryptic-Cosmos");
-                add_location(a, file, 48, 8, 1983);
+                add_location(a, file, 48, 8, 1982);
             },
             m: function mount(target, anchor) {
                 insert_dev(target, t0, anchor);
@@ -1200,13 +1202,13 @@ var app = (function () {
                 a2 = element("a");
                 a2.textContent = "SCSS";
                 t7 = text(".");
-                add_location(i, file, 51, 8, 2177);
+                add_location(i, file, 51, 8, 2176);
                 attr_dev(a0, "href", "https://svelte.dev");
-                add_location(a0, file, 51, 49, 2218);
+                add_location(a0, file, 51, 49, 2217);
                 attr_dev(a1, "href", "https://www.typescriptlang.org/");
-                add_location(a1, file, 51, 90, 2259);
+                add_location(a1, file, 51, 90, 2258);
                 attr_dev(a2, "href", "https://sass-lang.com/");
-                add_location(a2, file, 52, 69, 2332);
+                add_location(a2, file, 52, 69, 2331);
             },
             m: function mount(target, anchor) {
                 insert_dev(target, i, anchor);
@@ -1417,14 +1419,14 @@ var app = (function () {
                 attr_dev(div0, "id", "projects");
                 add_location(div0, file, 35, 2, 1164);
                 attr_dev(div1, "class", "social");
-                add_location(div1, file, 57, 2, 2419);
+                add_location(div1, file, 57, 2, 2418);
                 attr_dev(a2, "href", "https://twitter.com/the_only_tails");
-                add_location(a2, file, 64, 16, 2750);
+                add_location(a2, file, 64, 16, 2749);
                 attr_dev(p, "id", "reach-out");
-                add_location(p, file, 63, 2, 2714);
+                add_location(p, file, 63, 2, 2713);
                 attr_dev(button, "id", "theme-switch");
                 attr_dev(button, "class", "svelte-1iqngr");
-                add_location(button, file, 67, 2, 2857);
+                add_location(button, file, 67, 2, 2856);
                 attr_dev(main, "id", "page");
                 set_style(main, "background-color", /*backgroundColor*/ ctx[1]);
                 set_style(main, "color", /*textColor*/ ctx[2]);

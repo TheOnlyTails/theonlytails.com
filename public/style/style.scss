@@ -4,6 +4,8 @@
   --dark-color: #444;
   --dark-switch-shadow: #fce477;
   --light-switch-shadow: #373d4e;
+  --light-accent: #ff6f00;
+  --dark-accent: #cb6722;
 
   // default mode
   --switch-shadow-color: var(--dark-switch-shadow);
@@ -32,7 +34,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 2px solid #FF7F00;
+  border: 2px solid var(--light-accent);
   max-width: 50%;
 }
 

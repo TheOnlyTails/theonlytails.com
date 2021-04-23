@@ -43,7 +43,7 @@
 				<h3 id="projects-title">Some of my projects!</h3>
 				<ul class="projects">
 						<Project href="https://github.com/theonlytails/rubymod" name="RubyMod">
-								An free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16,
+								A free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16,
 								written in Kotlin using the <a href="https://github.com/MinecraftForge/MinecraftForge">Minecraft Forge
 								API</a>.
 						</Project>
