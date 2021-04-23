@@ -1,0 +1,75 @@
+:root {
+  // some colors
+  --light-color: #EEEEEE;
+  --dark-color: #444;
+  --dark-switch-shadow: #fce477;
+  --light-switch-shadow: #373d4e;
+
+  // default mode
+  --switch-shadow-color: var(--dark-switch-shadow);
+}
+
+// styles the main page
+body {
+  margin: auto auto;
+}
+
+#page {
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: jetbrains-mono, sans-serif;
+  max-width: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+// Styles the projects div
+#projects {
+  margin: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid #FF7F00;
+  max-width: 50%;
+}
+
+// Keeps things spaced out where needed
+h1, h2, h3, h4, h5, h6, a.social {
+  margin: 10px;
+}
+
+li.projects, ul.projects {
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-right: 0.15em;
+}
+
+#projects-title {
+  margin-top: 20px;
+}
+
+#title {
+  margin-top: 20px;
+}
+
+// Makes the logo image circular
+#logo {
+  border-radius: 50%;
+}
+
+img.social {
+  transition: transform .2s; /* Animation */
+
+  &:hover {
+    transform: scale(0.8);
+  }
+}
+
+// Makes sure my make-shift footer still looks good
+#reach-out {
+  font-size: 14px;
+  margin-bottom: 30px;
+}

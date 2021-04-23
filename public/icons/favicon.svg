@@ -1,0 +1,56 @@
+<svg fill="none" height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#E5E5E5" height="8" width="8"/>
+    <rect fill="#CE8A22" height="1" width="1" x="6"/>
+    <rect fill="#CE8A22" height="1" width="1" y="1"/>
+    <rect fill="#CE8A22" height="1" width="1" x="1"/>
+    <rect fill="#CE8A22" height="1" width="1" x="7" y="1"/>
+    <rect fill="#DD972C" height="1" width="1" x="5"/>
+    <rect fill="#DD972C" height="1" width="1" x="2"/>
+    <rect fill="#DD972C" height="1" width="1" x="7" y="2"/>
+    <rect fill="#DD972C" height="1" width="1" x="6" y="1"/>
+    <rect fill="#DD972C" height="1" width="1" y="2"/>
+    <rect fill="#DD972C" height="1" width="1" x="1" y="1"/>
+    <rect fill="#B87B1E" height="1" width="1" x="7"/>
+    <rect fill="#B87B1E" height="1" width="1"/>
+    <rect fill="#E0A243" height="1" width="2" x="3"/>
+    <rect fill="#E0A243" height="1" width="2" x="3" y="3"/>
+    <rect fill="#E0A243" height="1" width="2" x="3" y="5"/>
+    <rect fill="#E0A243" height="1" width="1" x="5" y="1"/>
+    <rect fill="#E0A243" height="1" width="1" x="7" y="4"/>
+    <rect fill="#E0A243" height="1" width="1" x="7" y="3"/>
+    <rect fill="#E0A243" height="1" width="1" x="6" y="2"/>
+    <rect fill="#E0A243" height="1" width="1" y="4"/>
+    <rect fill="#E0A243" height="1" width="1" y="3"/>
+    <rect fill="#E0A243" height="1" width="1" x="1" y="2"/>
+    <rect fill="#E4AD58" height="2" width="3" x="2" y="1"/>
+    <rect fill="#E4AD58" height="1" width="2" x="3" y="4"/>
+    <rect fill="#E4AD58" height="1" width="1" x="5" y="2"/>
+    <rect fill="#262626" height="1" width="1" x="2" y="4"/>
+    <rect fill="#262626" height="1" width="1" x="5" y="4"/>
+    <rect fill="#007FFF" height="1" width="1" x="2" y="5"/>
+    <rect fill="#007FFF" height="1" width="1" x="5" y="5"/>
+    <rect fill="#E7E7F9" height="1" width="1" x="2" y="3"/>
+    <path d="M6 4H7V6H6V4Z" fill="#E7E7F9"/>
+    <rect fill="#E7E7F9" height="2" width="1" x="6" y="4"/>
+    <rect fill="#E7E7F9" height="2" width="1" x="1" y="4"/>
+    <rect fill="#E7E7F9" height="1" width="1" x="5" y="3"/>
+    <rect fill="#D4D4F2" height="1" width="1" x="1" y="3"/>
+    <path d="M6 3H7V4H6V3Z" fill="#D4D4F2"/>
+    <rect fill="#C0C0EC" height="1" width="1" y="5"/>
+    <rect fill="#C0C0EC" height="1" width="1" x="7" y="7"/>
+    <rect fill="#C0C0EC" height="1" width="1" y="7"/>
+    <rect fill="#C0C0EC" height="1" width="1" x="7" y="5"/>
+    <rect fill="#E8E8F8" height="1" width="1" x="1" y="6"/>
+    <rect fill="#E8E8F8" height="1" width="1" x="6" y="6"/>
+    <rect fill="#404040" height="1" width="1" x="3" y="6"/>
+    <rect fill="#262626" height="1" width="1" x="4" y="6"/>
+    <rect fill="#FBFBFE" height="1" width="2" x="3" y="7"/>
+    <rect fill="#FBFBFE" height="1" width="1" x="2" y="6"/>
+    <rect fill="#FBFBFE" height="1" width="1" x="5" y="6"/>
+    <rect fill="#D4D4F2" height="1" width="1" y="6"/>
+    <rect fill="#D4D4F2" height="1" width="1" x="7" y="6"/>
+    <rect fill="#D4D4F2" height="1" width="1" x="6" y="7"/>
+    <rect fill="#D4D4F2" height="1" width="1" x="1" y="7"/>
+    <rect fill="#E8E8F8" height="1" width="1" x="2" y="7"/>
+    <rect fill="#E8E8F8" height="1" width="1" x="5" y="7"/>
+</svg>

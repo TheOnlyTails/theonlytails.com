@@ -1,0 +1,32 @@
+:root {
+  --light-accent: #ff4d0d;
+  --dark-accent: #b34e0b;
+}
+
+a {
+  &:link {
+    transition: transform, .3s;
+    text-decoration: none;
+    color: var(--light-accent);
+    font-weight: bold;
+  }
+
+  &:visited {
+    transition: transform, .3s;
+    text-decoration: none;
+    color: var(--dark-accent);
+  }
+
+  &:hover, :active {
+    transition: transform, .3s;
+    text-decoration: none;
+    color: #EEEEEE;
+    font-weight: normal;
+    background-color: var(--dark-accent);
+  }
+}
+
+.social:hover {
+  text-decoration: none;
+  background-color: transparent;
+}
