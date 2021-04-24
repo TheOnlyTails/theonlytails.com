@@ -52,34 +52,6 @@
 		border: none;
 		background-color: inherit;
 	}
-
-	a {
-		&:link {
-			font-weight: bold;
-			transition: transform, .3s;
-			text-decoration: none;
-			color: var(--light-accent);
-		}
-
-		&:visited {
-			transition: transform, .3s;
-			text-decoration: none;
-			color: var(--dark-accent);
-		}
-
-		&:hover, :active {
-			font-weight: normal;
-			transition: transform, .3s;
-			text-decoration: none;
-			color: var(--light-color);
-			background-color: var(--dark-accent);
-		}
-	}
-
-	.social:hover {
-		text-decoration: none;
-		background-color: transparent;
-	}
 </style>
 
 <main id="page" style="background-color: {backgroundColor}; color: {textColor}">

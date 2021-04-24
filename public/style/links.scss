@@ -1,0 +1,27 @@
+a {
+	&:link {
+		font-weight: bold;
+		transition: transform, .3s;
+		text-decoration: none;
+		color: var(--light-accent);
+	}
+
+	&:visited {
+		transition: transform, .3s;
+		text-decoration: none;
+		color: var(--dark-accent);
+	}
+
+	&:hover, :active {
+		font-weight: normal;
+		transition: transform, .3s;
+		text-decoration: none;
+		color: var(--light-color);
+		background-color: var(--dark-accent);
+	}
+}
+
+.social:hover {
+	text-decoration: none;
+	background-color: transparent;
+}
