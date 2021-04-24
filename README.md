@@ -1,6 +1,5 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ea3ab833-91d5-49eb-b447-a16aeea9fff3/deploy-status)](https://theonlytails.com)
-![Language](https://img.shields.io/badge/framework-Svelte-orange?logo=svelte)
-![Language](https://img.shields.io/badge/language-TypeScript-blue?logo=typescript)
+<img alt="Svelte" src="https://img.shields.io/badge/svelte-%23FF2D20.svg?&style=for-the-badge&logo=svelte&logoColor=white"/>
+<img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white"/>
 
 # TheOnlyTails Website
 
