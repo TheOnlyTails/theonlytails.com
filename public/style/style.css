@@ -1,5 +1,5 @@
 :root {
-  --light-color: #EEEEEE;
+  --light-color: #eee;
   --dark-color: #444;
   --light-accent: #ff6f00;
   --dark-accent: #cb6722;
@@ -10,24 +10,24 @@ body {
 }
 
 #page {
-  min-width: 100vw;
-  min-height: 100vh;
   font-family: jetbrains-mono, sans-serif;
-  max-width: 50%;
   font-size: 18px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-width: 100vw;
+  max-width: 50%;
+  min-height: 100vh;
 }
 
 #projects {
-  margin: 25px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  border: 2px solid var(--light-accent);
+  justify-content: center;
   max-width: 50%;
+  margin: 25px;
+  border: 2px solid var(--light-accent);
 }
 
 h1, h2, h3, h4, h5, h6, a.social {
@@ -36,8 +36,8 @@ h1, h2, h3, h4, h5, h6, a.social {
 
 li.projects, ul.projects {
   padding-top: 0.15em;
-  padding-bottom: 0.15em;
   padding-right: 0.15em;
+  padding-bottom: 0.15em;
 }
 
 #projects-title {
@@ -54,7 +54,6 @@ li.projects, ul.projects {
 
 img.social {
   transition: transform 0.2s;
-  /* Animation */
 }
 img.social:hover {
   transform: scale(0.8);
