@@ -1,27 +1,26 @@
 <script lang="ts">
 	import SocialIcon from "./SocialIcon.svelte"
-	import ProjectEntry from "./ProjectEntry.svelte"
-	import { isDark } from "./stores/theme.ts"
-	import { fade } from "svelte/transition"
-	import type { Project } from "./Project"
+  import ProjectEntry from "./ProjectEntry.svelte"
+  import { isDark } from "./stores/theme.ts"
+  import { fade } from "svelte/transition"
+  import type { Project } from "./Project"
 
-	const switchTheme = () => isDark.update(value => !value)
+  const darkColor = "#444"
+  const lightColor = "#eee"
 
-	const darkColor = "#444"
-	const lightColor = "#eee"
+  $: backgroundColor = $isDark ? darkColor : lightColor
+  $: textColor = $isDark ? lightColor : darkColor
+  // inverts the github social icon according to the theme
+  $: githubIconStyle = `filter: invert(${ $isDark ? "100%" : "0%" })`
 
-	$: backgroundColor = $isDark ? darkColor : lightColor
-	$: textColor = $isDark ? lightColor : darkColor
-	$: githubIconStyle = `filter: invert(${ $isDark ? "100%" : "0%" })`
-
-	const projects: Project[] = [
-		{
-			name: "RubyMod",
-			href: "https://github.com/theonlytails/rubymod",
-			description:
-				`A free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16, written in Kotlin using the <a href="https://github.com/MinecraftForge/MinecraftForge">Minecraft Forge API</a>.`,
-		},
-		{
+  const projects: Project[] = [
+	  {
+		  name: "RubyMod",
+		  href: "https://github.com/theonlytails/rubymod",
+		  description:
+			  `A free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16, written in Kotlin using the <a href="https://github.com/MinecraftForge/MinecraftForge">Minecraft Forge API</a>.`,
+	  },
+	  {
 			name: "LootTables",
 			href: "https://github.com/theonlytails/loottables",
 			description: `A Kotlin DSL for creating loot tables in Minecraft mods (using Forge).`,
@@ -86,5 +85,5 @@
 			href="https://twitter.com/the_only_tails">Twitter</a>, or in Discord as TheOnlyTails#1886.
 	</p>
 
-	<button id="theme-switch" on:click={switchTheme}>{$isDark ? "🌚" : "🌝"}</button>
+	<button id="theme-switch" on:click={() => isDark.update(value => !value)}>{$isDark ? "🌚" : "🌝"}</button>
 </main>
