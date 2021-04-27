@@ -1,26 +1,26 @@
 <script lang="ts">
 	import SocialIcon from "./SocialIcon.svelte"
-  import ProjectEntry from "./ProjectEntry.svelte"
-  import { isDark } from "./stores/theme.ts"
-  import { fade } from "svelte/transition"
-  import type { Project } from "./Project"
+	import ProjectEntry from "./ProjectEntry.svelte"
+	import { isDark } from "./stores/theme.ts"
+	import { fade } from "svelte/transition"
+	import type { Project, SocialLink } from "./elementInterfaces"
 
-  const darkColor = "#444"
-  const lightColor = "#eee"
+	const darkColor = "#444"
+	const lightColor = "#eee"
 
-  $: backgroundColor = $isDark ? darkColor : lightColor
-  $: textColor = $isDark ? lightColor : darkColor
-  // inverts the github social icon according to the theme
-  $: githubIconStyle = `filter: invert(${ $isDark ? "100%" : "0%" })`
+	$: backgroundColor = $isDark ? darkColor : lightColor
+	$: textColor = $isDark ? lightColor : darkColor
+	// inverts the github social icon according to the theme
+	$: githubIconStyle = `filter: invert(${ $isDark ? "100%" : "0%" })`
 
-  const projects: Project[] = [
-	  {
-		  name: "RubyMod",
-		  href: "https://github.com/theonlytails/rubymod",
-		  description:
-			  `A free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16, written in Kotlin using the <a href="https://github.com/MinecraftForge/MinecraftForge">Minecraft Forge API</a>.`,
-	  },
-	  {
+	const projects: Project[] = [
+		{
+			name: "RubyMod",
+			href: "https://github.com/theonlytails/rubymod",
+			description:
+				`A free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16, written in Kotlin using the <a href="https://github.com/MinecraftForge/MinecraftForge">Minecraft Forge API</a>.`,
+		},
+		{
 			name: "LootTables",
 			href: "https://github.com/theonlytails/loottables",
 			description: `A Kotlin DSL for creating loot tables in Minecraft mods (using Forge).`,
@@ -37,12 +37,27 @@
 				`<i>You're looking at it</i>. Built with <a href="https://svelte.dev">Svelte</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, and <a href="https://sass-lang.com/">SCSS</a>.`,
 		},
 	]
+
+	const socialLinks: SocialLink[] = [
+		{
+			title: "GitHub",
+			href: "https://github.com/theonlytails",
+		},
+		{
+			title: "Twitter",
+			href: "https://twitter.com/the_only_tails",
+		},
+		{
+			title: "Reddit",
+			href: "https://reddit.com/u/theonlytails",
+		},
+	]
 </script>
 
 <style global lang="scss">
 	#theme-switch {
 		/* styles the icon */
-		font-size: 40px;
+		font-size: 2.2em;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -75,9 +90,13 @@
 	</div>
 
 	<div class="social">
-		<SocialIcon href="https://github.com/theonlytails" style={githubIconStyle} title="GitHub"/>
-		<SocialIcon href="https://twitter.com/the_only_tails" size={29} title="Twitter"/>
-		<SocialIcon href="https://reddit.com/u/theonlytails" title="Reddit"/>
+		{#each socialLinks as socialLink}
+			{#if socialLink.title !== "GitHub"}
+				<SocialIcon {...socialLink}/>
+			{:else}
+				<SocialIcon {...socialLink} style={githubIconStyle}/>
+			{/if}
+		{/each}
 	</div>
 
 	<p id="reach-out">
