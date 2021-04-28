@@ -1,85 +1,83 @@
 body {
-	margin: auto auto;
+  margin: auto auto;
 }
 
 #page {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	font-family: jetbrains-mono, sans-serif;
-	font-size: 1.13em;
-	min-width: 100vw;
-	max-width: 50%;
-	min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: jetbrains-mono, sans-serif;
+  font-size: 1.13em;
+  min-width: 100vw;
+  max-width: 50%;
+  min-height: 100vh;
 }
 
 #projects {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	max-width: 50%;
-	margin: 1.575em;
-	border: 0.12em solid #ff6f00;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 50%;
+  margin: 1.575em;
+  border: 0.12em solid #ff6f00;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 10px;
+  margin: 10px;
 }
 
 a.social {
-	margin: 0.7em;
+  margin: 0.7em;
 }
 
 li.projects, ul.projects {
-	padding-top: 0.15em;
-	padding-right: 0.15em;
-	padding-bottom: 0.15em;
+  padding-top: 0.15em;
+  padding-right: 0.15em;
+  padding-bottom: 0.15em;
 }
 
 #projects-title, #title {
-	margin-top: 0.75em;
+  margin-top: 0.75em;
 }
 
 #logo {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 
 img.social {
-	transition: transform 0.2s;
+  transition: transform 0.2s;
 }
-
 img.social:hover {
-	transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 #reach-out {
-	font-size: 14px;
-	margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 a:link {
-	font-weight: bold;
-	transition: transform, 0.3s;
-	text-decoration: none;
-	color: #ff6f00;
+  font-weight: bold;
+  transition: transform, 0.3s;
+  text-decoration: none;
+  color: #ff6f00;
 }
-
 a:visited {
-	transition: transform, 0.3s;
-	text-decoration: none;
-	color: #cb6722;
+  transition: transform, 0.3s;
+  text-decoration: none;
+  color: #cb6722;
 }
 a:hover, a :active {
-	font-weight: normal;
-	transition: transform, 0.3s;
-	text-decoration: none;
-	color: #eee;
-	background-color: #cb6722;
+  font-weight: normal;
+  transition: transform, 0.3s;
+  text-decoration: none;
+  color: #eee;
+  background-color: #cb6722;
 }
 
 .social:hover {
-	text-decoration: none;
-	background-color: transparent;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=links.css.map */

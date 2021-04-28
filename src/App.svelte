@@ -54,20 +54,6 @@
 	]
 </script>
 
-<style global lang="scss">
-	#theme-switch {
-		/* styles the icon */
-		font-size: 2.2em;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
-		cursor: pointer;
-		border: none;
-		background-color: inherit;
-	}
-</style>
-
 <main id="page" style="background-color: {backgroundColor}; color: {textColor}">
 	<h1 id="title" transition:fade={{duration: 300}}>
 		<!--suppress HtmlUnknownTarget -->
@@ -99,10 +85,25 @@
 		{/each}
 	</div>
 
-	<p id="reach-out">
+	<h5 id="reach-out">
 		Reach me at <a href="mailto:theonlytails@theonlytails.com">My email</a>, <a
 			href="https://twitter.com/the_only_tails">Twitter</a>, or in Discord as TheOnlyTails#1886.
-	</p>
+	</h5>
 
-	<button id="theme-switch" on:click={() => isDark.update(value => !value)}>{$isDark ? "🌚" : "🌝"}</button>
+	<button aria-hidden="true" aria-label="Dark mode switch" id="theme-switch"
+	        on:click={() => isDark.update(value => !value)}>{$isDark ? "🌚" : "🌝"}</button>
 </main>
+
+<style lang="scss">
+	// styles the icon
+	#theme-switch {
+		font-size: 2.2em;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		cursor: pointer;
+		border: none;
+		background-color: inherit;
+	}
+</style>
