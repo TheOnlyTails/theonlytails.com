@@ -1,9 +1,9 @@
 <script lang="ts">
 	import SocialIcon from "./SocialIcon.svelte"
 	import ProjectEntry from "./ProjectEntry.svelte"
-	import { isDark } from "./stores/theme.ts"
-	import { fade } from "svelte/transition"
+	import { isDark, switchTheme } from "./stores/theme.ts"
 	import type { Project, SocialLink } from "./elementInterfaces"
+	import Logo from "./Logo.svelte"
 
 	const darkColor = "#444"
 	const lightColor = "#eee"
@@ -55,9 +55,8 @@
 </script>
 
 <main id="page" style="background-color: {backgroundColor}; color: {textColor}">
-	<h1 id="title" transition:fade={{duration: 300}}>
-		<!--suppress HtmlUnknownTarget -->
-		<img alt="My icon!" height={35} id="logo" src="icons/favicon.svg" width={35}>
+	<h1 id="title">
+		<Logo src="icons/favicon.svg"/>
 		TheOnlyTails
 	</h1>
 
@@ -86,22 +85,17 @@
 	</div>
 
 	<h5 id="reach-out">
-		Reach me at <a href="mailto:theonlytails@theonlytails.com">My email</a>, <a
-			href="https://twitter.com/the_only_tails">Twitter</a>, or in Discord as TheOnlyTails#1886.
+		Reach me at <a href="mailto:theonlytails@theonlytails.com">My email</a> or on Twitter!
 	</h5>
 
-	<button aria-hidden="true" aria-label="Dark mode switch" id="theme-switch"
-	        on:click={() => isDark.update(value => !value)}>{$isDark ? "🌚" : "🌝"}</button>
+	<button aria-label="Dark mode switch" id="theme-switch" on:click={switchTheme}
+	        role="button">{$isDark ? "🌚" : "🌝"}</button>
 </main>
 
 <style lang="scss">
 	// styles the icon
 	#theme-switch {
 		font-size: 2.2em;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
 		cursor: pointer;
 		border: none;
 		background-color: inherit;

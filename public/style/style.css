@@ -6,7 +6,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-family: jetbrains-mono, sans-serif;
+  font-family: jetbrains-mono, "Fira Code", monospace;
   font-size: 1.13em;
   min-width: 100vw;
   max-width: 50%;
@@ -19,15 +19,11 @@ body {
   flex-direction: column;
   max-width: 50%;
   margin: 1.575em;
-  border: 0.12em solid #ff6f00;
+  border: 0.12em solid #ff850d;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 10px;
-}
-
-a.social {
-  margin: 0.7em;
 }
 
 li.projects, ul.projects {
@@ -38,17 +34,6 @@ li.projects, ul.projects {
 
 #projects-title, #title {
   margin-top: 0.75em;
-}
-
-#logo {
-  border-radius: 50%;
-}
-
-img.social {
-  transition: transform 0.2s;
-}
-img.social:hover {
-  transform: scale(0.8);
 }
 
 #reach-out {

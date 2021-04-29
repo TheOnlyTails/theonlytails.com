@@ -1,7 +1,7 @@
 $light-color: #eee;
 $dark-color: #444;
-$light-accent: #ff6f00;
-$dark-accent: #cb6722;
+$light-accent: #ff850d;
+$dark-accent: #c76e15;
 
 // styles the main page
 body { margin: auto auto }
@@ -16,7 +16,7 @@ body { margin: auto auto }
 #page {
 	@include center;
 
-	font-family: jetbrains-mono, sans-serif;
+	font-family: jetbrains-mono, "Fira Code", monospace;
 	font-size: 1.13em;
 	min-width: 100vw;
 	max-width: 50%;
@@ -35,8 +35,6 @@ body { margin: auto auto }
 // Keeps things spaced out where needed
 h1, h2, h3, h4, h5, h6 { margin: 10px }
 
-a.social { margin: 0.7em }
-
 li.projects, ul.projects {
 	padding-top: 0.15em;
 	padding-right: 0.15em;
@@ -44,16 +42,6 @@ li.projects, ul.projects {
 }
 
 #projects-title, #title { margin-top: 0.75em }
-
-// Makes the logo image circular
-#logo { border-radius: 50% }
-
-img.social {
-	// Animation
-	transition: transform .2s;
-
-	&:hover { transform: scale(0.8) }
-}
 
 // Makes sure my make-shift footer still looks good
 #reach-out {
