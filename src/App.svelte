@@ -15,27 +15,27 @@
 
 	const projects: Project[] = [
 		{
-			name: "RubyMod",
-			href: "https://github.com/theonlytails/rubymod",
-			description:
-				`A free and open source mod for <a href="https://minecraft.net">Minecraft</a> 1.16, written in Kotlin using the <a href="https://github.com/MinecraftForge/MinecraftForge">Minecraft Forge API</a>.`,
-		},
+		name: "RubyMod",
+		href: "https://github.com/theonlytails/rubymod",
+		description:
+			`A free and open source mod for Minecraft 1.16, written in Kotlin using the Minecraft Forge API.`,
+	},
 		{
 			name: "LootTables",
 			href: "https://github.com/theonlytails/loottables",
 			description: `A Kotlin DSL for creating loot tables in Minecraft mods (using Forge).`,
 		},
-		{
-			name: "Cryptic Cosmos",
-			href: "https://github.com/Team-Cryptic-Cosmos/Cryptic-Cosmos",
-			description: `A Minecraft mod for 1.16 that introduces exciting new dimensions, mobs, and blocks, made by the <a href="https://github.com/Team-Cryptic-Cosmos">Cryptic Cosmos Team</a>.`,
-		},
-		{
-			name: "This website",
-			href: "https://github.com/theonlytails/theonlytails.com",
-			description:
-				`<i>You're looking at it</i>. Built with <a href="https://svelte.dev">Svelte</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, and <a href="https://sass-lang.com/">SCSS</a>.`,
-		},
+	  {
+		  name: "Cryptic Cosmos",
+		  href: "https://github.com/Team-Cryptic-Cosmos/Cryptic-Cosmos",
+		  description: `A Minecraft mod for 1.16 that introduces exciting new dimensions, mobs, and blocks, made by the Cryptic Cosmos Team.`,
+	  },
+	  {
+		  name: "This website",
+		  href: "https://github.com/theonlytails/theonlytails.com",
+		  description:
+			  `<i>You're looking at it</i>. Built with Svelte, TypeScript, and SCSS.`,
+	  },
 	]
 
 	const socialLinks: SocialLink[] = [
@@ -60,9 +60,7 @@
 		TheOnlyTails
 	</h1>
 
-	<h4>
-		A curious <a href="https://openjdk.java.net/">Java</a> and <a href="https://kotl.in">Kotlin</a> programmer.
-	</h4>
+	<h4>A curious Java and Kotlin programmer.</h4>
 
 	<div id="projects">
 		<h3 id="projects-title">Some of my projects!</h3>
@@ -88,8 +86,8 @@
 		Reach me at <a href="mailto:theonlytails@theonlytails.com">My email</a> or on Twitter!
 	</h5>
 
-	<button aria-label="Dark mode switch" id="theme-switch" on:click={switchTheme}
-	        role="button">{$isDark ? "🌚" : "🌝"}</button>
+	<button aria-checked={$isDark} id="theme-switch" on:click={switchTheme}
+	        role="switch" title="dark mode switch">{$isDark ? "🌚" : "🌝"}</button>
 </main>
 
 <style lang="scss">
