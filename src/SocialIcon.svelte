@@ -20,7 +20,7 @@
 		// Animation
 		transition: transform .2s;
 
-		&:hover { transform: scale(0.8) }
+		&:hover { transform: scale(0.76) }
 	}
 
 	.social:hover {
