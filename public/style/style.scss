@@ -18,9 +18,12 @@ body { margin: auto auto }
 
 	font-family: jetbrains-mono, "Fira Code", monospace;
 	font-size: 1.13em;
-	min-width: 100vw;
 	max-width: 50%;
-	min-height: 100vh;
+	//noinspection CssUnknownProperty
+	min: {
+		width: 100vw;
+		height: 100vh;
+	}
 }
 
 // Styles the projects div
@@ -36,19 +39,19 @@ body { margin: auto auto }
 .header, h3, h4, h5, h6 { margin: 10px }
 
 li.projects {
-	padding-top: .15em;
-	padding-right: .15em;
-	padding-bottom: .15em;
+	padding: {
+		top: .15em;
+		right: .15em;
+		bottom: .15em;
+	}
 }
 
 #title { font-size: 2em }
 
 #projects-title { font-size: 1.17em }
 
-#projects-title, #title {
-	margin-top: .65em;
-}
+#projects-title, #title { margin-top: .65em }
 
-.header {
-	font-weight: bold;
-}
+.header { font-weight: bold }
+
+i { font-family: jetbrains-mono-i, monospace }

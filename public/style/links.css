@@ -3,14 +3,14 @@ body {
 }
 
 #page {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-family: jetbrains-mono, "Fira Code", monospace;
-  font-size: 1.13em;
-  min-width: 100vw;
-  max-width: 50%;
-  min-height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	font-family: jetbrains-mono, "Fira Code", monospace;
+	font-size: 1.13em;
+	max-width: 50%;
+	min-width: 100vw;
+	min-height: 100vh;
 }
 
 #projects {
@@ -41,22 +41,27 @@ li.projects {
 }
 
 #projects-title, #title {
-  margin-top: 0.65em;
+	margin-top: 0.65em;
 }
 
 .header {
-  font-weight: bold;
+	font-weight: bold;
+}
+
+i {
+	font-family: jetbrains-mono-i, monospace;
 }
 
 a:link {
-  font-weight: bold;
-  transition: transform, 0.3s;
-  text-decoration: none;
-  color: #ff850d;
+	font-weight: bold;
+	transition: transform, 0.3s;
+	text-decoration: none;
+	color: #ff850d;
 }
+
 a:visited {
-  transition: transform, 0.3s;
-  text-decoration: none;
+	transition: transform, 0.3s;
+	text-decoration: none;
   color: #c76e15;
 }
 a:hover, a :active {

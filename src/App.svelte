@@ -79,7 +79,9 @@
 	// Makes sure my make-shift footer still looks good
 	#reach-out {
 		font-size: 1em;
-		margin-top: 1.25em;
-		margin-bottom: 1.5em;
+		margin: {
+			top: 1.25em;
+			bottom: 1.5em;
+		}
 	}
 </style>

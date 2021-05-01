@@ -1,11 +1,11 @@
 <script lang="ts">
 	export let title: string
 	export let href: string
-	export let style = ""
+	export let style: string
 
-  $: id = (title ? title : "Title not found").toLowerCase()
-  $: src = `icons/${ id }.svg`
-  $: alt = `the link to my ${ (title ? title : "Title not found") } profile`
+	$: id = (title ? title : "Title not found").toLowerCase()
+	$: src = `icons/${ id }.svg`
+	$: alt = `the link to my ${ title ? title : "Title not found" } profile`
 </script>
 
 <a class="social" {href} {title}>
@@ -14,17 +14,18 @@
 </a>
 
 <style lang="scss">
-	a.social { margin: 0.5em }
+	.social {
+		a.& { margin: 0.5em }
 
-	img.social {
-		// Animation
-		transition: transform .2s;
+		img {
+			transition: transform .2s;
 
-		&:hover { transform: scale(0.76) }
-	}
+			&:hover { transform: scale(0.76) }
+		}
 
-	.social:hover {
-		text-decoration: none;
-		background-color: transparent;
+		&:hover {
+			text-decoration: none;
+			background-color: transparent;
+		}
 	}
 </style>
