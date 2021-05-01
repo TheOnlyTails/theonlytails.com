@@ -14,7 +14,7 @@
 </a>
 
 <style lang="scss">
-	a.social { margin: 0.7em }
+	a.social { margin: 0.5em }
 
 	img.social {
 		// Animation

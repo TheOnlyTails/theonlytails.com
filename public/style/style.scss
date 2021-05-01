@@ -29,22 +29,26 @@ body { margin: auto auto }
 
 	max-width: 50%;
 	margin: 1.575em;
-	border: 0.12em solid $light-accent;
+	border: .12em solid $light-accent;
 }
 
 // Keeps things spaced out where needed
-h1, h2, h3, h4, h5, h6 { margin: 10px }
+.header, h3, h4, h5, h6 { margin: 10px }
 
-li.projects, ul.projects {
-	padding-top: 0.15em;
-	padding-right: 0.15em;
-	padding-bottom: 0.15em;
+li.projects {
+	padding-top: .15em;
+	padding-right: .15em;
+	padding-bottom: .15em;
 }
 
-#projects-title, #title { margin-top: 0.75em }
+#title { font-size: 2em }
 
-// Makes sure my make-shift footer still looks good
-#reach-out {
-	margin-top: 20px;
-	margin-bottom: 30px;
+#projects-title { font-size: 1.17em }
+
+#projects-title, #title {
+	margin-top: .65em;
+}
+
+.header {
+	font-weight: bold;
 }

@@ -22,23 +22,30 @@ body {
   border: 0.12em solid #ff850d;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.header, h3, h4, h5, h6 {
   margin: 10px;
 }
 
-li.projects, ul.projects {
+li.projects {
   padding-top: 0.15em;
   padding-right: 0.15em;
   padding-bottom: 0.15em;
 }
 
-#projects-title, #title {
-  margin-top: 0.75em;
+#title {
+  font-size: 2em;
 }
 
-#reach-out {
-  margin-top: 20px;
-  margin-bottom: 30px;
+#projects-title {
+  font-size: 1.17em;
+}
+
+#projects-title, #title {
+  margin-top: 0.65em;
+}
+
+.header {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
