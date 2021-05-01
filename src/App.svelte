@@ -69,10 +69,13 @@
 	</p>
 
 
-	<!--suppress HtmlUnknownTarget -->
-	<img alt="dark mode switch" height="32"
-	     id="theme-switch" on:click={switchTheme} src="icons/{$isDark ? 'dark' : 'light'}_mode.svg"
-	     style="cursor: pointer" width="32">
+	<button aria-checked="true" aria-labelledby="theme-switch-label" id="theme-switch" on:click={switchTheme}
+	        role="switch"
+	        style="cursor: pointer">
+		<!--suppress HtmlUnknownTarget -->
+		<img alt="dark mode switch" aria-label="dark mode switch" height="32" id="theme-switch-label"
+		     role="none" src="icons/{$isDark ? 'dark' : 'light'}_mode.svg" width="32"/>
+	</button>
 </main>
 
 <style lang="scss">
