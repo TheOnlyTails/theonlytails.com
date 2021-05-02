@@ -1,5 +1,4 @@
 <script lang="ts">
-	<script lang = "ts" >
 	export let title: string
 	export let href: string
 	export let style: string
