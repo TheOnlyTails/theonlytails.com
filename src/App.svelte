@@ -46,7 +46,7 @@
 		TheOnlyTails
 	</header>
 
-	<h4>A curious Java and Kotlin programmer.</h4>
+	<p id="subtitle">A curious Java and Kotlin programmer.</p>
 
 	<div id="projects">
 		<p class="header" id="projects-title">Some of my projects!</p>
@@ -81,10 +81,18 @@
 <style lang="scss">
 	// Makes sure my make-shift footer still looks good
 	#reach-out {
-		font-size: 1em;
-		margin: {
-			top: 1.25em;
-			bottom: 1.5em;
+		font: {
+			size: 1em;
+			weight: bold;
 		}
+		margin: {
+			top: .05em;
+			bottom: .05em;
+		}
+	}
+
+	#theme-switch {
+		border: none;
+		background-color: inherit;
 	}
 </style>

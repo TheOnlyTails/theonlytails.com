@@ -1,4 +1,5 @@
 <script lang="ts">
+	<script lang = "ts" >
 	export let title: string
 	export let href: string
 	export let style: string
@@ -14,18 +15,18 @@
 </a>
 
 <style lang="scss">
-	.social {
-		a.& { margin: 0.5em }
-
-		img {
-			transition: transform .2s;
-
-			&:hover { transform: scale(0.76) }
-		}
+	a.social {
+		margin: 0.5em;
 
 		&:hover {
 			text-decoration: none;
 			background-color: transparent;
 		}
+	}
+
+	img.social {
+		transition: transform .2s;
+
+		&:hover { transform: scale(0.76) }
 	}
 </style>

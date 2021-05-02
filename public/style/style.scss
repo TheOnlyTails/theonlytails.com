@@ -8,9 +8,8 @@ body { margin: auto auto }
 
 /// something
 @mixin center {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+	display: grid;
+	place-items: center;
 }
 
 #page {
@@ -31,12 +30,9 @@ body { margin: auto auto }
 	@include center;
 
 	max-width: 50%;
-	margin: 1.575em;
+	margin: .1em;
 	border: .12em solid $light-accent;
 }
-
-// Keeps things spaced out where needed
-.header, h3, h4, h5, h6 { margin: 10px }
 
 li.projects {
 	padding: {
@@ -46,12 +42,21 @@ li.projects {
 	}
 }
 
-#title { font-size: 2em }
+#title {
+	font: {
+		size: 2em;
+		weight: bold;
+	}
+	margin-top: .25em;
+}
 
-#projects-title { font-size: 1.17em }
+#projects-title {
+	font: {
+		size: 1.17em;
+		weight: bold;
+	}
+}
 
-#projects-title, #title { margin-top: .65em }
-
-.header { font-weight: bold }
+#subtitle { margin: .05em }
 
 i { font-family: jetbrains-mono-i, monospace }
