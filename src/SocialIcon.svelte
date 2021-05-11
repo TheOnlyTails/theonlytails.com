@@ -1,11 +1,11 @@
 <script lang="ts">
-	export let title: string
+	export let title: string = undefined
 	export let href: string
 	export let style: string
 
-	$: id = (title ? title : "Title not found").toLowerCase()
+	$: id = (title ?? "Title not found").toLowerCase()
 	$: src = `icons/${ id }.svg`
-	$: alt = `the link to my ${ title ? title : "Title not found" } profile`
+	$: alt = `the link to my ${ title ?? "Title not found" } profile`
 </script>
 
 <a class="social" {href} {title}>
