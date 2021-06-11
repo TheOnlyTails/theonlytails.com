@@ -1,9 +1,10 @@
 <script context="module" lang="ts">
+	import type Load from "@sveltejs/kit"
 
 	const slugRegex = /^\d{3}-([a-z-]+)\.svx$/
 
 	/**
-	 * @type {import("@sveltejs/kit").Load}
+	 * @type {Load}
 	 */
 	export async function load({ page, session }) {
 		const { slug } = page.params
@@ -15,7 +16,7 @@
 
 		if (slug in slugs) {
 			const pages = await Promise.all(
-					import.meta.glob("/src/pages/*.svx").map(async ([path, page]) => {
+					import.meta.glob("/src/pages/*.svelte.md").map(async ([path, page]) => {
 						const filename = path.split("/").pop()
 						const slug = filename.match(slugRegex)[1]
 						return [slug, page]
