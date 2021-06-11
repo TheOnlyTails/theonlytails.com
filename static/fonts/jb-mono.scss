@@ -11,6 +11,7 @@
 	}
 }
 
+// Italic
 @font-face {
 	src: url(JetBrainsMonoItalic.ttf) format("truetype supports variations"),
 	url(JetBrainsMonoItalic.ttf) format("truetype-variations");
@@ -22,3 +23,5 @@
 		weight: 100 800;
 	}
 }
+
+i { font-family: jetbrains-mono-i, monospace }

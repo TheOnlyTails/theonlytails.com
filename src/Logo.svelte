@@ -8,9 +8,11 @@
 </script>
 
 <!--suppress RequiredAttributes, HtmlRequiredAltAttribute -->
-<img {alt} height={size} {id} {src} transition:fade={{duration: 300}} width={size}>
+<img {alt} height={size} {id} {src} transition:fade={{ duration: 300 }} width={size}/>
 
 <style lang="scss">
 	// Makes the logo image circular
-	#logo { border-radius: 50% }
+	#logo {
+		border-radius: 50%;
+	}
 </style>
