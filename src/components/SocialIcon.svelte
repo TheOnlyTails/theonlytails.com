@@ -26,7 +26,7 @@
 		}
 
 		img {
-			transition: all 0.5s ease;
+			transition: filter 0.5s ease;
 			filter: invert(0%);
 
 			&.invertDark {

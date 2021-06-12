@@ -1,7 +1,7 @@
 import { mdsvex } from "mdsvex"
 import * as path from "path"
 import { fileURLToPath } from "url"
-import preprocess from "svelte-preprocess"
+import sveltePreprocess from "svelte-preprocess"
 
 const dirname = path.resolve(fileURLToPath(import.meta.url), "../")
 
@@ -13,11 +13,9 @@ export default {
   extensions: [".svelte", ".svelte.md"],
 
   preprocess: [
-    preprocess(),
+    sveltePreprocess(),
     mdsvex({
       extensions: [".svelte.md"],
-      // This is where the layouts are defined
-      layout: path.join(dirname, "./src/routes/blog/blog-post-layout.svelte"),
 
       smartypants: {
         dashes: "oldschool",

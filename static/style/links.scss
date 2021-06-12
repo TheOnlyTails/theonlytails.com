@@ -1,24 +1,27 @@
 @import "style";
 
 a {
+	transition: transform, .3s;
+
 	&:link {
 		font-weight: bold;
-		transition: transform, .3s;
 		text-decoration: none;
 		color: $light-accent;
+
+		&.isLight { color: $dark-accent }
 	}
 
 	&:visited {
-		transition: transform, .3s;
+		font-weight: bold;
 		text-decoration: none;
 		color: $dark-accent;
 	}
 
-	&:hover, :active {
+	&:hover, &:active {
 		font-weight: normal;
-		transition: transform, .3s;
-		text-decoration: none;
-		color: $light-color;
-		background-color: $dark-accent;
+		text-decoration: underline;
+		color: $light-accent;
+
+		&.isLight { color: $dark-accent }
 	}
 }

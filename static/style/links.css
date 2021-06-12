@@ -2,23 +2,29 @@ body {
   margin: auto auto;
 }
 
+a {
+  transition: transform, 0.3s;
+}
 a:link {
   font-weight: bold;
-  transition: transform, 0.3s;
   text-decoration: none;
-  color: #ff850d;
+  color: #ff870f;
+}
+a:link.isLight {
+  color: #c66e15;
 }
 a:visited {
-  transition: transform, 0.3s;
+  font-weight: bold;
   text-decoration: none;
-  color: #c76e15;
+  color: #c66e15;
 }
-a:hover, a :active {
+a:hover, a:active {
   font-weight: normal;
-  transition: transform, 0.3s;
-  text-decoration: none;
-  color: #eee;
-  background-color: #c76e15;
+  text-decoration: underline;
+  color: #ff870f;
+}
+a:hover.isLight, a:active.isLight {
+  color: #c66e15;
 }
 
 /*# sourceMappingURL=links.css.map */

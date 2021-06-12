@@ -1,18 +1,15 @@
-$light-color: #eee;
-$dark-color: #444;
-$light-accent: #ff850d;
-$dark-accent: #c76e15;
+$light-color: hsl(0, 0%, 93%);
+$dark-color: hsl(0, 0%, 27%);
+$light-accent: hsl(30, 100%, 53%);
+$dark-accent: hsl(30, 81%, 43%);
 
 // styles the main page
-body {
-	margin: auto auto;
-}
+body { margin: auto auto }
 
 /// something
 @mixin center {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	align-content: space-between;
 	justify-content: space-between;
 }

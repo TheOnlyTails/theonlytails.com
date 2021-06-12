@@ -1,21 +1,21 @@
 <script lang="ts">
-	import SocialIcon from "../SocialIcon.svelte"
-	import ProjectEntry from "../ProjectEntry.svelte"
-	import type { Project } from "../elementInterfaces"
-	import { isDark } from "../stores/theme"
+	import SocialIcon from "../components/SocialIcon.svelte";
+	import ProjectEntry from "../components/ProjectEntry.svelte";
+	import type { Project } from "../elementInterfaces";
+	import { isDark } from "../stores/theme";
 
-	const darkColor = "#444"
-	const lightColor = "#eee"
+	const darkColor = "#444";
+	const lightColor = "#eee";
 
-	$: backgroundColor = $isDark ? darkColor : lightColor
-	$: textColor = $isDark ? lightColor : darkColor
+	$: backgroundColor = $isDark ? darkColor : lightColor;
+	$: textColor = $isDark ? lightColor : darkColor;
 	// inverts the GitHub social icon according to the theme
 
 	const projects: Project[] = [
 		{
 			name: "RubyMod",
 			href: "https://github.com/theonlytails/rubymod",
-			description: `A free and open source mod for Minecraft 1.16, written in Kotlin using the Minecraft Forge API.`,
+			description: `A free and open source mod for Minecraft 1.16, written in Kotlin using the Minecraft Forge API.`
 		},
 		{
 			name: "DataGenerators",
