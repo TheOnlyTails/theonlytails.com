@@ -1,11 +1,12 @@
 import type { RequestHandler } from "@sveltejs/kit"
+import { dev } from "$app/env"
 
 export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md)/i)?.[1] ?? null
 
 export const get: RequestHandler = async ({ query }) => {
-  const modules = import.meta.glob("/static/pages/*.svelte.md")
+  const modules = import.meta.glob("./pages/*.svelte.md")
 
-  const postPromises = []
+;  const postPromises = []
   const limit = Number(query.get("limit") ?? Infinity)
 
   if (Number.isNaN(limit)) {
@@ -28,8 +29,9 @@ export const get: RequestHandler = async ({ query }) => {
   const publishedPosts = posts.filter((post) => post.published).slice(0, limit)
 
   publishedPosts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
+  posts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
 
   return {
-    body: publishedPosts.slice(0, limit),
+    body: !dev ? publishedPosts.slice(0, limit) : posts,
   }
 }

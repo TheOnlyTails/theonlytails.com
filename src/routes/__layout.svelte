@@ -20,7 +20,7 @@
 <div class:isLight={!$isDark} id="page">
   <header class="header" id="title">
     <Logo src="/favicon.svg" />
-    TheOnlyTails
+    <a href="/">TheOnlyTails</a>
   </header>
 
   <slot />
@@ -48,10 +48,12 @@
 <style lang="scss">
 	@import "static/style/style";
 
+	:global(body) {
+		font-family: jetbrains-mono, "Fira Code", monospace;
+	}
+
 	#page {
 		@include center;
-
-		font-family: jetbrains-mono, "Fira Code", monospace;
 		font-size: 1.13em;
 		max-width: 50%;
 		transition: all 0.5s ease;
@@ -75,6 +77,14 @@
 			weight: bold;
 		}
 		margin-top: 0.75em;
+		place-content: center start;
+
+		&:link {
+			text-decoration: none;
+			color: $light-accent;
+
+			&.isLight { color: $dark-accent }
+		}
 	}
 
 	#theme-switch {
@@ -82,6 +92,6 @@
 		cursor: pointer;
 		border: none;
 		background-color: inherit;
-		place-self: center end;
+		place-content: center end;
 	}
 </style>

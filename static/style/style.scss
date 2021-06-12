@@ -4,12 +4,14 @@ $light-accent: hsl(30, 100%, 53%);
 $dark-accent: hsl(30, 81%, 43%);
 
 // styles the main page
-body { margin: auto auto }
+body {
+	margin: auto auto;
+}
 
 /// something
 @mixin center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+	display: grid;
+	grid-template-rows: fit-content(100%) 1fr;
+	place-items: center;
+	grid-row-gap: 1rem;
 }

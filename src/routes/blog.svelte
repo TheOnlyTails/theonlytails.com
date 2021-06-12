@@ -4,13 +4,13 @@
    */
   export const load = async ({ fetch }) => ({
     props: {
-      posts: await fetch("/blog/posts.json").then((res) => res.json())
+      posts: await fetch("/posts.json").then((res) => res.json())
     }
   });
 </script>
 
 <script lang="ts">
-  import { isDark } from "../../stores/theme";
+  import { isDark } from "../stores/theme";
 
   interface BlogPost {
     slug: string;
@@ -43,24 +43,26 @@
 </main>
 
 <style lang="scss">
-	@import "static/style/style";
+	@use "static/style/style";
 
 	main {
 		display: grid;
-		place-items: start;
-		grid-auto-flow: row;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 1em;
 	}
 
 	.post-card {
+
 		line-height: 1.5;
+		margin: 1rem;
 		padding: 1rem;
-		border: $light-accent .25rem solid;
+		border: style.$light-accent .25rem solid;
 	}
 
 	.post-card-title {
 		font-size: 1.8rem;
 		margin: 0;
-		color: $light-accent;
+		color: style.$light-accent;
 	}
 
 	.post-card-author {
@@ -69,10 +71,10 @@
 	}
 
 	.post-card-date {
-		color: $light-accent;
+		color: style.$light-accent;
 
 		&:where(.isLight) {
-			color: $dark-accent;
+			color: style.$dark-accent;
 		}
 	}
 

@@ -1,6 +1,16 @@
 ---
-slug: data-generators title: The Story of DataGenerators author: TheOnlyTails description: How I made Minecraft data
-generation Kotlin-oriented with DSLs. date: 2021/06/12 published: true
+slug: data-generators
+
+title: The Story of DataGenerators
+
+author: TheOnlyTails
+
+description: How I made Minecraft data generation Kotlin-oriented with DSLs.
+
+date: 2021/06/12
+
+published: false
+
 ---
 
 # The Story of DataGenerators

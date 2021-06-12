@@ -4,13 +4,6 @@
 	import type { Project } from "../elementInterfaces";
 	import { isDark } from "../stores/theme";
 
-	const darkColor = "#444";
-	const lightColor = "#eee";
-
-	$: backgroundColor = $isDark ? darkColor : lightColor;
-	$: textColor = $isDark ? lightColor : darkColor;
-	// inverts the GitHub social icon according to the theme
-
 	const projects: Project[] = [
 		{
 			name: "RubyMod",
@@ -66,6 +59,7 @@
 		max-width: 50%;
 		margin: 0.1em;
 		border: 0.12em solid $light-accent;
+		grid-row-gap: 0;
 	}
 
 	#projects-title {
