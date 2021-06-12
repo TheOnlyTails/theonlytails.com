@@ -10,15 +10,9 @@
 </script>
 
 <script lang="ts">
-  import { isDark } from "../stores/theme";
+  import { isDark } from "../../stores/theme";
 
-  interface BlogPost {
-    slug: string;
-    title: string;
-    author: string;
-    description: string;
-    date: string;
-  }
+
 
   export let posts: BlogPost[];
 </script>
@@ -27,7 +21,7 @@
   <title>TheOnlyTails - Blog Posts</title>
 </svelte:head>
 
-<main>
+<div class="posts">
   {#each posts as { slug, title, author, description, date }}
     <article class="post-card">
       <h3 class="post-card-title" class:isLight={!$isDark}><a class="post-card-title" href="/posts/{slug}">{title}</a>
@@ -40,29 +34,28 @@
         &rightarrow;</a></p>
     </article>
   {/each}
-</main>
+</div>
 
 <style lang="scss">
-	@use "static/style/style";
+	@use "../../../static/style/style";
 
-	main {
+	.posts {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 1em;
 	}
 
 	.post-card {
-
 		line-height: 1.5;
 		margin: 1rem;
-		padding: 1rem;
-		border: style.$light-accent .25rem solid;
+		padding: .7rem .9rem;
+		border: style.$accent .25rem outset;
 	}
 
 	.post-card-title {
 		font-size: 1.8rem;
 		margin: 0;
-		color: style.$light-accent;
+		color: style.$accent;
 	}
 
 	.post-card-author {
@@ -71,10 +64,10 @@
 	}
 
 	.post-card-date {
-		color: style.$light-accent;
+		color: style.$accent;
 
 		&:where(.isLight) {
-			color: style.$dark-accent;
+			color: style.$accent;
 		}
 	}
 

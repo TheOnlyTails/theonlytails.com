@@ -13,6 +13,7 @@
 <style lang="scss">
 	// Makes the logo image circular
 	#logo {
+		vertical-align: middle;
 		border-radius: 50%;
 	}
 </style>

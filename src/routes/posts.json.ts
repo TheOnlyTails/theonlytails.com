@@ -4,9 +4,9 @@ import { dev } from "$app/env"
 export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md)/i)?.[1] ?? null
 
 export const get: RequestHandler = async ({ query }) => {
-  const modules = import.meta.glob("./pages/*.svelte.md")
+  const modules = import.meta.glob("/pages/*.svelte.md")
 
-;  const postPromises = []
+  const postPromises = []
   const limit = Number(query.get("limit") ?? Infinity)
 
   if (Number.isNaN(limit)) {

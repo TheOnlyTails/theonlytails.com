@@ -1,14 +1,15 @@
-$light-color: hsl(0, 0%, 93%);
-$dark-color: hsl(0, 0%, 27%);
-$light-accent: hsl(30, 100%, 53%);
-$dark-accent: hsl(30, 81%, 43%);
+$light-color: hsl(0, 0%, 85%);
+$dark-color: hsl(0, 0%, 19%);
+$light-accent: hsl(16, 89%, 62%);
+$accent: hsl(16, 89%, 52%);
+$dark-accent: hsl(16, 89%, 42%);
 
 // styles the main page
 body {
 	margin: auto auto;
 }
 
-/// something
+/// centers an element using CSS grid
 @mixin center {
 	display: grid;
 	grid-template-rows: fit-content(100%) 1fr;

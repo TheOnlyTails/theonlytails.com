@@ -3,25 +3,17 @@
 a {
 	transition: transform, .3s;
 
-	&:link {
+	&:link, &:visited {
 		font-weight: bold;
 		text-decoration: none;
-		color: $light-accent;
+		color: $accent;
 
 		&.isLight { color: $dark-accent }
-	}
-
-	&:visited {
-		font-weight: bold;
-		text-decoration: none;
-		color: $dark-accent;
 	}
 
 	&:hover, &:active {
 		font-weight: normal;
 		text-decoration: underline;
-		color: $light-accent;
-
-		&.isLight { color: $dark-accent }
+		color: $accent;
 	}
 }

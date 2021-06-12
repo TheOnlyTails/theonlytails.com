@@ -22,9 +22,9 @@
 	@use "static/style/style";
 
 	h2 {
-		color: style.$light-accent;
+		color: style.$accent;
 
-		&.isLight { color: style.$dark-accent }
+		&.isLight { color: style.$accent }
 	}
 
 	.back {
@@ -32,11 +32,11 @@
 		font-size: x-large;
 		padding: .5rem;
 		cursor: pointer;
-		color: style.$light-accent;
-		border: .2rem style.$light-accent outset;
+		color: style.$accent;
+		border: .2rem style.$accent outset;
 		outline: none;
 		background: transparent;
 
-		&.isLight { color: style.$dark-accent }
+		&.isLight { color: style.$accent }
 	}
 </style>

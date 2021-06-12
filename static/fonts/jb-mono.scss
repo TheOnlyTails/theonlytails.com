@@ -8,6 +8,7 @@
 		family: jetbrains-mono;
 		style: normal;
 		weight: 100 800;
+		display: swap;
 	}
 }
 
@@ -16,11 +17,11 @@
 	src: url(JetBrainsMonoItalic.ttf) format("truetype supports variations"),
 	url(JetBrainsMonoItalic.ttf) format("truetype-variations");
 
-	//noinspection CssUnknownProperty
 	font: {
 		family: jetbrains-mono-i;
 		style: italic;
 		weight: 100 800;
+		display: swap;
 	}
 }
 

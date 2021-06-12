@@ -5,26 +5,18 @@ body {
 a {
   transition: transform, 0.3s;
 }
-a:link {
+a:link, a:visited {
   font-weight: bold;
   text-decoration: none;
-  color: #ff870f;
+  color: #f25218;
 }
-a:link.isLight {
-  color: #c66e15;
-}
-a:visited {
-  font-weight: bold;
-  text-decoration: none;
-  color: #c66e15;
+a:link.isLight, a:visited.isLight {
+  color: #ca3f0c;
 }
 a:hover, a:active {
   font-weight: normal;
   text-decoration: underline;
-  color: #ff870f;
-}
-a:hover.isLight, a:active.isLight {
-  color: #c66e15;
+  color: #f25218;
 }
 
 /*# sourceMappingURL=links.css.map */

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { isDark, switchTheme } from "../stores/theme";
-  import Logo from "../components/Logo.svelte";
+  import { isDark, switchTheme } from "../../stores/theme";
+  import Logo from "../../components/Logo.svelte";
+  import BlogButton from "../../components/BlogButton.svelte";
 </script>
 
 <svelte:head>
@@ -21,6 +22,7 @@
   <header class="header title">
     <Logo src="/favicon.svg" />
     <a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
+    <BlogButton />
   </header>
 
   <main>
@@ -55,12 +57,13 @@
 	}
 
 	#page {
-		@include center;
 		font-size: 1.13em;
+		display: grid;
 		max-width: 50%;
 		transition: all 0.5s ease;
 		color: $light-color;
 		background: $dark-color;
+		grid-template-rows: fit-content(100%) 1fr;
 
 		min: {
 			width: 100vw;
@@ -74,14 +77,18 @@
 	}
 
 	header.title {
-		font: {
-			size: 2em;
-			weight: bold;
+		margin: {
+			top: 1.5rem;
+			left: 1em;
 		}
-		margin-top: .75rem;
-		place-content: center start;
+		vertical-align: center;
+		place-content: start;
 
 		a {
+			font: {
+				size: 2em;
+				weight: bold;
+			}
 			vertical-align: middle;
 			color: $light-color;
 
@@ -96,7 +103,7 @@
 	}
 
 	#theme-switch {
-		margin-bottom: 0.75em;
+		margin-bottom: .75em;
 		cursor: pointer;
 		border: none;
 		background-color: inherit;
