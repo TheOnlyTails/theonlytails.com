@@ -1,9 +1,7 @@
 import { mdsvex } from "mdsvex"
-import * as path from "path"
-import { fileURLToPath } from "url"
 import sveltePreprocess from "svelte-preprocess"
-
-const dirname = path.resolve(fileURLToPath(import.meta.url), "../")
+import tailwindcss from "tailwindcss"
+import autoprefixer from "autoprefixer"
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
@@ -13,7 +11,17 @@ export default {
   extensions: [".svelte", ".svelte.md"],
 
   preprocess: [
-    sveltePreprocess(),
+    sveltePreprocess({
+      defaults: {
+        style: "scss",
+      },
+      postcss: {
+        plugins: [tailwindcss, autoprefixer],
+      },
+      scss: {
+        outputStyle: "compressed",
+      },
+    }),
     mdsvex({
       extensions: [".svelte.md"],
 
@@ -26,5 +34,6 @@ export default {
   kit: {
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
+    trailingSlash: "ignore",
   },
 }

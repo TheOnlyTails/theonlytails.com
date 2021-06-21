@@ -1,39 +1,46 @@
 <script context="module" lang="ts">
-  /**
-   * @type {import("@sveltejs/kit").Load}
-   */
-  export const load = async ({ fetch }) => ({
-    props: {
-      posts: await fetch("/posts.json").then((res) => res.json())
-    }
-  });
+	/**
+	 * @type {import("@sveltejs/kit").Load}
+	 */
+	export const load = async ({ fetch }) => ({
+		props: {
+			posts: await fetch("/posts.json").then((res) => res.json())
+		}
+	})
 </script>
 
 <script lang="ts">
-  import { isDark } from "../../stores/theme";
+	import { isDark } from "src/stores/theme"
 
+	interface BlogPost {
+		slug: string;
+		title: string;
+		author: string;
+		description: string;
+		date: string;
+		published: boolean;
+	}
 
-
-  export let posts: BlogPost[];
+	export let posts: BlogPost[]
 </script>
 
 <svelte:head>
-  <title>TheOnlyTails - Blog Posts</title>
+	<title>TheOnlyTails - Blog Posts</title>
 </svelte:head>
 
 <div class="posts">
-  {#each posts as { slug, title, author, description, date }}
-    <article class="post-card">
-      <h3 class="post-card-title" class:isLight={!$isDark}><a class="post-card-title" href="/posts/{slug}">{title}</a>
-      </h3>
-      <p>
-        <span class="post-card-author">{author}</span>
-        <span class="post-card-date" class:isLight={!$isDark}>{date}</span>
-      </p>
-      <p class="post-card-description">{description} <a class="post-read-more" href="/posts/{slug}">Read More
-        &rightarrow;</a></p>
-    </article>
-  {/each}
+	{#each posts as {slug, title, author, description, date}}
+		<article class="post-card">
+			<h3 class="post-card-title" class:isLight={!$isDark}><a class="post-card-title" href="/blog/{slug}">{title}</a>
+			</h3>
+			<p>
+				<span class="post-card-author">{author}</span>
+				<span class="post-card-date" class:isLight={!$isDark}>{date}</span>
+			</p>
+			<p class="post-card-description">{description} <a class="post-read-more" href="/blog/{slug}">Read More
+				&rightarrow;</a></p>
+		</article>
+	{/each}
 </div>
 
 <style lang="scss">
@@ -72,8 +79,9 @@
 	}
 
 	.post-card-description {
+		overflow: hidden;
 		max-width: 40ch;
-		text-overflow: fade;
+		text-overflow: ellipsis;
 
 		.post-read-more {
 			margin-left: .2rem;

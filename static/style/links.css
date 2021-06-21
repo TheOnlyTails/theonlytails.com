@@ -1,22 +1,40 @@
 body {
-  margin: auto auto;
+	overflow-x: hidden;
+	margin: auto auto;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #f25218;
 }
 
 a {
-  transition: transform, 0.3s;
+	transition: transform, 0.3s;
 }
+
 a:link, a:visited {
-  font-weight: bold;
-  text-decoration: none;
-  color: #f25218;
+	font-weight: bold;
+	text-decoration: none;
+	color: #f25218;
 }
+
 a:link.isLight, a:visited.isLight {
-  color: #ca3f0c;
+	color: #e3460d;
 }
+
 a:hover, a:active {
-  font-weight: normal;
-  text-decoration: underline;
-  color: #f25218;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #f25218;
 }
 
 /*# sourceMappingURL=links.css.map */

@@ -1,11 +1,12 @@
 $light-color: hsl(0, 0%, 85%);
-$dark-color: hsl(0, 0%, 19%);
-$light-accent: hsl(16, 89%, 62%);
+$dark-color: hsl(214, 14%, 10%);
+$light-accent: hsl(16, 89%, 59%);
 $accent: hsl(16, 89%, 52%);
-$dark-accent: hsl(16, 89%, 42%);
+$dark-accent: hsl(16, 89%, 47%);
 
 // styles the main page
 body {
+	overflow-x: hidden;
 	margin: auto auto;
 }
 
@@ -15,4 +16,18 @@ body {
 	grid-template-rows: fit-content(100%) 1fr;
 	place-items: center;
 	grid-row-gap: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $accent;
 }

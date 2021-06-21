@@ -1,52 +1,39 @@
 <script lang="ts">
-  import { isDark, switchTheme } from "../../stores/theme";
-  import Logo from "../../components/Logo.svelte";
-  import BlogButton from "../../components/BlogButton.svelte";
+	import { isDark } from "src/stores/theme"
+	import Logo from "../../components/Logo.svelte"
+	import BlogButton from "../../components/BlogButton.svelte"
+	import ThemeSwitch from "../../components/ThemeSwitch.svelte"
+
+	export let title: string
 </script>
 
 <svelte:head>
-  <title>TheOnlyTails</title>
-  <meta content="TheOnlyTails" name="og:title" />
-  <meta content="TheOnlyTails' website" name="description" />
-  <meta content="TheOnlyTails' website" name="og:description" />
-  <meta content="https://www.theonlytails.com/icons/favicon.png" name="og:image" />
-  <meta content="https://www.theonlytails.com" name="og:url" />
+	<title>{title}</title>
+	<meta content="TheOnlyTails" name="og:title"/>
+	<meta content="TheOnlyTails' website" name="description"/>
+	<meta content="TheOnlyTails' website" name="og:description"/>
+	<meta content="https://www.theonlytails.com/icons/favicon.png" name="og:image"/>
+	<meta content="https://www.theonlytails.com" name="og:url"/>
 
-  <link href="/favicon.svg" rel="icon" />
-  <link href="/style/style.css" rel="stylesheet" />
-  <link href="/style/links.css" rel="stylesheet" />
-  <link href="/fonts/jb-mono.css" rel="stylesheet" />
+	<link href="/favicon.svg" rel="icon"/>
+	<link href="/style/style.css" rel="stylesheet"/>
+	<link href="/style/links.css" rel="stylesheet"/>
+	<link href="/fonts/jb-mono.css" rel="stylesheet"/>
 </svelte:head>
 
 <div class:isLight={!$isDark} id="page">
-  <header class="header title">
-    <Logo src="/favicon.svg" />
-    <a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
-    <BlogButton />
-  </header>
+	<header class="header title">
+		<Logo size="30" src="/favicon.svg"/>
+		<a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
+		<BlogButton/>
+		<hr/>
+	</header>
 
-  <main>
-    <slot />
-  </main>
+	<main>
+		<slot/>
+	</main>
 
-  <button
-    aria-checked="true"
-    aria-labelledby="theme-switch-label"
-    id="theme-switch"
-    on:click={switchTheme}
-    role="switch"
-  >
-    <!--suppress HtmlUnknownTarget -->
-    <img
-      alt="dark mode switch"
-      aria-label="dark mode switch"
-      height="32"
-      id="theme-switch-label"
-      role="none"
-      src={`/icons/${$isDark ? "dark" : "light"}_mode.svg`}
-      width="32"
-    />
-  </button>
+	<ThemeSwitch/>
 </div>
 
 <style lang="scss">
@@ -82,11 +69,10 @@
 			left: 1em;
 		}
 		vertical-align: center;
-		place-content: start;
 
 		a {
 			font: {
-				size: 2em;
+				size: 1em;
 				weight: bold;
 			}
 			vertical-align: middle;
@@ -100,15 +86,12 @@
 				color: $dark-color
 			}
 		}
+
+		hr { color: $accent }
 	}
 
-	#theme-switch {
-		margin-bottom: .75em;
-		cursor: pointer;
-		border: none;
-		background-color: inherit;
-		place-content: center end;
+	main {
+		max-width: 97%;
+		padding-left: 1rem;
 	}
-
-	main { @include center }
 </style>
