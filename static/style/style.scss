@@ -1,33 +1,33 @@
-$light-color: hsl(0, 0%, 85%);
-$dark-color: hsl(214, 14%, 10%);
-$light-accent: hsl(16, 89%, 59%);
-$accent: hsl(16, 89%, 52%);
-$dark-accent: hsl(16, 89%, 47%);
+@use "vars";
 
 // styles the main page
 body {
+	font-family: jetbrains-mono, "Fira Code", monospace;
 	overflow-x: hidden;
 	margin: auto auto;
 }
 
-/// centers an element using CSS grid
-@mixin center {
-	display: grid;
-	grid-template-rows: fit-content(100%) 1fr;
-	place-items: center;
-	grid-row-gap: 1rem;
+i, em {
+	font-family: jetbrains-mono-i, "Fira Code", monospace;
+}
+
+hr {
+	color: vars.$accent;
+	border: .15rem solid vars.$accent;
+	border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-track {
-	background-color: #f5f5f5;
+	background-color: vars.$dark-color;
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-	background-color: #f5f5f5;
+	width: 0.75rem;
+	height: 0.75rem;
+	background-color: vars.$dark-color;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: $accent;
+	border-radius: 1rem;
+	background-color: vars.$accent;
 }

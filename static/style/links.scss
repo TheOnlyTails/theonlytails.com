@@ -1,4 +1,5 @@
-@import "style";
+@use "style";
+@use "vars";
 
 a {
 	transition: transform, .3s;
@@ -6,14 +7,14 @@ a {
 	&:link, &:visited {
 		font-weight: bold;
 		text-decoration: none;
-		color: $accent;
+		color: vars.$accent;
 
-		&.isLight { color: $dark-accent }
+		&.isLight { color: vars.$dark-accent }
 	}
 
 	&:hover, &:active {
 		font-weight: normal;
 		text-decoration: underline;
-		color: $accent;
+		color: vars.$accent;
 	}
 }

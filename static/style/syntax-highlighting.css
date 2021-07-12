@@ -1,0 +1,25 @@
+pre.language-kt {
+  padding: 0.75rem;
+  color: #d9d9d9;
+  border: 0.25rem solid #5e5e5e;
+  border-radius: 1rem;
+  background: #454545;
+}
+
+code.language-kt .token.keyword {
+  color: #cd7832;
+}
+code.language-kt .token.number {
+  color: #6897bb;
+}
+code.language-kt .token.function {
+  color: #ffc66b;
+}
+code.language-kt .token.punctuation {
+  color: #cd7832;
+}
+code.language-kt .token.comment {
+  color: #9a9a9a;
+}
+
+/*# sourceMappingURL=syntax-highlighting.css.map */

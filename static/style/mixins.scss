@@ -1,0 +1,7 @@
+/// centers an element using CSS grid
+@mixin center {
+	display: grid;
+	grid-template-rows: fit-content(100%) 1fr;
+	place-items: center;
+	grid-row-gap: 1rem;
+}

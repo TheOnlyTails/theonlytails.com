@@ -1,20 +1,32 @@
 body {
-	overflow-x: hidden;
-	margin: auto auto;
+  font-family: jetbrains-mono, "Fira Code", monospace;
+  overflow-x: hidden;
+  margin: auto auto;
+}
+
+i, em {
+  font-family: jetbrains-mono-i, "Fira Code", monospace;
+}
+
+hr {
+  color: #f8630d;
+  border: 0.15rem solid #f8630d;
+  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-track {
-	background-color: #f5f5f5;
+  background-color: #2b2b2b;
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-	background-color: #f5f5f5;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #2b2b2b;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #f25218;
+  border-radius: 1rem;
+  background-color: #f8630d;
 }
 
 /*# sourceMappingURL=style.css.map */

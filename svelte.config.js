@@ -1,7 +1,5 @@
 import { mdsvex } from "mdsvex"
 import sveltePreprocess from "svelte-preprocess"
-import tailwindcss from "tailwindcss"
-import autoprefixer from "autoprefixer"
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
@@ -14,12 +12,6 @@ export default {
     sveltePreprocess({
       defaults: {
         style: "scss",
-      },
-      postcss: {
-        plugins: [tailwindcss, autoprefixer],
-      },
-      scss: {
-        outputStyle: "compressed",
       },
     }),
     mdsvex({

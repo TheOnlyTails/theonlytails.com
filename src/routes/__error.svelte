@@ -1,30 +1,30 @@
 <script context="module">
-  export const load = ({ error, status }) => ({
-    props: {
-      title: `${status}: ${error.message}`
-    }
-  });
+	export const load = ({error, status}) => ({
+		props: {
+			title: `${status}: ${error.message}`
+		}
+	})
 </script>
 
-<script>
-  import { isDark } from "../stores/theme";
-  import { goto } from "$app/navigation";
+<script lang="ts">
+	import { isDark } from "../theme"
+	import { goto } from "$app/navigation"
 
-  export let title;
+	export let title
 
-  const goBack = () => goto("/");
+	const goBack = () => goto("/")
 </script>
 
 <h2 class:isLight={!$isDark}>{title}</h2>
 <button class="back" class:isLight={!$isDark} on:click={goBack}>Return Home</button>
 
 <style lang="scss">
-	@use "static/style/style";
+	@use "static/style/vars";
 
 	h2 {
-		color: style.$accent;
+		color: vars.$accent;
 
-		&.isLight { color: style.$accent }
+		&.isLight { color: vars.$accent }
 	}
 
 	.back {
@@ -32,11 +32,11 @@
 		font-size: x-large;
 		padding: .5rem;
 		cursor: pointer;
-		color: style.$accent;
-		border: .2rem style.$accent outset;
+		color: vars.$accent;
+		border: .2rem vars.$accent outset;
 		outline: none;
 		background: transparent;
 
-		&.isLight { color: style.$accent }
+		&.isLight { color: vars.$accent }
 	}
 </style>

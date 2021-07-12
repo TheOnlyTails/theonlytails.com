@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-	import { isDark } from "src/stores/theme"
+	import { isDark } from "../../theme"
 
 	interface BlogPost {
 		slug: string;
@@ -44,7 +44,7 @@
 </div>
 
 <style lang="scss">
-	@use "../../../static/style/style";
+	@use "../../../static/style/vars";
 
 	.posts {
 		display: grid;
@@ -56,13 +56,14 @@
 		line-height: 1.5;
 		margin: 1rem;
 		padding: .7rem .9rem;
-		border: style.$accent .25rem outset;
+		border: vars.$accent .25rem outset;
+		border-radius: .4rem;
 	}
 
 	.post-card-title {
 		font-size: 1.8rem;
 		margin: 0;
-		color: style.$accent;
+		color: vars.$accent;
 	}
 
 	.post-card-author {
@@ -71,10 +72,10 @@
 	}
 
 	.post-card-date {
-		color: style.$accent;
+		color: vars.$accent;
 
 		&:where(.isLight) {
-			color: style.$accent;
+			color: vars.$accent;
 		}
 	}
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isDark, switchTheme } from "../stores/theme"
+	import { isDark, switchTheme } from "../theme"
 </script>
 
 <button
@@ -26,6 +26,7 @@
 	#theme-switch {
 		margin-bottom: .75em;
 		cursor: pointer;
+		transition: img 0.5s ease;
 		border: none;
 		background-color: inherit;
 		place-content: center end;

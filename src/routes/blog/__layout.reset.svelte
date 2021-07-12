@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isDark } from "src/stores/theme"
+	import { isDark } from "../../theme"
 	import Logo from "../../components/Logo.svelte"
 	import BlogButton from "../../components/BlogButton.svelte"
 	import ThemeSwitch from "../../components/ThemeSwitch.svelte"
@@ -37,19 +37,15 @@
 </div>
 
 <style lang="scss">
-	@import "static/style/style";
-
-	:global(body) {
-		font-family: jetbrains-mono, "Fira Code", monospace;
-	}
+	@use "static/style/vars";
 
 	#page {
 		font-size: 1.13em;
 		display: grid;
 		max-width: 50%;
 		transition: all 0.5s ease;
-		color: $light-color;
-		background: $dark-color;
+		color: vars.$light-color;
+		background: vars.$dark-color;
 		grid-template-rows: fit-content(100%) 1fr;
 
 		min: {
@@ -58,8 +54,8 @@
 		}
 
 		&.isLight {
-			color: $dark-color;
-			background: $light-color;
+			color: vars.$dark-color;
+			background: vars.$light-color;
 		}
 	}
 
@@ -76,18 +72,26 @@
 				weight: bold;
 			}
 			vertical-align: middle;
-			color: $light-color;
+			color: vars.$light-color;
 
 			&:link, &:hover, &:active, &:visited {
 				text-decoration: none;
 			}
 
 			&.isLight {
-				color: $dark-color
+				color: vars.$dark-color
 			}
 		}
 
-		hr { color: $accent }
+		hr {
+			margin: {
+				top: 1em;
+				right: 1.5em;
+			}
+			color: vars.$accent;
+			border: .25rem solid vars.$accent;
+			border-radius: 1rem;
+		}
 	}
 
 	main {

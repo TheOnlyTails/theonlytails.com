@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { isDark, switchTheme } from "../stores/theme"
+	import { isDark } from "../theme"
 	import Logo from "../components/Logo.svelte"
+	import ThemeSwitch from "../components/ThemeSwitch.svelte"
 </script>
 
 <svelte:head>
@@ -17,7 +18,7 @@
 	<link href="/fonts/jb-mono.css" rel="stylesheet"/>
 </svelte:head>
 
-<div class="text-2xl min-h-screen min-w- bg-gray-600 " class:isLight={!$isDark} id="page">
+<div class="text-2xl" class:isLight={!$isDark} id="page">
 	<header class="header title">
 		<Logo src="/favicon.svg"/>
 		<a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
@@ -27,51 +28,48 @@
 		<slot/>
 	</main>
 
-	<button
-			aria-checked="true"
-			aria-labelledby="theme-switch-label"
-			id="theme-switch"
-			on:click={switchTheme}
-			role="switch"
-	>
-		<!--suppress HtmlUnknownTarget -->
-		<img
-				alt="dark mode switch"
-				aria-label="dark mode switch"
-				height="32"
-				id="theme-switch-label"
-				role="none"
-				src={`/icons/${$isDark ? "dark" : "light"}_mode.svg`}
-				width="32"
-		/>
-	</button>
+	<ThemeSwitch/>
+	<!--	<button-->
+	<!--			aria-checked="true"-->
+	<!--			aria-labelledby="theme-switch-label"-->
+	<!--			id="theme-switch"-->
+	<!--			on:click={switchTheme}-->
+	<!--			role="switch"-->
+	<!--	>-->
+	<!--		&lt;!&ndash;suppress HtmlUnknownTarget &ndash;&gt;-->
+	<!--		<img-->
+	<!--				alt="dark mode switch"-->
+	<!--				aria-label="dark mode switch"-->
+	<!--				height="32"-->
+	<!--				id="theme-switch-label"-->
+	<!--				role="none"-->
+	<!--				src={`/icons/${$isDark ? "dark" : "light"}_mode.svg`}-->
+	<!--				width="32"-->
+	<!--		/>-->
+	<!--	</button>-->
 </div>
 
 <style lang="scss">
-	@use "static/style/style";
-
-	:global(body) {
-		font-family: jetbrains-mono, "Fira Code", monospace;
-	}
-
-	:global(i,em) {
-		font-family: jetbrains-mono-i, "Fira Code", monospace;
-	}
+	@use "static/style/vars";
+	@use "static/style/mixins";
 
 	#page {
-		@include style.center;
+		@include mixins.center;
+		font-size: 1.1rem;
 		max-width: 50%;
+		min-height: 100vh;
 		transition: all 0.5s ease;
-		color: style.$light-color;
+		color: vars.$light-color;
+		background: vars.$dark-color;
 
 		min: {
 			width: 100vw;
 		}
 
-		//&.isLight {
-		//	color: $dark-color;
-		//	background: $light-color;
-		//}
+		&.isLight {
+			color: vars.$dark-color;
+			background: vars.$light-color;
+		}
 	}
 
 	header.title {
@@ -84,29 +82,17 @@
 
 		a {
 			vertical-align: middle;
-			color: style.$light-color;
+			color: vars.$light-color;
 
 			&:link, &:hover, &:active, &:visited {
 				text-decoration: none;
 			}
 
 			&.isLight {
-				color: style.$dark-color
+				color: vars.$dark-color
 			}
 		}
 	}
 
-	#theme-switch {
-		margin-bottom: 0.75em;
-		cursor: pointer;
-		border: none;
-		background-color: inherit;
-		place-content: center end;
-	}
-
-	main { @include style.center }
-
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
+	main { @include mixins.center }
 </style>
