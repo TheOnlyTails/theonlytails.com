@@ -44,8 +44,8 @@
 </div>
 
 <div class="social">
-	<SocialIcon href="https://www.theonlytails.com/github" invertDark={$isDark} title="GitHub"/>
-	<SocialIcon href="https://www.theonlytails.com/twitter" title="Twitter"/>
+	<SocialIcon href="https://github.com/theonlytails" invertDark={$isDark} title="GitHub"/>
+	<SocialIcon href="https://twitter.com/the_only_tails" title="Twitter"/>
 	<SocialIcon href="https://reddit.com/u/theonlytails" title="Reddit"/>
 </div>
 
