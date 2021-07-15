@@ -69,11 +69,6 @@
 		grid-row-gap: 0;
 	}
 
-	#blog-link {
-		position: relative;
-		inset: 0;
-	}
-
 	#projects-title {
 		font: {
 			size: 1.17em;

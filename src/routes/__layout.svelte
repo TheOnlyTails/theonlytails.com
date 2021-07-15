@@ -6,47 +6,30 @@
 
 <svelte:head>
 	<title>TheOnlyTails</title>
-	<meta content="TheOnlyTails" name="og:title"/>
-	<meta content="TheOnlyTails' website" name="description"/>
-	<meta content="TheOnlyTails' website" name="og:description"/>
-	<meta content="https://www.theonlytails.com/icons/favicon.png" name="og:image"/>
-	<meta content="https://www.theonlytails.com" name="og:url"/>
+	<meta content="TheOnlyTails" name="og:title">
+	<meta content="TheOnlyTails' website" name="description">
+	<meta content="TheOnlyTails' website" name="og:description">
+	<meta content="https://www.theonlytails.com/icons/favicon.png" name="og:image">
+	<meta content="https://www.theonlytails.com" name="og:url">
 
-	<link href="/favicon.svg" rel="icon"/>
-	<link href="/style/style.css" rel="stylesheet"/>
-	<link href="/style/links.css" rel="stylesheet"/>
-	<link href="/fonts/jb-mono.css" rel="stylesheet"/>
+	<link href="/favicon.svg" rel="icon">
+	<link href="/style/style.css" rel="stylesheet">
+	<link href="/style/links.css" rel="stylesheet">
+	<link href="/fonts/jb-mono.css" rel="stylesheet">
 </svelte:head>
 
-<div class="text-2xl" class:isLight={!$isDark} id="page">
+<div class:isLight="{!$isDark}" id="page">
 	<header class="header title">
 		<Logo src="/favicon.svg"/>
-		<a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
+		<a class="title" class:isLight="{!$isDark}" href="/">TheOnlyTails</a>
 	</header>
 
 	<main>
-		<slot/>
+		<slot>
+		</slot>
 	</main>
 
 	<ThemeSwitch/>
-	<!--	<button-->
-	<!--			aria-checked="true"-->
-	<!--			aria-labelledby="theme-switch-label"-->
-	<!--			id="theme-switch"-->
-	<!--			on:click={switchTheme}-->
-	<!--			role="switch"-->
-	<!--	>-->
-	<!--		&lt;!&ndash;suppress HtmlUnknownTarget &ndash;&gt;-->
-	<!--		<img-->
-	<!--				alt="dark mode switch"-->
-	<!--				aria-label="dark mode switch"-->
-	<!--				height="32"-->
-	<!--				id="theme-switch-label"-->
-	<!--				role="none"-->
-	<!--				src={`/icons/${$isDark ? "dark" : "light"}_mode.svg`}-->
-	<!--				width="32"-->
-	<!--		/>-->
-	<!--	</button>-->
 </div>
 
 <style lang="scss">

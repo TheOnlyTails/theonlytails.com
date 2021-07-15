@@ -1,11 +1,11 @@
 body {
-  font-family: jetbrains-mono, "Fira Code", monospace;
+  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
   overflow-x: hidden;
   margin: auto auto;
 }
 
 i, em {
-  font-family: jetbrains-mono-i, "Fira Code", monospace;
+  font-family: jetbrains-mono-i, "Consolas", "Fira Code", monospace;
 }
 
 hr {
