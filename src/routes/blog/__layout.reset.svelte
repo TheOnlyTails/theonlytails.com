@@ -23,7 +23,7 @@
 
 <div class:isLight={!$isDark} id="page">
 	<header class="header title">
-		<Logo size="30" src="/favicon.svg"/>
+		<Logo size="36" src="/favicon.svg"/>
 		<a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
 		<BlogButton/>
 		<hr/>
@@ -68,7 +68,7 @@
 
 		a {
 			font: {
-				size: 1em;
+				size: 1.2em;
 				weight: bold;
 			}
 			vertical-align: middle;

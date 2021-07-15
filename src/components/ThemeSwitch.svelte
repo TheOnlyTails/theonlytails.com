@@ -16,7 +16,7 @@
 			aria-label="dark mode switch"
 			height="32"
 			id="theme-switch-label"
-			role="none"
+			role="switch"
 			src={`/icons/${$isDark ? "dark" : "light"}_mode.svg`}
 			width="32"
 	/>
