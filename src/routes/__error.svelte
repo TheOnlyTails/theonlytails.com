@@ -20,6 +20,7 @@
 
 <style lang="scss">
 	@use "static/style/vars";
+	@use "static/style/mixins";
 
 	h2 {
 		color: vars.$accent;
@@ -32,6 +33,7 @@
 		font-size: x-large;
 		padding: .5rem;
 		cursor: pointer;
+		text-align: center;
 		color: vars.$accent;
 		border: .2rem vars.$accent outset;
 		outline: none;
