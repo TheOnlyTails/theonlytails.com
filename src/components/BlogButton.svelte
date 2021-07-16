@@ -12,7 +12,7 @@
 	}
 
 	a {
-		font-size: 1.32rem;
+		font-size: 1.25rem;
 		display: inline;
 		vertical-align: middle;
 
