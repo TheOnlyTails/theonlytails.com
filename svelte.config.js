@@ -6,7 +6,7 @@ export default {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
 
-  extensions: [".svelte", ".svelte.md"],
+  extensions: [".svelte", ".svx"],
 
   preprocess: [
     sveltePreprocess({
@@ -15,7 +15,7 @@ export default {
       },
     }),
     mdsvex({
-      extensions: [".svelte.md"],
+      extensions: [".svx"],
 
       smartypants: {
         dashes: "oldschool",
