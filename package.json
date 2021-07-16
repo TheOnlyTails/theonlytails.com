@@ -11,7 +11,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.2",
-    "@rollup/plugin-typescript": "^8.0.0",
+    "@rollup/plugin-typescript": "^8.2.3",
     "@tsconfig/svelte": "^2.0.1",
     "node-sass": "^6.0.1",
     "rollup": "^2.53.2",
