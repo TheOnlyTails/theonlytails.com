@@ -47,7 +47,6 @@
 		color: vars.$light-color;
 		background: vars.$dark-color;
 		grid-template-rows: 0fr 1fr min-content;
-		grid-template-columns: fit-content(100%);
 
 		min: {
 			width: 100%;
