@@ -59,20 +59,24 @@
 
 	// Styles the projects div
 	#projects {
-		@include mixins.center;
-
+		@include mixins.center(1rem);
 		max-width: 50%;
 		margin: 0.1em;
 		padding: .25rem;
 		border: .2em outset vars.$accent;
 		border-radius: .4rem;
 		grid-row-gap: 0;
-	}
 
-	#projects-title {
-		font: {
-			size: 1.17em;
-			weight: bold;
+		#projects-title {
+			font: {
+				size: 1.17em;
+				weight: bold;
+			}
+			text-align: center;
+		}
+
+		@media screen and (max-width: 1000px) {
+			max-width: 75%;
 		}
 	}
 

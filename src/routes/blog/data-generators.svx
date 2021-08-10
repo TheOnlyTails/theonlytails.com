@@ -44,6 +44,8 @@ to create idiomatic Kotlin code for [MinecraftForge](https://github.com/Minecraf
 
 As for the time of writing (will be updated in the future), DataGenerators has 2 DSLs: LootTables and BlockModels.
 
+---
+
 ## LootTables
 
 [LootTables](https://github.com/theonlytails/loottables) was the first DSL I created, and it (as the name suggests)
@@ -55,12 +57,16 @@ I got to work, and finished with this:
 
 ```kt
 lootTable(LootParameterSets.BLOCK) {
-    pool(rolls = 2) { // optional parameter - default of 1
+    // optional parameter - defaults to 1
+    pool(rolls = 2) {
         itemEntry(Items.STICK) {
             function { explosionDecay() }
         }
 
-        function { setConstantCount(2) /* this is a shortened form of setCount(constantCount(2)) */ }
+        function {
+            // this is a shortened form of setCount(constantCount(2)) 
+            setConstantCount(2) 
+        }
     }
 }
 ```

@@ -46,10 +46,11 @@
 		transition: all 0.5s ease;
 		color: vars.$light-color;
 		background: vars.$dark-color;
-		grid-template-rows: fit-content(100%) 1fr;
+		grid-template-rows: 0fr 1fr min-content;
+		grid-template-columns: fit-content(100%);
 
 		min: {
-			width: 100vw;
+			width: 100%;
 			height: 100vh;
 		}
 
@@ -95,7 +96,6 @@
 	}
 
 	main {
-		max-width: 97%;
 		padding-left: 1rem;
 	}
 </style>

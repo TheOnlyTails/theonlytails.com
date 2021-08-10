@@ -4,11 +4,10 @@ export const get = async ({ query }) => {
     const modules = import.meta.glob("./blog/*.svx");
     const postPromises = [];
     const limit = Number(query.get("limit") ?? Infinity);
-    if (Number.isNaN(limit)) {
+    if (Number.isNaN(limit))
         return {
             status: 400,
         };
-    }
     for (let [path, resolver] of Object.entries(modules)) {
         const slug = slugFromPath(path);
         const promise = resolver().then((post) => ({

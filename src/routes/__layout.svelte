@@ -25,8 +25,7 @@
 	</header>
 
 	<main>
-		<slot>
-		</slot>
+		<slot/>
 	</main>
 
 	<ThemeSwitch/>
@@ -39,14 +38,13 @@
 	#page {
 		@include mixins.center;
 		font-size: 1.1rem;
-		max-width: 50%;
-		min-height: 100vh;
 		transition: all 0.5s ease;
 		color: vars.$light-color;
 		background: vars.$dark-color;
+		grid-template-rows: 0fr 1fr min-content;
 
 		min: {
-			width: 100vw;
+			height: 100vh;
 		}
 
 		&.isLight {
@@ -77,5 +75,5 @@
 		}
 	}
 
-	main { @include mixins.center }
+	main { @include mixins.center(1.3rem) }
 </style>

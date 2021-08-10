@@ -9,11 +9,10 @@ export const get: RequestHandler = async ({ query }) => {
   const postPromises = []
   const limit = Number(query.get("limit") ?? Infinity)
 
-  if (Number.isNaN(limit)) {
+  if (Number.isNaN(limit))
     return {
       status: 400,
     }
-  }
 
   for (let [path, resolver] of Object.entries(modules)) {
     const slug = slugFromPath(path)

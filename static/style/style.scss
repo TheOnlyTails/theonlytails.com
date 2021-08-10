@@ -3,7 +3,6 @@
 // styles the main page
 body {
 	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
-	overflow-x: hidden;
 	margin: auto auto;
 }
 
@@ -12,6 +11,10 @@ i, em {
 }
 
 hr {
+	margin: {
+		top: 1em;
+		right: 1.5em;
+	}
 	color: vars.$accent;
 	border: .15rem solid vars.$accent;
 	border-radius: 1rem;

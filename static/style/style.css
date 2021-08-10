@@ -1,6 +1,5 @@
 body {
   font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
-  overflow-x: hidden;
   margin: auto auto;
 }
 
@@ -9,6 +8,8 @@ i, em {
 }
 
 hr {
+  margin-top: 1em;
+  margin-right: 1.5em;
   color: #f8630d;
   border: 0.15rem solid #f8630d;
   border-radius: 1rem;

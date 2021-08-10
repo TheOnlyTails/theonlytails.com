@@ -1,7 +1,7 @@
 /// centers an element using CSS grid
-@mixin center {
+@mixin center($row-gap: .75rem) {
 	display: grid;
-	grid-template-rows: fit-content(100%) 1fr;
 	place-items: center;
-	grid-row-gap: 1rem;
+	align-content: space-evenly;
+	grid-row-gap: $row-gap;
 }
