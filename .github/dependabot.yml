@@ -16,7 +16,6 @@ updates:
     reviewers:
       - "theonlytails"
     # Labels on pull requests for security and version updates
-    target-branch: "blog"
     labels:
       - "npm dependencies"
 
