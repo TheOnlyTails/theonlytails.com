@@ -9,7 +9,7 @@ description: How I made Minecraft data generation Kotlin-oriented with DSLs.
 
 date: 2021/07/13
 
-published: false
+published: true
 
 ---
 

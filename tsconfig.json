@@ -29,9 +29,6 @@
 			"$lib/*": [
 				"src/lib/*"
 			],
-			"$data/*": [
-				"src/data/*"
-			]
 		}
 	},
 	"include": [

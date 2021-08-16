@@ -7,7 +7,7 @@
 </script>
 
 <Logo size={logoSize} src="/favicon.svg"/>
-<a class="title text-red-400" class:isLight={!$isDark} href="/" style="font-size: {fontSize}em">TheOnlyTails</a>
+<a class="title" class:isLight={!$isDark} href="/" style="font-size: {fontSize}em">TheOnlyTails</a>
 
 <style lang="scss">
 	@use "static/style/vars";

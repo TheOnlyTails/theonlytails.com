@@ -16,18 +16,12 @@ const config = {
 
   preprocess: [
     sveltePreprocess({
-      defaults: {
-        style: "scss",
-      },
-
       scss: {
         outputStyle: "compressed",
         postcss: {
           plugins: [autoprefixer],
         },
       },
-
-      postcss: true,
     }),
     mdsvex({
       extensions: [".svx"],

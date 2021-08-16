@@ -20,11 +20,6 @@
 			href: "https://github.com/theonlytails/theonlytails.com",
 			description: `<i>You're looking at it</i>. Built with Svelte, TypeScript, and SCSS.`
 		},
-		{
-			name: "RubyMod",
-			href: "https://github.com/theonlytails/rubymod",
-			description: `A free and open source mod for Minecraft 1.16, written in Kotlin using the Minecraft Forge API.`
-		},
 	]
 </script>
 
@@ -80,6 +75,7 @@
 	}
 
 	#subtitle {
+		font-size: 1.3rem;
 		margin: .05em;
 		text-align: center;
 	}
@@ -90,10 +86,7 @@
 			size: 1em;
 			weight: bold;
 		}
-		margin: {
-			top: 0.05em;
-			bottom: 0.05em;
-		}
+		margin: .05em 0;
 		text-align: center;
 	}
 </style>

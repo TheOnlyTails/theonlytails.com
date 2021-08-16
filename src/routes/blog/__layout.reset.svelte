@@ -1,5 +1,4 @@
 <script lang="ts">
-	import "../../app.css"
 	import { isDark } from "$lib/data/theme"
 	import BlogButton from "$lib/BlogButton.svelte"
 	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
@@ -22,10 +21,8 @@
 
 <div class:isLight={!$isDark} id="page">
 	<header class="header title">
-		<div id="top-buttons">
-			<Title fontSize={1.2} logoSize={36}/>
-			<BlogButton/>
-		</div>
+		<Title fontSize={1.2} logoSize={36}/>
+		<BlogButton/>
 
 		<hr/>
 	</header>
@@ -66,10 +63,6 @@
 			left: 1em;
 		}
 		vertical-align: center;
-
-		#top-buttons {
-			//display: flex;
-		}
 
 		hr {
 			margin: {

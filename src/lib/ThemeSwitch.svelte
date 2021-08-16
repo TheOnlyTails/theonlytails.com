@@ -28,9 +28,8 @@
 	@use "static/style/mixins";
 
 	#theme-switch {
-		box-sizing: content-box;
 		max-width: fit-content;
-		margin-bottom: .75em;
+		padding-bottom: .75em;
 		cursor: pointer;
 		transition: img 0.5s ease;
 		border: none;

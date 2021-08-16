@@ -54,9 +54,7 @@
 			size: 2em;
 			weight: bold;
 		}
-		margin-top: .75rem;
-		place-content: center start;
 	}
 
-	main { @include mixins.center(1.3rem) }
+	main { @include mixins.center(1.4rem) }
 </style>
