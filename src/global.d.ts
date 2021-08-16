@@ -9,12 +9,14 @@ declare interface Project {
 
 declare interface BlogPost {
 	path: string
-	metadata: {
-		slug: string
-		title: string
-		author: string
-		description: string
-		date: string
-		published: boolean
-	}
+	metadata: PostData
+}
+
+declare interface PostData {
+	slug: string
+	title: string
+	author: string
+	description: string
+	date: string
+	published: boolean
 }

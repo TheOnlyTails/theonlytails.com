@@ -15,11 +15,8 @@
 			alt="dark mode switch"
 			aria-label="dark mode switch"
 			class:isLight={!$isDark}
-			height="32"
 			id="theme-switch-label"
-			role="switch"
-			src={`/icons/${$isDark ? "dark" : "light"}_mode.svg`}
-			width="32"
+			src="/icons/{$isDark ? 'dark' : 'light'}_mode.svg"
 	/>
 </button>
 
@@ -38,10 +35,12 @@
 		place-self: center;
 
 		#theme-switch-label {
+			width: 2rem;
 			padding: .15rem;
 			transition: background-color 0.5s ease;
 			border-radius: 50%;
 			background: lighten(vars.$dark-color, 13%);
+			aspect-ratio: 1 / 1;
 
 			&:hover { background: lighten(vars.$dark-color, 5%) }
 

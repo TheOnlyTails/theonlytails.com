@@ -3,7 +3,7 @@ slug: data-generators
 
 title: The Story of DataGenerators
 
-author: TheOnlyTails
+author: Tails
 
 description: How I made Minecraft data generation Kotlin-oriented with DSLs.
 
@@ -12,12 +12,6 @@ date: 2021/07/13
 published: true
 
 ---
-
-<svelte:head>
-<title>{title}</title>
-</svelte:head>
-
-# {title}
 
 The story starts with me sitting at my desk, working at my mod, [RubyMod](https://github.com/theonlytails/rubymod), and
 being very bored.  
