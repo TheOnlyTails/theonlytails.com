@@ -1,8 +1,14 @@
 import { mdsvex } from "mdsvex"
 import sveltePreprocess from "svelte-preprocess"
 import vercel from "@sveltejs/adapter-vercel"
+import remarkA11yEmoji from "@fec/remark-a11y-emoji"
+import remarkAutolinkHeadings from "remark-autolink-headings"
+import remarkGfm from "remark-gfm"
+import remarkHint from "remark-hint"
+import autoprefixer from "autoprefixer"
 
-export default {
+/** @type {import("@sveltejs/kit").Config} */
+const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
 
@@ -13,6 +19,15 @@ export default {
       defaults: {
         style: "scss",
       },
+
+      scss: {
+        outputStyle: "compressed",
+        postcss: {
+          plugins: [autoprefixer],
+        },
+      },
+
+      postcss: true,
     }),
     mdsvex({
       extensions: [".svx"],
@@ -20,6 +35,8 @@ export default {
       smartypants: {
         dashes: "oldschool",
       },
+
+      remarkPlugins: [remarkA11yEmoji, remarkAutolinkHeadings, remarkGfm, remarkHint],
     }),
   ],
 
@@ -30,3 +47,5 @@ export default {
     adapter: vercel(),
   },
 }
+
+export default config

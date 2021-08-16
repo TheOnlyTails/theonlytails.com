@@ -4,10 +4,7 @@
 body {
 	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
 	margin: auto auto;
-}
-
-i, em {
-	font-family: jetbrains-mono-i, "Consolas", "Fira Code", monospace;
+	scroll-behavior: smooth;
 }
 
 hr {

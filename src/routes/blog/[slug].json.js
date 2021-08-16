@@ -1,24 +1,28 @@
-/**
- * @type {import("@sveltejs/kit").RequestHandler}
- */
-import { slugFromPath } from "../posts.json";
-export async function get({ params }) {
-    const modules = import.meta.glob(`./*.svx`);
-    let match;
-    for (const [path, resolver] of Object.entries(modules)) {
-        if (slugFromPath(path) === params.slug) {
-            match = [path, resolver];
-            break;
-        }
+import { dev } from "$app/env";
+const getPosts = async () => {
+    const allPosts = import.meta.glob("./*.svx");
+    let blog = [];
+    for (let path in allPosts) {
+        blog.push(allPosts[path]().then(({ metadata }) => ({ path, metadata })));
     }
-    if (!match) {
+    const posts = await Promise.all(blog);
+    return posts.filter((post) => (!dev ? post.metadata.published : true));
+};
+export const get = async ({ params }) => {
+    const posts = await getPosts();
+    const { slug } = params;
+    const blogPost = posts.find((post) => post.metadata.slug == slug);
+    const isPublished = !dev ? blogPost.metadata.published : true;
+    // checks if the URL's slug is valid
+    if (!posts.map((post) => post.metadata.slug).includes(slug) || !isPublished) {
         return {
             status: 404,
         };
     }
-    const post = await match[1]();
-    return {
-        body: post.metadata,
-    };
-}
+    else {
+        return {
+            body: blogPost.metadata,
+        };
+    }
+};
 //# sourceMappingURL=%5Bslug%5D.json.js.map

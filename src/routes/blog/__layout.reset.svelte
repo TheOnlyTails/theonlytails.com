@@ -1,14 +1,13 @@
 <script lang="ts">
-	import { isDark } from "../../theme"
-	import Logo from "../../components/Logo.svelte"
-	import BlogButton from "../../components/BlogButton.svelte"
-	import ThemeSwitch from "../../components/ThemeSwitch.svelte"
-
-	export let title: string
+	import "../../app.css"
+	import { isDark } from "$lib/data/theme"
+	import BlogButton from "$lib/BlogButton.svelte"
+	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
+	import Title from "$lib/Title.svelte"
 </script>
 
 <svelte:head>
-	<title>{title}</title>
+	<!--	<title>{title}</title>-->
 	<meta content="TheOnlyTails" name="og:title"/>
 	<meta content="TheOnlyTails' website" name="description"/>
 	<meta content="TheOnlyTails' website" name="og:description"/>
@@ -23,9 +22,11 @@
 
 <div class:isLight={!$isDark} id="page">
 	<header class="header title">
-		<Logo size="36" src="/favicon.svg"/>
-		<a class="title" class:isLight={!$isDark} href="/">TheOnlyTails</a>
-		<BlogButton/>
+		<div id="top-buttons">
+			<Title fontSize={1.2} logoSize={36}/>
+			<BlogButton/>
+		</div>
+
 		<hr/>
 	</header>
 
@@ -66,21 +67,8 @@
 		}
 		vertical-align: center;
 
-		a {
-			font: {
-				size: 1.2em;
-				weight: bold;
-			}
-			vertical-align: middle;
-			color: vars.$light-color;
-
-			&:link, &:hover, &:active, &:visited {
-				text-decoration: none;
-			}
-
-			&.isLight {
-				color: vars.$dark-color
-			}
+		#top-buttons {
+			//display: flex;
 		}
 
 		hr {

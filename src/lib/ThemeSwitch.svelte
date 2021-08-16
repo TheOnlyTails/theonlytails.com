@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isDark, switchTheme } from "../theme"
+	import { isDark, switchTheme } from "$lib/data/theme"
 </script>
 
 <button

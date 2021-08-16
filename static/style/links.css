@@ -1,10 +1,7 @@
 body {
-  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
-  margin: auto auto;
-}
-
-i, em {
-  font-family: jetbrains-mono-i, "Consolas", "Fira Code", monospace;
+	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+	margin: auto auto;
+	scroll-behavior: smooth;
 }
 
 hr {
@@ -31,20 +28,19 @@ hr {
 }
 
 a {
-  transition: transform, 0.3s;
+	font-weight: bold;
+	transition: text-decoration-color 300ms;
+	color: #f8630d;
 }
+
 a:link, a:visited {
-  font-weight: bold;
-  text-decoration: none;
-  color: #f8630d;
+	text-decoration: underline transparent;
+	color: #f8630d;
 }
-a:link.isLight, a:visited.isLight {
-  color: #cb4e06;
-}
+
 a:hover, a:active {
-  font-weight: normal;
-  text-decoration: underline;
-  color: #f8630d;
+	color: #e45807;
+	text-decoration-color: currentColor;
 }
 
 /*# sourceMappingURL=links.css.map */

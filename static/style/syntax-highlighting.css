@@ -22,8 +22,5 @@ code.language-kt .token.punctuation {
 code.language-kt .token.comment {
   color: #9a9a9a;
 }
-code.language-kt i, code.language-kt em {
-  font-family: jetbrains-mono-i, "Consolas", "Fira Code", monospace;
-}
 
 /*# sourceMappingURL=syntax-highlighting.css.map */

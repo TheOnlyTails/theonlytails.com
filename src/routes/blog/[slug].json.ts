@@ -1,28 +1,34 @@
-/**
- * @type {import("@sveltejs/kit").RequestHandler}
- */
-import { slugFromPath } from "../posts.json"
+import type { RequestHandler } from "@sveltejs/kit"
+import { dev } from "$app/env"
 
-export async function get({ params }) {
-	const modules = import.meta.glob(`./*.svx`)
+const getPosts = async () => {
+  const allPosts = import.meta.glob("./*.svx")
 
-	let match
-	for (const [path, resolver] of Object.entries(modules)) {
-		if (slugFromPath(path) === params.slug) {
-			match = [path, resolver]
-			break
-		}
-	}
+  let blog = []
+  for (let path in allPosts) {
+    blog.push(allPosts[path]().then(({ metadata }) => ({ path, metadata })))
+  }
 
-	if (!match) {
-		return {
-			status: 404,
-		}
-	}
+  const posts: BlogPost[] = await Promise.all(blog)
 
-	const post = await match[1]()
+  return posts.filter((post) => (!dev ? post.metadata.published : true))
+}
 
-	return {
-		body: post.metadata,
-	}
+export const get: RequestHandler = async ({ params }) => {
+  const posts = await getPosts()
+  const { slug } = params
+  const blogPost = posts.find((post) => post.metadata.slug == slug)
+
+  const isPublished = !dev ? blogPost.metadata.published : true
+
+  // checks if the URL's slug is valid
+  if (!posts.map((post) => post.metadata.slug).includes(slug) || !isPublished) {
+    return {
+      status: 404,
+    }
+  } else {
+    return {
+      body: blogPost.metadata,
+    }
+  }
 }

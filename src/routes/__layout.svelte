@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { isDark } from "../theme"
-	import Logo from "../components/Logo.svelte"
-	import ThemeSwitch from "../components/ThemeSwitch.svelte"
+	import { isDark } from "$lib/data/theme"
+	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
+	import Title from "$lib/Title.svelte"
 </script>
 
 <svelte:head>
@@ -20,8 +20,7 @@
 
 <div class:isLight="{!$isDark}" id="page">
 	<header class="header title">
-		<Logo src="/favicon.svg"/>
-		<a class="title" class:isLight="{!$isDark}" href="/">TheOnlyTails</a>
+		<Title/>
 	</header>
 
 	<main>
@@ -38,14 +37,11 @@
 	#page {
 		@include mixins.center;
 		font-size: 1.1rem;
+		min-height: 100vh;
 		transition: all 0.5s ease;
 		color: vars.$light-color;
-		background: vars.$dark-color;
-		grid-template-rows: 0fr 1fr min-content;
 
-		min: {
-			height: 100vh;
-		}
+		background: vars.$dark-color;
 
 		&.isLight {
 			color: vars.$dark-color;
@@ -60,19 +56,6 @@
 		}
 		margin-top: .75rem;
 		place-content: center start;
-
-		a {
-			vertical-align: middle;
-			color: vars.$light-color;
-
-			&:link, &:hover, &:active, &:visited {
-				text-decoration: none;
-			}
-
-			&.isLight {
-				color: vars.$dark-color
-			}
-		}
 	}
 
 	main { @include mixins.center(1.3rem) }

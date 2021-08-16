@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { isDark } from "../theme"
+	import { isDark } from "$lib/data/theme"
 	import { goto } from "$app/navigation"
 
 	export let title

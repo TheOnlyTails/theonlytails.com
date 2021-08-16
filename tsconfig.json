@@ -3,7 +3,8 @@
 		"moduleResolution": "node",
 		"module": "esnext",
 		"lib": [
-			"esnext"
+			"esnext",
+			"DOM"
 		],
 		"target": "esnext",
 		/**
@@ -27,6 +28,9 @@
 		"paths": {
 			"$lib/*": [
 				"src/lib/*"
+			],
+			"$data/*": [
+				"src/data/*"
 			]
 		}
 	},

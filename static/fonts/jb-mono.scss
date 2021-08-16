@@ -17,12 +17,11 @@
 	src: url(JetBrainsMonoItalic.ttf) format("truetype supports variations"),
 	url(JetBrainsMonoItalic.ttf) format("truetype-variations");
 
+	//noinspection CssUnknownProperty
 	font: {
-		family: jetbrains-mono-i;
+		family: jetbrains-mono;
 		style: italic;
 		weight: 100 800;
 		display: swap;
 	}
 }
-
-i { font-family: jetbrains-mono-i, monospace }

@@ -2,19 +2,18 @@
 @use "vars";
 
 a {
-	transition: transform, .3s;
+	font-weight: bold;
+	transition: text-decoration-color 300ms;
+	color: vars.$accent;
 
 	&:link, &:visited {
-		font-weight: bold;
-		text-decoration: none;
+		text-decoration: underline transparent;
 		color: vars.$accent;
 
-		&.isLight { color: vars.$dark-accent }
 	}
 
 	&:hover, &:active {
-		font-weight: normal;
-		text-decoration: underline;
-		color: vars.$accent;
+		color: vars.$dark-accent;
+		text-decoration-color: currentColor;
 	}
 }

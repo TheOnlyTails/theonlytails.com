@@ -1,9 +1,8 @@
 <script lang="ts">
-	import SocialIcon from "../components/SocialIcon.svelte"
-	import ProjectEntry from "../components/ProjectEntry.svelte"
-	import type { Project } from "../elementInterfaces"
-	import { isDark } from "../theme"
-	import BlogButton from "../components/BlogButton.svelte"
+	import SocialIcon from "$lib/SocialIcon.svelte"
+	import ProjectEntry from "$lib/ProjectEntry.svelte"
+	import { isDark } from "$lib/data/theme"
+	import BlogButton from "$lib/BlogButton.svelte"
 
 	const projects: Project[] = [
 		{
@@ -81,7 +80,8 @@
 	}
 
 	#subtitle {
-		margin: 0.05em;
+		margin: .05em;
+		text-align: center;
 	}
 
 	// Makes sure my make-shift footer still looks good
@@ -94,5 +94,6 @@
 			top: 0.05em;
 			bottom: 0.05em;
 		}
+		text-align: center;
 	}
 </style>
