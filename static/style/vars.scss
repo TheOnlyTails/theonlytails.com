@@ -1,0 +1,5 @@
+$light-color: hsl(0, 0%, 85%);
+$dark-color: lighten(black, 17%);
+$accent: hsl(22, 94%, 51%);
+$light-accent: lighten($accent, 5%);
+$dark-accent: darken($accent, 5%);

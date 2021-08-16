@@ -1,0 +1,27 @@
+// Regular
+@font-face {
+	src: url(JetBrainsMono.ttf) format("truetype supports variations"),
+	url(JetBrainsMono.ttf) format("truetype-variations");
+
+	//noinspection CssUnknownProperty
+	font: {
+		family: jetbrains-mono;
+		style: normal;
+		weight: 100 800;
+		display: swap;
+	}
+}
+
+// Italic
+@font-face {
+	src: url(JetBrainsMonoItalic.ttf) format("truetype supports variations"),
+	url(JetBrainsMonoItalic.ttf) format("truetype-variations");
+
+	//noinspection CssUnknownProperty
+	font: {
+		family: jetbrains-mono;
+		style: italic;
+		weight: 100 800;
+		display: swap;
+	}
+}

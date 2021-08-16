@@ -1,0 +1,33 @@
+@use "vars";
+
+// styles the main page
+body {
+	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+	margin: auto auto;
+	scroll-behavior: smooth;
+}
+
+hr {
+	margin: {
+		top: 1em;
+		right: 1.5em;
+	}
+	color: vars.$accent;
+	border: .15rem solid vars.$accent;
+	border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: vars.$dark-color;
+}
+
+::-webkit-scrollbar {
+	width: 0.75rem;
+	height: 0.75rem;
+	background-color: vars.$dark-color;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 1rem;
+	background-color: vars.$accent;
+}

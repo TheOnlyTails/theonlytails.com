@@ -1,32 +1,40 @@
 {
-  "name": "theonlytails.com",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
-    "validate": "svelte-check"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^19.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.2",
-    "@rollup/plugin-typescript": "^8.2.3",
-    "@tsconfig/svelte": "^2.0.1",
-    "node-sass": "^6.0.1",
-    "rollup": "^2.53.3",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "sass": "^1.35.2",
-    "svelte": "^3.38.3",
-    "svelte-check": "^2.2.3",
-    "svelte-preprocess": "^4.7.4",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "sirv-cli": "^1.0.12"
-  }
+	"name": "theonlytails.com",
+	"version": "0.0.1",
+	"private": true,
+	"author": {
+		"name": "TheOnlyTails",
+		"url": "https://theonlytails.com/",
+		"email": "theonlytails@theonlytails.com"
+	},
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"preview": "svelte-kit build && svelte-kit preview",
+		"preview-nobuild": "svelte-kit preview",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check --plugin-search-dir=. .",
+		"format": "prettier --write --plugin-search-dir=. ."
+	},
+	"devDependencies": {
+		"@fec/remark-a11y-emoji": "^3.1.0",
+		"@sveltejs/adapter-vercel": "next",
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.3.1",
+		"mdsvex": "^0.9.8",
+		"prettier": "^2.3.2",
+		"prettier-plugin-svelte": "^2.3.1",
+		"remark-autolink-headings": "^7.0.1",
+		"remark-gfm": "^2.0.0",
+		"remark-hint": "^1.0.10",
+		"sass": "^1.37.5",
+		"svelte": "^3.42.1",
+		"svelte-check": "^2.2.4",
+		"svelte-preprocess": "^4.7.4",
+		"tslib": "^2.3.1",
+		"typescript": "^4.3.5",
+		"vite": "^2.5.0"
+	},
+	"type": "module"
 }

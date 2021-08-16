@@ -1,0 +1,16 @@
+@font-face {
+  src: url(JetBrainsMono.ttf) format("truetype supports variations"), url(JetBrainsMono.ttf) format("truetype-variations");
+  font-family: jetbrains-mono;
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+@font-face {
+  src: url(JetBrainsMonoItalic.ttf) format("truetype supports variations"), url(JetBrainsMonoItalic.ttf) format("truetype-variations");
+  font-family: jetbrains-mono;
+  font-style: italic;
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+/*# sourceMappingURL=jb-mono.css.map */

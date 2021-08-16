@@ -1,0 +1,7 @@
+/// centers an element using CSS grid
+@mixin center($row-gap: .75rem) {
+	display: grid;
+	place-items: center;
+	align-content: space-evenly;
+	grid-row-gap: $row-gap;
+}

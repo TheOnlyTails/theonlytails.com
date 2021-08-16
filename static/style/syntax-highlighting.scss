@@ -1,0 +1,27 @@
+@use "vars";
+
+$code-color: hsl(0, 0%, 85%);
+$code-block-bg: lighten(vars.$dark-color, 10%);
+
+pre.language-kt {
+	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+	padding: .75rem;
+	color: $code-color;
+	border: .25rem solid lighten($code-block-bg, 10%);
+	border-radius: 1rem;
+	background: $code-block-bg;
+}
+
+code.language-kt {
+	.token {
+		&.keyword { color: hsl(27, 61%, 50%) }
+
+		&.number { color: hsl(206, 38%, 57%) }
+
+		&.function { color: hsl(37, 100%, 71%) }
+
+		&.punctuation { color: hsl(27, 61%, 50%) }
+
+		&.comment { color: lighten(grey, 20%) }
+	}
+}

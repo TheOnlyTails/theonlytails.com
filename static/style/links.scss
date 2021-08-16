@@ -1,0 +1,15 @@
+@use "vars";
+
+a {
+	font-weight: bold;
+	transition: text-decoration-color 300ms;
+	color: vars.$accent;
+
+	&:link, &:visited {
+		text-decoration: underline transparent;
+	}
+
+	&:hover, &:active {
+		text-decoration-color: currentColor;
+	}
+}

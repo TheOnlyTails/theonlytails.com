@@ -1,0 +1,13 @@
+a {
+  font-weight: bold;
+  transition: text-decoration-color 300ms;
+  color: #f8630d;
+}
+a:link, a:visited {
+  text-decoration: underline transparent;
+}
+a:hover, a:active {
+  text-decoration-color: currentColor;
+}
+
+/*# sourceMappingURL=links.css.map */
