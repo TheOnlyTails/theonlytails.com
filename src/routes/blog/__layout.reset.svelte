@@ -27,7 +27,6 @@
 
 <script lang="ts">
 	import { isDark } from "$lib/data/theme"
-	import BlogButton from "$lib/BlogButton.svelte"
 	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
 	import Title from "$lib/Title.svelte"
 	import { onMount } from "svelte"
@@ -47,36 +46,30 @@
 	{/if}
 
 	{#if metadata}
-		<meta content="TheOnlyTails &bullet; {metadata.title}" name="og:title"/>
+		<meta content="TheOnlyTails • {metadata.title}" name="og:title"/>
 		<meta content={metadata.description} name="description"/>
 		<meta content={metadata.description} name="og:description"/>
 	{:else}
-		<meta content="TheOnlyTails &bullet; Blog Posts" name="og:title"/>
+		<meta content="TheOnlyTails • Blog Posts" name="og:title"/>
 	{/if}
 	<meta content="blog" name="og:type"/>
-	<meta content="https://www.theonlytails.com/icons/favicon.png" name="og:image"/>
+	<meta content="https://www.theonlytails.com/icons/logo.png" name="og:image"/>
 
 	{#if metadata}
-		<meta content="TheOnlyTails &bullet; {metadata.title}" name="twitter:title"/>
+		<meta content="TheOnlyTails • {metadata.title}" name="twitter:title"/>
 		<meta content={metadata.description} name="twitter:description"/>
 	{:else}
-		<meta content="TheOnlyTails &bullet; Blog Posts" name="twitter:title"/>
+		<meta content="TheOnlyTails • Blog Posts" name="twitter:title"/>
 	{/if}
-	<meta content="https://www.theonlytails.com/icons/favicon.png" name="twitter:image"/>
+	<meta content="https://www.theonlytails.com/icons/logo.png" name="twitter:image"/>
 	<meta content="@the_only_tails" name="twitter:creator"/>
 
-	<link href="/favicon.svg" rel="icon"/>
-	<link href="/style/style.css" rel="stylesheet"/>
-	<link href="/style/links.css" rel="stylesheet"/>
-	<link href="/fonts/jb-mono.css" rel="stylesheet"/>
+	<link href="/style/syntax-highlighting.css" rel="stylesheet">
 </svelte:head>
 
 <div class:isLight={!$isDark} id="page">
 	<header class="header title">
-		<Title fontSize={1.2} logoSize={36}/>
-		<BlogButton/>
-
-		<hr/>
+		<Title blogLink fontSize={1.2} logoSize={36}/>
 	</header>
 
 	<main>
@@ -122,16 +115,6 @@
 			left: 1em;
 		}
 		vertical-align: center;
-
-		hr {
-			margin: {
-				top: 1em;
-				right: 1.5em;
-			}
-			border: .25rem solid vars.$accent;
-			border-radius: 1rem;
-			color: vars.$accent;
-		}
 	}
 
 	main {

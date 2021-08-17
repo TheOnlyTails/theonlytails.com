@@ -5,17 +5,17 @@
 </script>
 
 <svelte:head>
-	<title>TheOnlyTails</title>
+	<title>TheOnlyTails &bullet; Personal Website</title>
 	<meta content="TheOnlyTails" name="og:title">
-	<meta content="TheOnlyTails' website" name="description">
-	<meta content="TheOnlyTails' website" name="og:description">
-	<meta content="https://www.theonlytails.com/icons/favicon.png" name="og:image">
+	<meta content="TheOnlyTails • Personal Website" name="description">
+	<meta content="TheOnlyTails • Personal Website" name="og:description">
+	<meta content="https://www.theonlytails.com/icons/logo.png" name="og:image">
+	<meta content="website" name="og:type"/>
 	<meta content="https://www.theonlytails.com" name="og:url">
 
-	<link href="/favicon.svg" rel="icon">
-	<link href="/style/style.css" rel="stylesheet">
-	<link href="/style/links.css" rel="stylesheet">
-	<link href="/fonts/jb-mono.css" rel="stylesheet">
+	<meta content="TheOnlyTails • Personal Website" name="twitter:title"/>
+	<meta content="https://www.theonlytails.com/icons/logo.png" name="twitter:image"/>
+	<meta content="@the_only_tails" name="twitter:creator"/>
 </svelte:head>
 
 <div class:isLight="{!$isDark}" id="page">
@@ -38,8 +38,8 @@
 		@include mixins.center;
 		min-height: 100vh;
 		background: vars.$dark-color;
-		font-size: 1.1rem;
 		color: vars.$light-color;
+		font-size: 1.1rem;
 
 		transition: all 0.5s ease;
 
@@ -50,6 +50,9 @@
 	}
 
 	header.title {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 		font: {
 			size: 2em;
 			weight: bold;
