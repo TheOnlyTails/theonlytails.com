@@ -2,7 +2,7 @@
 	import type { Load } from "@sveltejs/kit"
 
 	export const load: Load = async ({ page, fetch }) => {
-		const getSlugFromPath = (path: string) => path.replace("./blog/", "").replaceAll(".svx", "")
+		const getSlugFromPath = (path: string) => path.replace(/(^.\/blog\/)/, "").replace(/(.svx$)/g, "")
 
 		if (page.path === "/blog") {
 			return {

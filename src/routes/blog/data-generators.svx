@@ -22,10 +22,10 @@ I remembered a talk by [Hadi Hariri](https://hadihariri.com/) I watched about Ko
 "mini-languages" in Kotlin using 3 features:
 
 - Extension Functions
-- Lambdas with receivers
-- Moving lambdas out of parentheses
+- Lambdas with Receivers
+- Trailing Lambdas
 
-TL;DR of those 3 features combined:
+TL;DR of those 3 features, respectively:
 
 - Extension functions are declared outside a class yet act as its member.
 - Lambdas with receivers use their receiver as the type of `this`, scoped inside the lambda.
