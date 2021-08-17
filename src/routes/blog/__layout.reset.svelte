@@ -101,13 +101,13 @@
 		grid-template-rows: 0fr 1fr min-content;
 		max-width: 50%;
 		background: vars.$dark-color;
-		font-size: 1.13em;
 		color: vars.$light-color;
+		font-size: 1.13em;
 		transition: all 0.5s ease;
 
 		min: {
 			width: 100%;
-			//height: 100vh;
+			height: 100vh;
 		}
 
 		&.isLight {
@@ -147,8 +147,8 @@
 				padding: .5rem;
 				border: .2em outset vars.$accent;
 				border-radius: .4rem;
-				font-size: 1rem;
 				color: vars.$accent;
+				font-size: 1rem;
 			}
 		}
 	}
