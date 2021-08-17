@@ -1,0 +1,5 @@
+User-agent: *
+allow: /
+
+# Sitemaps
+sitemap: https://www.theonlytails.com/sitemap.xml

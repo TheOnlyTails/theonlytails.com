@@ -2,8 +2,8 @@
 
 a {
 	font-weight: bold;
-	transition: text-decoration-color 300ms;
 	color: vars.$accent;
+	transition: text-decoration-color 300ms;
 
 	&:link, &:visited {
 		text-decoration: underline transparent;

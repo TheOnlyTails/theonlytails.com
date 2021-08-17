@@ -54,12 +54,12 @@
 	// Styles the projects div
 	#projects {
 		@include mixins.center(1rem);
+		grid-row-gap: 0;
 		max-width: 50%;
 		margin: 0.1em;
 		padding: .25rem;
 		border: .2em outset vars.$accent;
 		border-radius: .4rem;
-		grid-row-gap: 0;
 
 		#projects-title {
 			font: {
@@ -75,18 +75,18 @@
 	}
 
 	#subtitle {
-		font-size: 1.3rem;
 		margin: .05em;
+		font-size: 1.3rem;
 		text-align: center;
 	}
 
 	// Makes sure my make-shift footer still looks good
 	#reach-out {
+		margin: .05em 0;
 		font: {
 			size: 1em;
 			weight: bold;
 		}
-		margin: .05em 0;
 		text-align: center;
 	}
 </style>

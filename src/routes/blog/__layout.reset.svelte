@@ -83,8 +83,8 @@
 		{#if metadata}
 			<h1>{metadata.title}</h1>
 			<div class="post-info">
-				<p class="post-author">Written by: {metadata.author}</p>
-				<p class="post-date">Published at: {metadata.date}</p>
+				<p class="post-author" title="Author: {metadata.author}">Written by: {metadata.author}</p>
+				<p class="post-date" title="Publication Date: {metadata.date}">Published at: {metadata.date}</p>
 			</div>
 		{/if}
 		<slot/>
@@ -97,22 +97,22 @@
 	@use "static/style/vars";
 
 	#page {
-		font-size: 1.13em;
 		display: grid;
-		max-width: 50%;
-		transition: all 0.5s ease;
-		color: vars.$light-color;
-		background: vars.$dark-color;
 		grid-template-rows: 0fr 1fr min-content;
+		max-width: 50%;
+		background: vars.$dark-color;
+		font-size: 1.13em;
+		color: vars.$light-color;
+		transition: all 0.5s ease;
 
 		min: {
 			width: 100%;
-			height: 100vh;
+			//height: 100vh;
 		}
 
 		&.isLight {
-			color: vars.$dark-color;
 			background: vars.$light-color;
+			color: vars.$dark-color;
 		}
 	}
 
@@ -128,26 +128,27 @@
 				top: 1em;
 				right: 1.5em;
 			}
-			color: vars.$accent;
 			border: .25rem solid vars.$accent;
 			border-radius: 1rem;
+			color: vars.$accent;
 		}
 	}
 
 	main {
 		padding-left: 1rem;
+		overflow-wrap: anywhere;
 
 		.post-info {
 			display: flex;
 			gap: .75rem;
 
 			.post-date, .post-author {
-				font-size: 1rem;
 				max-width: fit-content;
 				padding: .5rem;
-				color: vars.$accent;
 				border: .2em outset vars.$accent;
 				border-radius: .4rem;
+				font-size: 1rem;
+				color: vars.$accent;
 			}
 		}
 	}

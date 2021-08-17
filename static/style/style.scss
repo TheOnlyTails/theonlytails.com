@@ -2,8 +2,8 @@
 
 // styles the main page
 body {
-	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
 	margin: auto auto;
+	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
 	scroll-behavior: smooth;
 }
 
@@ -12,9 +12,9 @@ hr {
 		top: 1em;
 		right: 1.5em;
 	}
-	color: vars.$accent;
 	border: .15rem solid vars.$accent;
 	border-radius: 1rem;
+	color: vars.$accent;
 }
 
 ::-webkit-scrollbar-track {

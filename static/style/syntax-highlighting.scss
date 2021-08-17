@@ -4,12 +4,12 @@ $code-color: hsl(0, 0%, 85%);
 $code-block-bg: lighten(vars.$dark-color, 10%);
 
 pre.language-kt {
-	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
 	padding: .75rem;
-	color: $code-color;
 	border: .25rem solid lighten($code-block-bg, 10%);
 	border-radius: 1rem;
 	background: $code-block-bg;
+	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+	color: $code-color;
 }
 
 code.language-kt {

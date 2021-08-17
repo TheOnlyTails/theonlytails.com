@@ -29,15 +29,15 @@
 	}
 
 	.back {
-		font-family: jetbrains-mono, "Fira Code", monospace;;
-		font-size: x-large;
 		padding: .5rem;
-		cursor: pointer;
-		text-align: center;
-		color: vars.$accent;
 		border: .2rem vars.$accent outset;
 		outline: none;
 		background: transparent;
+		font-family: jetbrains-mono, "Fira Code", monospace;;
+		font-size: x-large;
+		color: vars.$accent;
+		text-align: center;
+		cursor: pointer;
 
 		&.isLight { color: vars.$accent }
 	}

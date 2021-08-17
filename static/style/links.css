@@ -1,7 +1,7 @@
 a {
   font-weight: bold;
-  transition: text-decoration-color 300ms;
   color: #f8630d;
+  transition: text-decoration-color 300ms;
 }
 a:link, a:visited {
   text-decoration: underline transparent;

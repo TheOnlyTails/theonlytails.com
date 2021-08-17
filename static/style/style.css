@@ -1,15 +1,15 @@
 body {
-  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
   margin: auto auto;
+  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
   scroll-behavior: smooth;
 }
 
 hr {
   margin-top: 1em;
   margin-right: 1.5em;
-  color: #f8630d;
   border: 0.15rem solid #f8630d;
   border-radius: 1rem;
+  color: #f8630d;
 }
 
 ::-webkit-scrollbar-track {

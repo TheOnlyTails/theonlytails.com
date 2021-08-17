@@ -46,21 +46,21 @@
 		}
 
 		&-card {
-			line-height: 1.5;
 			margin: 1rem;
 			padding: .7rem .9rem;
 			border: vars.$accent .25rem outset;
 			border-radius: .4rem;
+			line-height: 1.5;
 
 			&-title {
-				font-size: 1.8rem;
 				margin: 0;
+				font-size: 1.8rem;
 				color: vars.$accent;
 			}
 
 			&-author {
-				font-weight: 700;
 				margin-right: .5rem;
+				font-weight: 700;
 			}
 
 			&-date {
@@ -72,9 +72,9 @@
 			}
 
 			&-description {
-				overflow: hidden;
 				max-width: 40ch;
 				text-overflow: ellipsis;
+				overflow: hidden;
 
 				.post-read-more {
 					margin-left: .2rem;

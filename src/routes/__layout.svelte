@@ -36,16 +36,16 @@
 
 	#page {
 		@include mixins.center;
-		font-size: 1.1rem;
 		min-height: 100vh;
-		transition: all 0.5s ease;
+		background: vars.$dark-color;
+		font-size: 1.1rem;
 		color: vars.$light-color;
 
-		background: vars.$dark-color;
+		transition: all 0.5s ease;
 
 		&.isLight {
-			color: vars.$dark-color;
 			background: vars.$light-color;
+			color: vars.$dark-color;
 		}
 	}
 
