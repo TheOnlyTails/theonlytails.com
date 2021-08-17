@@ -41,7 +41,7 @@
 	.post {
 		&s {
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(4, fit-content(100%));
 			grid-gap: 1em;
 		}
 
@@ -54,8 +54,8 @@
 
 			&-title {
 				margin: 0;
-				font-size: 1.8rem;
 				color: vars.$accent;
+				font-size: 1.8rem;
 			}
 
 			&-author {
