@@ -1,8 +1,10 @@
 body {
+  box-sizing: border-box;
   min-width: fit-content;
   margin: auto auto;
   font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
   scroll-behavior: smooth;
+  accent-color: #f8630d;
 }
 
 hr {
@@ -13,19 +15,20 @@ hr {
   color: #f8630d;
 }
 
-::-webkit-scrollbar-track {
-  background-color: #2b2b2b;
-}
-
 ::-webkit-scrollbar {
   width: 0.75rem;
   height: 0.75rem;
-  background-color: #2b2b2b;
 }
-
+::-webkit-scrollbar-track {
+  border-radius: 1rem;
+  background: #121212;
+}
 ::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  background-color: #f8630d;
+  background: #f8630d;
+}
+::-webkit-scrollbar-corner {
+  background: #2b2b2b;
 }
 
 /*# sourceMappingURL=style.css.map */

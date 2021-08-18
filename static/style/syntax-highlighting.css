@@ -3,8 +3,9 @@ pre.language-kt {
   border: 0.25rem solid #5e5e5e;
   border-radius: 1rem;
   background: #454545;
-  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
   color: #d9d9d9;
+  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+  overflow: auto;
 }
 
 code.language-kt .token.keyword {

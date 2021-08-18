@@ -2,10 +2,12 @@
 
 // styles the main page
 body {
+	box-sizing: border-box;
 	min-width: fit-content;
 	margin: auto auto;
 	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
 	scroll-behavior: smooth;
+	accent-color: vars.$accent;
 }
 
 hr {
@@ -18,17 +20,21 @@ hr {
 	color: vars.$accent;
 }
 
-::-webkit-scrollbar-track {
-	background-color: vars.$dark-color;
-}
-
 ::-webkit-scrollbar {
 	width: 0.75rem;
 	height: 0.75rem;
-	background-color: vars.$dark-color;
-}
 
-::-webkit-scrollbar-thumb {
-	border-radius: 1rem;
-	background-color: vars.$accent;
+	&-track {
+		border-radius: 1rem;
+		background: darken(vars.$dark-color, 10%);
+	}
+
+	&-thumb {
+		border-radius: 1rem;
+		background: vars.$accent;
+	}
+
+	&-corner {
+		background: vars.$dark-color;
+	}
 }

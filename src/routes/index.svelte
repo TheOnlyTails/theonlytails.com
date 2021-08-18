@@ -53,7 +53,7 @@
 
 	// Styles the projects div
 	#projects {
-		@include mixins.center(1rem);
+		@include mixins.center;
 		grid-row-gap: 0;
 		max-width: 50%;
 		margin: 0.1em;

@@ -115,8 +115,8 @@
 	}
 
 	main {
-		padding-left: 1rem;
-		overflow-wrap: anywhere;
+		padding: 0 1rem;
+		overflow: auto;
 
 		.post-info {
 			display: flex;
