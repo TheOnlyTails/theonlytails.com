@@ -24,9 +24,14 @@
 	h1 {
 		margin-top: 0;
 		margin-bottom: 0;
+		color: vars.$light-color;
+
+		&.isLight {
+			color: vars.$dark-color
+		}
 
 		a {
-			color: vars.$light-color;
+			color: currentColor;
 			font: {
 				weight: bold;
 			}
@@ -34,10 +39,6 @@
 
 			&:link, &:hover, &:active, &:visited {
 				text-decoration: none;
-			}
-
-			&.isLight {
-				color: vars.$dark-color
 			}
 		}
 

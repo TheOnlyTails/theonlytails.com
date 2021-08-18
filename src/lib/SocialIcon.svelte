@@ -20,8 +20,8 @@
 			margin: 0.5em;
 
 			&:hover {
-				text-decoration: none;
 				background-color: transparent;
+				text-decoration: none;
 			}
 		}
 
@@ -32,10 +32,12 @@
 
 			&.invertDark { filter: invert(100%) }
 
-			&.social {
-				transition: transform 0.2s;
+			@media (prefers-reduced-motion: no-preference) {
+				&.social {
+					transition: transform 0.2s;
 
-				&:hover { transform: scale(0.76) }
+					&:hover { transform: scale(0.76) }
+				}
 			}
 		}
 	}

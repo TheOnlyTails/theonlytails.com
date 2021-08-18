@@ -2,7 +2,7 @@
 	import type { Load } from "@sveltejs/kit"
 
 	export const load: Load = async ({ page, fetch }) => {
-		const getSlugFromPath = (path: string) => path.replace(/(^.\/blog\/)/, "").replace(/(.svx$)/g, "")
+		const getSlugFromPath = (path: string) => path.match(/(?<=\.\/blog\/)([\w-]+)(?=\.svx)/i)[0]
 
 		if (page.path.replace(/(\/$)/, "") === "/blog") return {
 			props: {
@@ -11,11 +11,8 @@
 		}
 
 		const posts: BlogPost[] = await fetch("/posts.json").then(r => r.json())
-		console.log(posts)
 		const slug = getSlugFromPath(posts.find(post => getSlugFromPath(post.path)).path)
-		console.log(slug)
 		const post: PostData = await fetch(`/blog/${ slug }.json`).then(r => r.json())
-		console.log(post)
 
 		return {
 			props: {

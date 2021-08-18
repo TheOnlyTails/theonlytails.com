@@ -1,10 +1,15 @@
 a {
-  font-weight: bold;
   color: #f8630d;
+  font-weight: bold;
   transition: text-decoration-color 300ms;
 }
 a:link, a:visited {
   text-decoration: underline transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  a:link, a:visited {
+    text-decoration-color: currentColor;
+  }
 }
 a:hover, a:active {
   text-decoration-color: currentColor;
