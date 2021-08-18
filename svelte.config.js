@@ -2,7 +2,7 @@ import { mdsvex } from "mdsvex"
 import sveltePreprocess from "svelte-preprocess"
 import vercel from "@sveltejs/adapter-vercel"
 import remarkA11yEmoji from "@fec/remark-a11y-emoji"
-import remarkAutolinkHeadings from "remark-autolink-headings"
+import remarkSlug from "remark-slug"
 import remarkGfm from "remark-gfm"
 import remarkHint from "remark-hint"
 import autoprefixer from "autoprefixer"
@@ -30,7 +30,7 @@ const config = {
         dashes: "oldschool",
       },
 
-      remarkPlugins: [remarkA11yEmoji, remarkAutolinkHeadings, remarkGfm, remarkHint],
+      remarkPlugins: [remarkA11yEmoji, remarkSlug, remarkGfm, remarkHint],
     }),
   ],
 
