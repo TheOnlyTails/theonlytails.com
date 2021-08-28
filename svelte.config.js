@@ -28,6 +28,7 @@ const config = {
 
       smartypants: {
         dashes: "oldschool",
+        quotes: false,
       },
 
       remarkPlugins: [remarkA11yEmoji, remarkSlug, remarkGfm, remarkHint],

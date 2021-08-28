@@ -5,7 +5,8 @@ body {
 	box-sizing: border-box;
 	min-width: fit-content;
 	margin: auto auto;
-	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+	font-family: vars.$font-family;
+	font-size: 1rem;
 	scroll-behavior: smooth;
 	accent-color: vars.$accent;
 }
@@ -23,6 +24,7 @@ hr {
 ::-webkit-scrollbar {
 	width: 0.75rem;
 	height: 0.75rem;
+	background: darken(vars.$dark-color, 10%);
 
 	&-track {
 		border-radius: 1rem;

@@ -1,28 +1,110 @@
 @use "vars";
 
-$code-color: hsl(0, 0%, 85%);
-$code-block-bg: lighten(vars.$dark-color, 10%);
+/* PrismJS 1.24.1
+https://prismjs.com/download.html#themes=prism-dark&languages=clike+bash+java+json+kotlin&plugins=line-numbers */
+/**
+ * prism.js Dark theme for JavaScript, CSS and HTML
+ * Based on the slides of the talk “/Reg(exp){2}lained/”
+ * @author Lea Verou
+ */
 
-pre.language-kt {
+$code-color: hsl(0, 0%, 85%);
+$code-block-bg: hsl(0, 0%, 27%);
+
+pre[class*="language-"] {
 	padding: .75rem;
 	border: .25rem solid lighten($code-block-bg, 10%);
 	border-radius: 1rem;
 	background: $code-block-bg;
 	color: $code-color;
 	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+
+	tab-size: 2;
+	hyphens: none;
 	overflow: auto;
 }
 
-code.language-kt {
-	.token {
-		&.keyword { color: hsl(27, 61%, 50%) }
+.token {
+	&.comment,
+	&.prolog,
+	&.cdata {
+		color: lighten(grey, 20%);
+	}
 
-		&.number { color: hsl(206, 38%, 57%) }
+	&.delimiter,
+	&.boolean,
+	&.keyword,
+	&.selector,
+	&.important,
+	&.atrule {
+		color: hsl(27, 61%, 50%);
+	}
 
-		&.function { color: hsl(37, 100%, 71%) }
+	&.operator,
+	&.punctuation,
+	&.attr-name {
+		color: hsl(211, 20%, 72%);
+	}
 
-		&.punctuation { color: hsl(27, 61%, 50%) }
+	&.tag,
+	&.tag .punctuation,
+	&.doctype,
+	&.builtin {
+		color: hsl(40, 73%, 66%);
+	}
 
-		&.comment { color: lighten(grey, 20%) }
+	&.entity,
+	&.number,
+	&.symbol {
+		color: hsl(206, 38%, 57%);
+	}
+
+	&.property,
+	&.constant,
+	&.variable {
+		color: hsl(279, 23%, 56%);
+	}
+
+	&.string,
+	&.char {
+		color: hsl(98, 21%, 44%);
+	}
+
+	&.attr-value,
+	&.attr-value .punctuation {
+		color: hsl(78, 44%, 57%);
+	}
+
+	&.attr-value .punctuation:first-child {
+		color: hsl(211, 20%, 72%);
+	}
+
+	&.url {
+		color: hsl(213, 73%, 51%);
+		text-decoration: underline;
+	}
+
+	&.function {
+		color: hsl(37, 100%, 71%);
+	}
+
+	&.regex {
+		background: hsl(115, 10%, 23%);
+	}
+
+	&.bold {
+		font-weight: bold;
+	}
+
+	&.italic {
+		font-style: italic;
+	}
+
+	&.inserted {
+		background: hsl(149, 25%, 21%);
+	}
+
+	&.deleted {
+		background: hsl(180, 1%, 29%);
 	}
 }

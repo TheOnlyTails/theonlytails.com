@@ -70,8 +70,8 @@ A beautiful version of loot tables, all type-safe, made in pure Kotlin code.
 ## BlockModels
 
 [BlockModels](https://github.com/theonlytails/blockmodels) came around about the same way as LootTables - only this time
-I was experienced. I've _"borrowed"_ my old code, and was ready to create another rendition of Kotlin DSLs for Minecraft
-data generation.
+I was. I've _"borrowed"_ my old code, and was ready to create another rendition of Kotlin DSLs for Minecraft data
+generation.
 
 After about a week of work, I've learned some lessons:
 
