@@ -21,7 +21,7 @@
 		"@fec/remark-a11y-emoji": "^3.1.0",
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
-		"autoprefixer": "^10.3.3",
+		"autoprefixer": "^10.3.4",
 		"mdsvex": "^0.9.8",
 		"prettier": "^2.3.2",
 		"prettier-plugin-svelte": "^2.4.0",
