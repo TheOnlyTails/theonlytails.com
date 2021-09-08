@@ -36,17 +36,10 @@
 
 	#page {
 		@include mixins.center;
+
 		min-height: 100vh;
-		background: vars.$dark-color;
-		color: vars.$light-color;
 		font-size: 1.1rem;
-
 		transition: all 0.5s ease;
-
-		&.isLight {
-			background: vars.$light-color;
-			color: vars.$dark-color;
-		}
 	}
 
 	header.title {

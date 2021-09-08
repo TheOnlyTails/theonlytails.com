@@ -90,19 +90,12 @@
 		display: grid;
 		grid-template-rows: 0fr 1fr min-content;
 		max-width: 50%;
-		background: vars.$dark-color;
-		color: vars.$light-color;
 		font-size: 1.13em;
 		transition: all 0.5s ease;
 
 		min: {
 			width: 100%;
 			height: 100vh;
-		}
-
-		&.isLight {
-			background: vars.$light-color;
-			color: vars.$dark-color;
 		}
 	}
 
