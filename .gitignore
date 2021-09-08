@@ -3,6 +3,7 @@ node_modules
 /.svelte-kit
 /package
 /.idea
+/.vercel
 
 .sass-cache/
 *.css.map

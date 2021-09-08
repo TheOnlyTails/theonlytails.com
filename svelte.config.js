@@ -5,6 +5,9 @@ import remarkA11yEmoji from "@fec/remark-a11y-emoji"
 import remarkSlug from "remark-slug"
 import remarkGfm from "remark-gfm"
 import remarkHint from "remark-hint"
+import remarkGithub from "remark-github"
+import remarkGemoji from "remark-gemoji"
+import rehypeExternalLinks from "rehype-external-links"
 import autoprefixer from "autoprefixer"
 
 /** @type {import("@sveltejs/kit").Config} */
@@ -31,7 +34,22 @@ const config = {
         quotes: false,
       },
 
-      remarkPlugins: [remarkA11yEmoji, remarkSlug, remarkGfm, remarkHint],
+      remarkPlugins: [
+        remarkA11yEmoji,
+        remarkSlug,
+        remarkGfm,
+        remarkHint,
+        remarkGithub,
+        remarkGemoji,
+      ],
+      rehypePlugins: [
+        [
+          rehypeExternalLinks,
+          {
+            target: "_blank",
+          },
+        ],
+      ],
     }),
   ],
 

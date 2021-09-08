@@ -1,7 +1,7 @@
 ---
-slug: data-generators
+slug: data-goblin
 
-title: The Story of DataGenerators
+title: The Story of DataGoblin
 
 author: Tails
 
@@ -31,18 +31,18 @@ TL;DR of those 3 features, respectively:
 - Lambdas with receivers use their receiver type as the type of `this`, scoped inside the lambda.
 - If the last parameter of a function is a lambda, it can be moved outside the parenthesis, for a conciser syntax.
 
-## What does DataGenerators _actually_ do?
+## What does DataGoblin _actually_ do?
 
-DataGenerators isn't a project on its own, but a collection of Kotlin DSLs (all of which can be installed separately)
+DataGoblin isn't a project on its own, but a collection of Kotlin DSLs (all of which can be installed separately)
 made to create idiomatic Kotlin code for [MinecraftForge](https://github.com/MinecraftForge/MinecraftForge) datagen.
 
-As for the time of writing (will be updated in the future), DataGenerators has 2 DSLs: LootTables and BlockModels.
+As for the time of writing (will be updated in the future), DataGoblin has 2 DSLs: LootGoblin and ModelGoblin.
 
 ---
 
-## LootTables
+## LootGoblin
 
-[LootTables](https://github.com/theonlytails/loottables) was the first DSL I created, and it (as the name suggests)
+[LootGoblin](https://github.com/theonlytails/LootGoblin) was the first DSL I created, and it (as the name suggests)
 creates loot tables. Loot tables were the perfect candidate to make a Kotlin DSL for - the internal system used to
 create them normally is already very similar to their JSON counterparts, and a Kotlin DSL would help bridge that gap
 even further.
@@ -67,9 +67,9 @@ lootTable(LootParameterSets.BLOCK) {
 
 A beautiful version of loot tables, all type-safe, made in pure Kotlin code.
 
-## BlockModels
+## ModelGoblin
 
-[BlockModels](https://github.com/theonlytails/blockmodels) came around about the same way as LootTables - only this time
+[ModelGoblin](https://github.com/theonlytails/ModelGoblin) came around about the same way as LootGoblin - only this time
 I was. I've _"borrowed"_ my old code, and was ready to create another rendition of Kotlin DSLs for Minecraft data
 generation.
 
@@ -89,6 +89,7 @@ I'll probably get around to making DSLs for all kinds of data gen:
 - Recipes
 - Item Models
 - World Generation (Dimensions, Dimension types, Biomes, etc.)
+- Entity Models, using @SizableShrimp's [EntityModelJson](https://github.com/sizableshrimp/entitymodeljson) library
 - etc...
 
 But for now, this is not too bad.

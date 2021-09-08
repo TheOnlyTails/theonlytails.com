@@ -6,8 +6,8 @@
 
 	const projects: Project[] = [
 		{
-			name: "DataGenerators",
-			href: "/blog/data-generators",
+			name: "DataGoblin",
+			href: "/blog/data-goblin",
 			description: `A group of Kotlin DSLs aimed at creating Minecraft assets using code while sticking to the familiar JSON structure.`
 		},
 		{

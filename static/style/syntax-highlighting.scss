@@ -17,8 +17,7 @@ pre[class*="language-"] {
 	border-radius: 1rem;
 	background: $code-block-bg;
 	color: $code-color;
-	font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
-
+	font-size: 1rem;
 	tab-size: 2;
 	hyphens: none;
 	overflow: auto;

@@ -12,7 +12,7 @@ pre[class*=language-] {
   border-radius: 1rem;
   background: #454545;
   color: #d9d9d9;
-  font-family: jetbrains-mono, "Consolas", "Fira Code", monospace;
+  font-size: 1rem;
   tab-size: 2;
   hyphens: none;
   overflow: auto;

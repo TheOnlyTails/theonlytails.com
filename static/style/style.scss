@@ -1,8 +1,9 @@
 @use "vars";
 
+*, *::before, *::after { box-sizing: border-box }
+
 // styles the main page
 body {
-	box-sizing: border-box;
 	min-width: fit-content;
 	margin: auto auto;
 	font-family: vars.$font-family;
