@@ -8,5 +8,5 @@ export const persistStore = <T>(key: string, initial: T) => {
     store.subscribe((value) => localStorage.setItem(key, String(value)))
 
     return store
-  } else throw Error("Cannot use local storage without browsers!")
+  }
 }
