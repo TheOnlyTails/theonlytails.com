@@ -1,7 +1,22 @@
-/// centers an element using CSS grid
+@use "vars";
+
+// centers an element using CSS grid
 @mixin center($row-gap: .75rem) {
 	display: grid;
 	place-items: center;
 	align-content: space-evenly;
 	grid-row-gap: $row-gap;
+}
+
+@mixin page {
+	transition: all 0.5s ease;
+	min-height: 100vh;
+}
+
+@mixin accent-border($outset: false) {
+	@if $outset {
+		border: .2em outset vars.$accent;
+	} @else {
+		border: .25rem solid vars.$accent;
+	}
 }
