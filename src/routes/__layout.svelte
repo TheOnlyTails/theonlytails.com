@@ -36,8 +36,8 @@
 
 	#page {
 		@include mixins.center;
+		@include mixins.page;
 
-		min-height: 100vh;
 		font-size: 1.1rem;
 		transition: all 0.5s ease;
 	}

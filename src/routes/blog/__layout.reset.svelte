@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
 	import type { Load } from "@sveltejs/kit"
 
+	// noinspection JSUnusedGlobalSymbols
 	export const load: Load = async ({ page, fetch }) => {
 		const getSlugFromPath = (path: string) => path.match(/(?<=\.\/blog\/)([\w-]+)(?=\.svx)/i)[0]
 
@@ -26,13 +27,13 @@
 	import { isDark } from "$lib/data/theme"
 	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
 	import Title from "$lib/Title.svelte"
-	import { onMount } from "svelte"
+	import { setContext } from "svelte"
+	import { persistStore } from "$lib/data/persistStore"
 
 	export let metadata: PostData
 
-	onMount(() => {
-		console.log(metadata)
-	})
+	export let searchQuery = persistStore("searchQuery", "")
+	setContext("searchQuery", searchQuery)
 </script>
 
 <svelte:head>
@@ -65,11 +66,21 @@
 </svelte:head>
 
 <div class:isLight={!$isDark} id="page">
-	<header class="header title">
-		<Title blogLink fontSize={1.2} logoSize={36}/>
-	</header>
+	<div>
+		<nav class="navbar">
+			<header class="header title">
+				<Title blogLink={!!metadata} fontSize={1.2} logoSize={36}/>
+			</header>
 
-	<main>
+			{#if !metadata}
+				<input class:isLight={!$isDark} id="search-bar" bind:value={$searchQuery} type="text"
+				       placeholder="Search for articles...">
+			{/if}
+		</nav>
+		<hr/>
+	</div>
+
+	<main let:searchQuery>
 		{#if metadata}
 			<h1>{metadata.title}</h1>
 			<div class="post-info">
@@ -85,43 +96,55 @@
 
 <style lang="scss">
 	@use "static/style/vars";
+	@use "static/style/mixins";
+	@use "static/style/SearchBar";
 
 	#page {
+		@include mixins.page;
+
 		display: grid;
 		grid-template-rows: 0fr 1fr min-content;
+		min-width: 100%;
 		max-width: 50%;
 		font-size: 1.13em;
-		transition: all 0.5s ease;
 
-		min: {
-			width: 100%;
-			height: 100vh;
-		}
-	}
-
-	header.title {
-		margin: {
-			top: 1.5rem;
-			left: 1em;
-		}
-		vertical-align: center;
-	}
-
-	main {
-		padding: 0 1rem;
-		overflow: auto;
-
-		.post-info {
+		.navbar {
 			display: flex;
-			gap: .75rem;
+			gap: 1rem;
 
-			.post-date, .post-author {
-				max-width: fit-content;
-				padding: .5rem;
-				border: .2em outset vars.$accent;
-				border-radius: .4rem;
-				color: vars.$accent;
-				font-size: 1rem;
+			header.title {
+				margin: {
+					top: 1.5rem;
+					left: 1em;
+				}
+			}
+		}
+
+		hr {
+			@include mixins.accent-border;
+
+			margin: 1em;
+			border-radius: 1rem;
+			color: vars.$accent;
+		}
+
+		main {
+			padding: 0 1rem;
+			overflow: auto;
+
+			.post-info {
+				display: flex;
+				gap: .75rem;
+
+				.post-date, .post-author {
+					@include mixins.accent-border($outset: true);
+
+					max-width: fit-content;
+					padding: .5rem;
+					border-radius: .4rem;
+					color: vars.$accent;
+					font-size: 1rem;
+				}
 			}
 		}
 	}

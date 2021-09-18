@@ -13,8 +13,6 @@
 	<a href="/">TheOnlyTails</a>
 	{#if blogLink}
 		<BlogButton/>
-
-		<hr/>
 	{/if}
 </h1>
 
@@ -22,34 +20,17 @@
 	@use "static/style/vars";
 
 	h1 {
-		margin-top: 0;
-		margin-bottom: 0;
 		color: vars.$light-color;
+		margin-block: 0;
 
-		&.isLight {
-			color: vars.$dark-color
-		}
+		&.isLight { color: vars.$dark-color }
 
 		a {
 			color: currentColor;
-			font: {
-				weight: bold;
-			}
+			font-weight: bold;
 			vertical-align: middle;
 
-			&:link, &:hover, &:active, &:visited {
-				text-decoration: none;
-			}
-		}
-
-		hr {
-			margin: {
-				top: 1em;
-				right: 1.5em;
-			}
-			border: .25rem solid vars.$accent;
-			border-radius: 1rem;
-			color: vars.$accent;
+			&:link, &:hover, &:active, &:visited { text-decoration: none }
 		}
 	}
 </style>
