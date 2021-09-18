@@ -97,7 +97,6 @@
 <style lang="scss">
 	@use "static/style/vars";
 	@use "static/style/mixins";
-	@use "static/style/SearchBar";
 
 	#page {
 		@include mixins.page;
@@ -116,6 +115,32 @@
 				margin: {
 					top: 1.5rem;
 					left: 1em;
+				}
+			}
+
+			#search-bar {
+				@include mixins.accent-border($outset: true);
+
+				justify-self: end;
+				margin-top: 1.5rem;
+				padding: .5rem;
+				background: inherit;
+				color: vars.$light-color;
+				font: {
+					family: vars.$font-family;
+					weight: 500;
+				}
+				margin-inline: auto 1rem;
+
+				&.isLight { color: inherit }
+
+				&:focus-visible {
+					outline: none;
+					box-shadow: 2.5px 2.5px 7.5px 0 #f70;
+				}
+
+				@media (prefers-reduced-motion: no-preference) {
+					transition: box-shadow .25s ease-in-out;
 				}
 			}
 		}

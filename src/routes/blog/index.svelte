@@ -22,7 +22,7 @@
 			.replace(/[\s]+/gi, "")
 			.toLowerCase()
 			.includes(
-					$searchQuery
+					($searchQuery ?? "")
 							.trim()
 							.replace(/[\s]+/gi, "")
 							.toLowerCase()
