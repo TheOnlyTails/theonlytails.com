@@ -29,38 +29,27 @@
 	import Title from "$lib/Title.svelte"
 	import { setContext } from "svelte"
 	import { persistStore } from "$lib/data/persistStore"
+	import Metadata from "$lib/Metadata.svelte"
 
-	export let metadata: PostData
+	export let postMetadata: PostData
 
 	export let searchQuery = persistStore("searchQuery", "")
 	setContext("searchQuery", searchQuery)
 </script>
 
 <svelte:head>
-	{#if metadata}
-		<title>TheOnlyTails &bullet; {metadata.title}</title>
+	{#if !postMetadata}
+		<Metadata
+				title="TheOnlyTails • Blog"
+				description="metadata.description"
+		/>
 	{:else}
-		<title>TheOnlyTails &bullet; Blog Posts</title>
-	{/if}
-
-	{#if metadata}
-		<meta content="TheOnlyTails • {metadata.title}" name="og:title"/>
-		<meta content={metadata.description} name="description"/>
-		<meta content={metadata.description} name="og:description"/>
-	{:else}
-		<meta content="TheOnlyTails • Blog Posts" name="og:title"/>
+		<Metadata
+				title="TheOnlyTails • Blog"
+				description="TheOnlyTails' blog about all kinds of programming stuff"
+		/>
 	{/if}
 	<meta content="blog" name="og:type"/>
-	<meta content="https://www.theonlytails.com/icons/logo.png" name="og:image"/>
-
-	{#if metadata}
-		<meta content="TheOnlyTails • {metadata.title}" name="twitter:title"/>
-		<meta content={metadata.description} name="twitter:description"/>
-	{:else}
-		<meta content="TheOnlyTails • Blog Posts" name="twitter:title"/>
-	{/if}
-	<meta content="https://www.theonlytails.com/icons/logo.png" name="twitter:image"/>
-	<meta content="@the_only_tails" name="twitter:creator"/>
 
 	<link href="/style/syntax-highlighting.css" rel="stylesheet">
 </svelte:head>
@@ -69,10 +58,10 @@
 	<div>
 		<nav class="navbar">
 			<header class="header title">
-				<Title blogLink={!!metadata} fontSize={1.2} logoSize={36}/>
+				<Title blogLink={!!postMetadata} fontSize={1.2} logoSize={36}/>
 			</header>
 
-			{#if !metadata}
+			{#if !postMetadata}
 				<input class:isLight={!$isDark} id="search-bar" bind:value={$searchQuery} type="text"
 				       placeholder="Search for articles...">
 			{/if}
@@ -81,11 +70,11 @@
 	</div>
 
 	<main let:searchQuery>
-		{#if metadata}
-			<h1>{metadata.title}</h1>
+		{#if postMetadata}
+			<h1>{postMetadata.title}</h1>
 			<div class="post-info">
-				<p class="post-author" title="Author: {metadata.author}">Written by: {metadata.author}</p>
-				<p class="post-date" title="Publication Date: {metadata.date}">Published at: {metadata.date}</p>
+				<p class="post-author" title="Author: {postMetadata.author}">Written by: {postMetadata.author}</p>
+				<p class="post-date" title="Publication Date: {postMetadata.date}">Published at: {postMetadata.date}</p>
 			</div>
 		{/if}
 		<slot/>

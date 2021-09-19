@@ -2,20 +2,14 @@
 	import { isDark } from "$lib/data/theme"
 	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
 	import Title from "$lib/Title.svelte"
+	import Metadata from "$lib/Metadata.svelte"
 </script>
 
 <svelte:head>
-	<title>TheOnlyTails &bullet; Personal Website</title>
-	<meta content="TheOnlyTails" name="og:title">
-	<meta content="TheOnlyTails • Personal Website" name="description">
-	<meta content="TheOnlyTails • Personal Website" name="og:description">
-	<meta content="https://www.theonlytails.com/icons/logo.png" name="og:image">
-	<meta content="website" name="og:type"/>
-	<meta content="https://www.theonlytails.com" name="og:url">
-
-	<meta content="TheOnlyTails • Personal Website" name="twitter:title"/>
-	<meta content="https://www.theonlytails.com/icons/logo.png" name="twitter:image"/>
-	<meta content="@the_only_tails" name="twitter:creator"/>
+	<Metadata
+			description="TheOnlyTails' personal site and portfolio with all kinds of programming stuff."
+			title="TheOnlyTails"
+	/>
 </svelte:head>
 
 <div class:isLight="{!$isDark}" id="page">
