@@ -20,8 +20,10 @@
 	@use "static/style/vars";
 
 	h1 {
+		margin-block: .5rem .5rem;
 		color: vars.$light-color;
-		margin-block: 0;
+
+		@media screen and (max-width: 470px) { margin-inline-start: auto }
 
 		&.isLight { color: vars.$dark-color }
 
