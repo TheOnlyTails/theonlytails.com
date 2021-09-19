@@ -109,11 +109,12 @@
 
 		.navbar {
 			display: flex;
+			align-items: baseline;
 			gap: 1rem;
 
 			header.title {
 				margin: {
-					top: 1.5rem;
+					top: 1em;
 					left: 1em;
 				}
 			}
@@ -123,14 +124,15 @@
 
 				justify-self: end;
 				margin-top: 1.5rem;
+				margin-inline: auto 1rem;
 				padding: .5rem;
 				background: inherit;
 				color: vars.$light-color;
 				font: {
 					family: vars.$font-family;
 					weight: 500;
+					size: .75em;
 				}
-				margin-inline: auto 1rem;
 
 				&.isLight { color: inherit }
 

@@ -18,5 +18,7 @@
 		user-select: none;
 		aspect-ratio: 1 / 1;
 		-webkit-user-drag: none;
+
+		@media screen and (max-width: 470px) { display: none }
 	}
 </style>
