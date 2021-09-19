@@ -7,7 +7,7 @@
 
 		if (page.path.replace(/(\/$)/, "") === "/blog") return {
 			props: {
-				metadata: null
+				postMetadata: null
 			}
 		}
 
@@ -17,7 +17,7 @@
 
 		return {
 			props: {
-				metadata: post
+				postMetadata: post
 			}
 		}
 	}
