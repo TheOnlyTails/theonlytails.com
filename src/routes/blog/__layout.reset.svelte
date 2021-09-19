@@ -38,10 +38,10 @@
 </script>
 
 <svelte:head>
-	{#if !postMetadata}
+	{#if postMetadata}
 		<Metadata
-				title="TheOnlyTails • Blog"
-				description="metadata.description"
+				title="TheOnlyTails • {postMetadata.title}"
+				description={postMetadata.description}
 		/>
 	{:else}
 		<Metadata
