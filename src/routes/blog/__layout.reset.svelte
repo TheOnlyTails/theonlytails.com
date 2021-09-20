@@ -17,7 +17,7 @@
 
 		return {
 			props: {
-				postMetadata: post
+				postMetadata: post,
 			}
 		}
 	}
@@ -27,14 +27,19 @@
 	import { isDark } from "$lib/data/theme"
 	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
 	import Title from "$lib/Title.svelte"
-	import { setContext } from "svelte"
+	import { getContext, onMount, setContext } from "svelte"
 	import { persistStore } from "$lib/data/persistStore"
 	import Metadata from "$lib/Metadata.svelte"
 
 	export let postMetadata: PostData
+	let posts: BlogPost[] = []
 
 	export let searchQuery = persistStore("searchQuery", "")
 	setContext("searchQuery", searchQuery)
+
+	onMount(async () => {
+		posts = await fetch("/posts.json").then(r => r.json())
+	})
 </script>
 
 <svelte:head>
@@ -63,7 +68,12 @@
 
 			{#if !postMetadata}
 				<input class:isLight={!$isDark} id="search-bar" bind:value={$searchQuery} type="text"
-				       placeholder="Search for articles...">
+				       placeholder="Search for articles..." list="search-post-options">
+				<datalist id="search-post-options">
+					{#each (posts.map(item => item.metadata.title)) as postName}
+						<option value={postName}></option>
+					{/each}
+				</datalist>
 			{/if}
 		</nav>
 		<hr/>
@@ -133,6 +143,8 @@
 				@media (prefers-reduced-motion: no-preference) {
 					transition: box-shadow .25s ease-in-out;
 				}
+
+				&::-webkit-calendar-picker-indicator { display: none !important } // remove the dropdown arrow
 			}
 		}
 

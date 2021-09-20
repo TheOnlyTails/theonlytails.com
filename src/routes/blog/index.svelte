@@ -10,10 +10,10 @@
 
 <script lang="ts">
 	import { isDark } from "$lib/data/theme"
-	import { getContext } from "svelte"
+	import { getContext, setContext } from "svelte"
 	import type { Writable } from "svelte/store"
 
-	export let posts: BlogPost[]
+	export let posts: BlogPost[] = []
 
 	const searchQuery: Writable<string> = getContext("searchQuery")
 
