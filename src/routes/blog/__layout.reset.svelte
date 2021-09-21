@@ -79,16 +79,17 @@
 		<hr/>
 	</div>
 
-	<main let:searchQuery>
-		{#if postMetadata}
+	{#if postMetadata}
+		<article let:searchQuery>
 			<h1>{postMetadata.title}</h1>
 			<div class="post-info">
 				<p class="post-author" title="Author: {postMetadata.author}">Written by: {postMetadata.author}</p>
 				<p class="post-date" title="Publication Date: {postMetadata.date}">Published at: {postMetadata.date}</p>
 			</div>
-		{/if}
+		</article>
+	{:else}
 		<slot/>
-	</main>
+	{/if}
 
 	<ThemeSwitch/>
 </div>
