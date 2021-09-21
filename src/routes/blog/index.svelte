@@ -37,7 +37,7 @@
 
 <div class="posts">
 	{#each ($searchQuery === "" ? posts : filteredPosts) as {path, metadata} (metadata.slug)}
-		<article class="post-card">
+		<card class="post-card">
 			<h2 class="post-card-title" class:isLight={!$isDark}>
 				<a class="post-card-title" href="/blog/{metadata.slug}">{metadata.title}</a>
 			</h2>
@@ -48,7 +48,7 @@
 			<p class="post-card-description">{metadata.description} <a class="post-read-more" href="/blog/{metadata.slug}">Read
 				More
 				&rightarrow;</a></p>
-		</article>
+		</card>
 	{/each}
 </div>
 

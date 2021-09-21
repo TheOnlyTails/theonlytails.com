@@ -1,7 +1,7 @@
 import { dev } from "$app/env"
 
 const getPosts = async () => {
-  const allPosts = import.meta.glob("./*.svx")
+  const allPosts = import.meta.glob("./*.md")
   let blog = []
   for (let path in allPosts) {
     blog.push(allPosts[path]().then(({ metadata }) => ({ path, metadata })))

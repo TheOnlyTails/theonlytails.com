@@ -3,7 +3,7 @@
 
 	// noinspection JSUnusedGlobalSymbols
 	export const load: Load = async ({ page, fetch }) => {
-		const getSlugFromPath = (path: string) => path.match(/(?<=\.\/blog\/)([\w-]+)(?=\.svx)/i)[0]
+		const getSlugFromPath = (path: string) => path.match(/(?<=\.\/blog\/)([\w-]+)(?=\.md)/i)[0]
 
 		if (page.path.replace(/(\/$)/, "") === "/blog") return {
 			props: {
@@ -27,7 +27,7 @@
 	import { isDark } from "$lib/data/theme"
 	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
 	import Title from "$lib/Title.svelte"
-	import { getContext, onMount, setContext } from "svelte"
+	import { onMount, setContext } from "svelte"
 	import { persistStore } from "$lib/data/persistStore"
 	import Metadata from "$lib/Metadata.svelte"
 
@@ -86,9 +86,22 @@
 				<p class="post-author" title="Author: {postMetadata.author}">Written by: {postMetadata.author}</p>
 				<p class="post-date" title="Publication Date: {postMetadata.date}">Published at: {postMetadata.date}</p>
 			</div>
+			<slot/>
+
+			<footer class="footer">
+				<hr class="footer-divider"/>
+				<a class="article-source-link"
+				   href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.md"
+				   target="_blank"
+				>
+					View article source
+				</a>
+			</footer>
 		</article>
 	{:else}
-		<slot/>
+		<main>
+			<slot/>
+		</main>
 	{/if}
 
 	<ThemeSwitch/>
@@ -145,7 +158,8 @@
 					transition: box-shadow .25s ease-in-out;
 				}
 
-				&::-webkit-calendar-picker-indicator { display: none !important } // remove the dropdown arrow
+				// remove the dropdown arrow
+				&::-webkit-calendar-picker-indicator { display: none !important }
 			}
 		}
 
@@ -157,7 +171,7 @@
 			color: vars.$accent;
 		}
 
-		main {
+		main, article {
 			padding: 0 1rem;
 			overflow: auto;
 
@@ -176,5 +190,27 @@
 				}
 			}
 		}
+
+		.footer {
+			margin-bottom: 1rem;
+
+			&-divider {
+				margin: 2rem 1.5em 1em 0;
+				border-width: .15rem;
+			}
+
+			.article-source-link {
+				justify-content: center;
+				margin-inline-start: 1.25rem;
+
+				&:link, &:visited {
+					color: vars.$light-color;
+					font-size: .9rem;
+					transition: color .5s ease;
+				}
+			}
+		}
+
+		&.isLight .footer .article-source-link:is(:link, :visited) { color: vars.$dark-color }
 	}
 </style>

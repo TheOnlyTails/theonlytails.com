@@ -15,7 +15,7 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
 
-  extensions: [".svelte", ".svx"],
+  extensions: [".svelte", ".md"],
 
   preprocess: [
     sveltePreprocess({
@@ -27,7 +27,7 @@ const config = {
       },
     }),
     mdsvex({
-      extensions: [".svx"],
+      extensions: [".md"],
 
       smartypants: {
         dashes: "oldschool",
