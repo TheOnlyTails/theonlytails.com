@@ -36,7 +36,7 @@ TL;DR of those 3 features, respectively:
 DataGoblin isn't a project on its own, but a collection of Kotlin DSLs (all of which can be installed separately)
 made to create idiomatic Kotlin code for [MinecraftForge](https://github.com/MinecraftForge/MinecraftForge) datagen.
 
-As for the time of writing (will be updated in the future), DataGoblin has 2 DSLs: LootGoblin and ModelGoblin.
+!> As for the time of writing (will be updated in the future), DataGoblin has 2 DSLs: LootGoblin and ModelGoblin.
 
 ---
 

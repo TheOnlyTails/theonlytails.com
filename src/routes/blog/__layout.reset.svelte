@@ -110,6 +110,7 @@
 <style lang="scss">
 	@use "static/style/vars";
 	@use "static/style/mixins";
+	@use "static/style/markdown-hints";
 
 	#page {
 		@include mixins.page;
@@ -172,6 +173,8 @@
 		}
 
 		main, article {
+			@include markdown-hints.hints;
+
 			padding: 0 1rem;
 			overflow: auto;
 
@@ -211,6 +214,18 @@
 			}
 		}
 
-		&.isLight .footer .article-source-link:is(:link, :visited) { color: vars.$dark-color }
+		&:not(.isLight) {
+			main, article {
+				@include markdown-hints.hints;
+			}
+		}
+
+		&.isLight {
+			.footer .article-source-link:is(:link, :visited) { color: vars.$dark-color }
+
+			main, article {
+				@include markdown-hints.hints($is-light: true);
+			}
+		}
 	}
 </style>
