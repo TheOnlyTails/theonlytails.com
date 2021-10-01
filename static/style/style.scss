@@ -23,10 +23,9 @@ body {
 }
 
 hr {
-	margin: {
-		top: 1em;
-		right: 1.5em;
-	}
+	margin-block-start: 1em;
+	margin-block-start: 1em;
+	margin-inline-end: 1.5em;
 	border: .15rem solid vars.$accent;
 	border-radius: 1rem;
 	color: vars.$accent;

@@ -12,22 +12,21 @@ $error-color: hsl(0, 83%, 62%);
 			&.warn {
 				line-height: 1.6rem;
 				transition: background-color .5s ease;
+
 				@if not $is-light {
 					background: hsla(0, 0%, 7%, 0.5);
-					border-right: solid 4px hsla(0, 0%, 35%, 0.5);
-					border-bottom: solid 4px hsla(0, 0%, 35%, 0.5);
-					border-top: solid 4px hsla(0, 0%, 35%, 0.5);
+					border-inline-start: solid 4px hsla(0, 0%, 35%, 0.5);
+					border-block: solid 4px hsla(0, 0%, 35%, 0.5);
 				} @else {
 					background: hsla(0, 0%, 93%, 0.5);
-					border-right: solid 4px hsla(0, 0%, 65%, 0.5);
-					border-bottom: solid 4px hsla(0, 0%, 65%, 0.5);
-					border-top: solid 4px hsla(0, 0%, 65%, 0.5);
+					border-inline-start: solid 4px hsla(0, 0%, 65%, 0.5);
+					border-block: solid 4px hsla(0, 0%, 65%, 0.5);
 				}
-				border: {
-					left-style: solid;
-					left-width: 5px;
-					radius: 4px 1rem 1rem 4px;
-				};
+
+				border-inline-start-style: solid;
+				border-inline-start-width: 5px;
+				border-radius: 4px 1rem 1rem 4px;
+
 				padding: .5rem .5rem .5rem 1.5rem;
 				margin-block-end: 1rem;
 				position: relative;
@@ -50,7 +49,7 @@ $error-color: hsl(0, 83%, 62%);
 			}
 
 			&.tip {
-				border-left-color: $tip-color;
+				border-inline-start-color: $tip-color;
 
 				&:before {
 					content: "*";
@@ -59,7 +58,7 @@ $error-color: hsl(0, 83%, 62%);
 			}
 
 			&.warn {
-				border-left-color: $warn-color;
+				border-inline-start-color: $warn-color;
 
 				&:before {
 					content: "?";
@@ -68,7 +67,7 @@ $error-color: hsl(0, 83%, 62%);
 			}
 
 			&.error {
-				border-left-color: $error-color;
+				border-inline-start-color: $error-color;
 
 				&:before {
 					content: "!";

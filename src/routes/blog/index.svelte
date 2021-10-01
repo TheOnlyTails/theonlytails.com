@@ -10,7 +10,7 @@
 
 <script lang="ts">
 	import { isDark } from "$lib/data/theme"
-	import { getContext, setContext } from "svelte"
+	import { getContext } from "svelte"
 	import type { Writable } from "svelte/store"
 
 	export let posts: BlogPost[] = []
@@ -35,22 +35,24 @@
 	<meta content="TheOnlyTails' Blog, on all kinds of development stuff." name="description">
 </svelte:head>
 
-<div class="posts">
+<section class="posts">
 	{#each ($searchQuery === "" ? posts : filteredPosts) as {path, metadata} (metadata.slug)}
-		<card class="post-card">
+		<article class="post-card">
 			<h2 class="post-card-title" class:isLight={!$isDark}>
 				<a class="post-card-title" href="/blog/{metadata.slug}">{metadata.title}</a>
 			</h2>
-			<p>
+			<p class="post-card-info">
 				<span class="post-card-author">{metadata.author}</span>
-				<span class="post-card-date" class:isLight={!$isDark}>{metadata.date}</span>
+				<time class="post-card-date" datetime={metadata.date.replaceAll("/", "-")}
+				      class:isLight={!$isDark}>{metadata.date}</time>
 			</p>
-			<p class="post-card-description">{metadata.description} <a class="post-read-more" href="/blog/{metadata.slug}">Read
-				More
-				&rightarrow;</a></p>
-		</card>
+			<p class="post-card-description">
+				{metadata.description}
+				<a class="post-read-more" href="/blog/{metadata.slug}">Read More &longrightarrow;</a>
+			</p>
+		</article>
 	{/each}
-</div>
+</section>
 
 <style lang="scss">
 	@use "../../../static/style/vars";
@@ -58,7 +60,7 @@
 	.post {
 		&s {
 			display: grid;
-			grid-template-columns: repeat(4, fit-content(100%));
+			grid-template-columns: repeat(4, fit-content(35vw));
 			grid-gap: 1em;
 		}
 
@@ -76,9 +78,11 @@
 			}
 
 			&-author {
-				margin-right: .5rem;
+				margin-inline-end: .5rem;
 				font-weight: bold;
 			}
+
+			&-title, &-info { text-align: center }
 
 			&-date {
 				color: vars.$accent;
@@ -89,16 +93,9 @@
 				}
 			}
 
-			&-description {
-				max-width: 40ch;
-				text-overflow: ellipsis;
-				overflow: hidden;
-
-				.post-read-more {
-					margin-left: .2rem;
-				}
+			@media screen and (max-width: 700px) {
+				&-info, &-description .post-read-more { display: none }
 			}
-
 		}
 	}
 </style>

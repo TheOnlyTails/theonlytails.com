@@ -127,17 +127,15 @@
 			gap: 1rem;
 
 			header.title {
-				margin: {
-					top: 1em;
-					left: 1em;
-				}
+				margin-block-start: 1em;
+				margin-inline-start: 1em;
 			}
 
 			#search-bar {
 				@include mixins.accent-border($outset: true);
 
 				justify-self: end;
-				margin-top: 1.5rem;
+				margin-block-start: 1.5rem;
 				margin-inline: auto 1rem;
 				padding: .5rem;
 				background: inherit;
@@ -195,7 +193,7 @@
 		}
 
 		.footer {
-			margin-bottom: 1rem;
+			margin-block-end: 1rem;
 
 			&-divider {
 				margin: 2rem 1.5em 1em 0;
