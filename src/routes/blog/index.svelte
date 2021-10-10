@@ -43,7 +43,7 @@
 			</h2>
 			<p class="post-card-info">
 				<span class="post-card-author">{metadata.author}</span>
-				<time class="post-card-date" datetime={metadata.date.replaceAll("/", "-")}
+				<time class="post-card-date" datetime={metadata.date.replace(/\//g, "-")}
 				      class:isLight={!$isDark}>{metadata.date}</time>
 			</p>
 			<p class="post-card-description">
