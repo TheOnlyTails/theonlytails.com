@@ -15,19 +15,19 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
 
-  extensions: [".svelte", ".md"],
+  extensions: [".svelte", ".svx"],
 
   preprocess: [
     sveltePreprocess({
       scss: {
         outputStyle: "compressed",
         postcss: {
-          plugins: [autoprefixer],
+          plugins: [autoprefixer()],
         },
       },
     }),
     mdsvex({
-      extensions: [".md"],
+      extensions: [".svx"],
 
       smartypants: {
         dashes: "oldschool",

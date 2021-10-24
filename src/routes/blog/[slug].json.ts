@@ -1,34 +1,20 @@
-import type { RequestHandler } from "@sveltejs/kit"
 import { dev } from "$app/env"
+import { getPosts } from "$lib/data/posts"
 
-const getPosts = async () => {
-  const allPosts = import.meta.glob("./*.md")
-
-  let blog = []
-  for (let path in allPosts) {
-    blog.push(allPosts[path]().then(({ metadata }) => ({ path, metadata })))
-  }
-
-  const posts: BlogPost[] = await Promise.all(blog)
-
-  return posts.filter((post) => (!dev ? post.metadata.published : true))
-}
-
-export const get: RequestHandler = async ({ params }) => {
-  const posts = await getPosts()
-  const { slug } = params
-  const blogPost = posts.find((post) => post.metadata.slug == slug)
-
+// noinspection JSUnusedGlobalSymbols
+export const get = async ({ params }) => {
+  const posts = await getPosts(import.meta.glob(`./*.svx`))
+  const blogPost = posts.find((post) => post.metadata.slug === params.slug)
   const isPublished = !dev ? blogPost.metadata.published : true
 
   // checks if the URL's slug is valid
-  if (!posts.map((post) => post.metadata.slug).includes(slug) || !isPublished) {
+  if (posts.map((post) => post.metadata.slug).includes(params.slug) && isPublished) {
+    return {
+      body: blogPost.metadata,
+    }
+  } else {
     return {
       status: 404,
     }
-  }
-
-  return {
-    body: blogPost.metadata,
   }
 }

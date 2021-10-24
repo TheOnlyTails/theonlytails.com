@@ -1,18 +1,19 @@
 <script lang="ts">
-	import { isDark } from "$lib/data/theme"
-	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
-	import Title from "$lib/Title.svelte"
 	import Metadata from "$lib/Metadata.svelte"
+	import { page } from "$app/stores"
+	import Title from "$lib/Title.svelte"
 </script>
 
 <svelte:head>
-	<Metadata
-			description="TheOnlyTails' personal site and portfolio with all kinds of programming stuff."
-			title="TheOnlyTails"
-	/>
+	{#if $page.path === "/"}
+		<Metadata
+				title="TheOnlyTails"
+				description="TheOnlyTails' personal site and portfolio with all kinds of programming stuff."
+		/>
+	{/if}
 </svelte:head>
 
-<div class:isLight="{!$isDark}" id="page">
+<div id="page">
 	<header class="header title">
 		<Title/>
 	</header>
@@ -20,31 +21,29 @@
 	<main>
 		<slot/>
 	</main>
-
-	<ThemeSwitch/>
 </div>
 
 <style lang="scss">
 	@use "static/style/vars";
-	@use "static/style/mixins";
+	@use "static/style/mixins" as *;
+	@use "static/style/global";
 
 	#page {
-		@include mixins.center;
-		@include mixins.page;
+		@include center;
 
+		grid-template-rows: min-content fit-content(100%);
+		min-height: 100vh;
 		font-size: 1.1rem;
-		transition: all 0.5s ease;
 	}
 
 	header.title {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
+		margin-block: 2rem;
+
 		font: {
 			size: 2em;
 			weight: bold;
 		}
 	}
 
-	main { @include mixins.center(1.4rem) }
+	main { @include center(1.4rem) }
 </style>

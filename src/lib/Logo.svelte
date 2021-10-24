@@ -14,7 +14,6 @@
 	// Makes the logo image circular
 	#logo {
 		border-radius: 50%;
-		vertical-align: middle;
 		user-select: none;
 		aspect-ratio: 1 / 1;
 		-webkit-user-drag: none;

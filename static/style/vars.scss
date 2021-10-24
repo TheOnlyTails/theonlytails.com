@@ -1,7 +1,9 @@
-$light-color: hsl(0, 0%, 85%);
+@use "../fonts/jb-mono";
+
+$light-color: hsl(0deg, 0%, 85%);
 $dark-color: lighten(black, 17%);
-$accent: hsl(28, 100%, 50%);
+$accent: hsl(28deg, 100%, 50%);
 $light-accent: lighten($accent, 5%);
 $dark-accent: darken($accent, 5%);
 
-$font-family: jetbrains-mono, "Cascadia Code", "Consolas", "Fira Code", monospace;
+$font-family: "Jetbrains Mono", jetbrains-mono, "Consolas", "Fira Code", "Cascadia Code", monospace;

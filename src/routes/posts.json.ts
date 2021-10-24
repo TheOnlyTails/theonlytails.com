@@ -1,17 +1,10 @@
-import type { RequestHandler } from "@sveltejs/kit"
 import { dev } from "$app/env"
+import { getPosts } from "$lib/data/posts"
 
-export const get: RequestHandler = async () => {
-  const allPosts = import.meta.glob("./blog/*.md")
-
-  let blog = []
-  for (let path in allPosts) {
-    blog.push(allPosts[path]().then(({ metadata }) => ({ path, metadata })))
-  }
-
-  const posts = await Promise.all(blog)
-
+export const get = async () => {
   return {
-    body: posts.filter((post) => (!dev ? post.metadata.published : true)),
+    body: (await getPosts(import.meta.glob(`./blog/*.svx`))).filter((post) =>
+      !dev ? post.metadata.published : true
+    ),
   }
 }

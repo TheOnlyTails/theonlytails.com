@@ -1,55 +1,32 @@
 @use "vars";
 
 $tip-color: hsl(162, 63%, 41%);
-$warn-color: hsl(42, 87%, 55%);
-$error-color: hsl(0, 83%, 62%);
+$warn-color: hsl(42, 87%, 50%, 0.9);
+$error-color: hsl(0, 83%, 50%);
 
-@mixin hints($is-light: false) {
+@mixin hints {
 	:global {
 		p.hint {
 			&.tip,
 			&.error,
 			&.warn {
 				line-height: 1.6rem;
-				transition: background-color .5s ease;
-
-				@if not $is-light {
-					background: hsla(0, 0%, 7%, 0.5);
-					border-inline-start: solid 4px hsla(0, 0%, 35%, 0.5);
-					border-block: solid 4px hsla(0, 0%, 35%, 0.5);
-				} @else {
-					background: hsla(0, 0%, 93%, 0.5);
-					border-inline-start: solid 4px hsla(0, 0%, 65%, 0.5);
-					border-block: solid 4px hsla(0, 0%, 65%, 0.5);
-				}
-
-				border-inline-start-style: solid;
-				border-inline-start-width: 5px;
-				border-radius: 4px 1rem 1rem 4px;
-
-				padding: .5rem .5rem .5rem 1.5rem;
-				margin-block-end: 1rem;
-				position: relative;
+				background: darken(transparentize(vars.$dark-color, .5), 5%);
+				border: solid 4px;
+				border-radius: 100vh;
+				inline-size: fit-content;
+				padding-block: .5rem;
+				padding-inline: 1.5rem 1rem;
 
 				&:before {
-					border-radius: 50%; // circular
-					position: absolute;
-					color: white;
-					font: {
-						size: 1rem;
-						weight: bold;
-					}
-					inset-block-start: 12px;
-					inset-inline-start: -12px;
-					line-height: 20px;
-					height: 20px;
-					width: 20px;
-					text-align: center;
+					border-radius: 50%;
+					padding-inline: .5ch;
+					margin-inline-end: 1ch;
 				}
 			}
 
 			&.tip {
-				border-inline-start-color: $tip-color;
+				border-color: $tip-color;
 
 				&:before {
 					content: "*";
@@ -58,7 +35,7 @@ $error-color: hsl(0, 83%, 62%);
 			}
 
 			&.warn {
-				border-inline-start-color: $warn-color;
+				border-color: $warn-color;
 
 				&:before {
 					content: "?";
@@ -67,7 +44,7 @@ $error-color: hsl(0, 83%, 62%);
 			}
 
 			&.error {
-				border-inline-start-color: $error-color;
+				border-color: $error-color;
 
 				&:before {
 					content: "!";

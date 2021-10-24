@@ -4,6 +4,8 @@ node_modules
 /package
 /.idea
 /.vercel
+/.vercel_build_output
+/.vscode
 
 .sass-cache/
 *.css.map

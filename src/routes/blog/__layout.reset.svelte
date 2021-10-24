@@ -2,99 +2,89 @@
 	import type { Load } from "@sveltejs/kit"
 
 	// noinspection JSUnusedGlobalSymbols
-	export const load: Load = async ({ page, fetch }) => {
-		const getSlugFromPath = (path: string) => path.match(/(?<=\.\/blog\/)([\w-]+)(?=\.md)/i)[0]
-
-		if (page.path.replace(/(\/$)/, "") === "/blog") return {
-			props: {
-				postMetadata: null
-			}
-		}
-
+	export const load: Load = async ({ fetch, page }) => {
 		const posts: BlogPost[] = await fetch("/posts.json").then(r => r.json())
-		const slug = getSlugFromPath(posts.find(post => getSlugFromPath(post.path)).path)
-		const post: PostData = await fetch(`/blog/${ slug }.json`).then(r => r.json())
+
+		const path = page.path.replace(/(\/$)/, "")
+
+		const postMetadata: PostData = path !== "/blog" ? await fetch(`${ path }.json`).then(r => r.json()) : null
 
 		return {
 			props: {
-				postMetadata: post,
-			}
+				posts,
+				postMetadata,
+				path,
+			},
 		}
 	}
 </script>
 
 <script lang="ts">
-	import { isDark } from "$lib/data/theme"
-	import ThemeSwitch from "$lib/ThemeSwitch.svelte"
 	import Title from "$lib/Title.svelte"
-	import { onMount, setContext } from "svelte"
-	import { persistStore } from "$lib/data/persistStore"
 	import Metadata from "$lib/Metadata.svelte"
+	import Searchbar from "$lib/Searchbar.svelte"
+	import BlogButton from "$lib/BlogButton.svelte"
 
+	export let posts: BlogPost[] = []
 	export let postMetadata: PostData
-	let posts: BlogPost[] = []
-
-	export let searchQuery = persistStore("searchQuery", "")
-	setContext("searchQuery", searchQuery)
-
-	onMount(async () => {
-		posts = await fetch("/posts.json").then(r => r.json())
-	})
+	export let path: string
 </script>
 
 <svelte:head>
-	{#if postMetadata}
-		<Metadata
-				title="TheOnlyTails • {postMetadata.title}"
-				description={postMetadata.description}
-		/>
-	{:else}
+	{#if !postMetadata}
 		<Metadata
 				title="TheOnlyTails • Blog"
 				description="TheOnlyTails' blog about all kinds of programming stuff"
 		/>
+	{:else}
+		<Metadata title="TheOnlyTails • {postMetadata.title}" description={postMetadata.description}/>
 	{/if}
 	<meta content="blog" name="og:type"/>
-
-	<link href="/style/syntax-highlighting.css" rel="stylesheet">
 </svelte:head>
 
-<div class:isLight={!$isDark} id="page">
+<div id="page">
 	<div>
 		<nav class="navbar">
 			<header class="header title">
-				<Title blogLink={!!postMetadata} fontSize={1.2} logoSize={36}/>
+				<Title fontSize={1.2} logoSize={36}/>
 			</header>
 
 			{#if !postMetadata}
-				<input class:isLight={!$isDark} id="search-bar" bind:value={$searchQuery} type="text"
-				       placeholder="Search for articles..." list="search-post-options">
-				<datalist id="search-post-options">
-					{#each (posts.map(item => item.metadata.title)) as postName}
-						<option value={postName}></option>
-					{/each}
-				</datalist>
+				<Searchbar {posts}/>
+			{:else}
+				<BlogButton/>
 			{/if}
 		</nav>
 		<hr/>
 	</div>
 
 	{#if postMetadata}
-		<article let:searchQuery>
-			<h1>{postMetadata.title}</h1>
+		<article>
+			<h1 class="post-title">{postMetadata.title}</h1>
 			<div class="post-info">
-				<p class="post-author" title="Author: {postMetadata.author}">Written by: {postMetadata.author}</p>
-				<p class="post-date" title="Publication Date: {postMetadata.date}">Published at: {postMetadata.date}</p>
+				<p class="post-author" title="Author: {postMetadata.author}">
+					Written by: {postMetadata.author}
+				</p>
+				<p class="post-date" title="Publication Date: {postMetadata.date}">
+					Published at: {postMetadata.date}
+				</p>
 			</div>
+
 			<slot/>
 
+			<hr class="footer-divider"/>
 			<footer class="footer">
-				<hr class="footer-divider"/>
-				<a class="article-source-link"
-				   href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.md"
-				   target="_blank"
+				<a
+						class="article-footer-link"
+						href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.md"
+						target="_blank"
 				>
-					View article source
+					<img class="article-source-link-icon" src="/icons/code.svg" alt="GitHub">
+					View Article Source
+				</a>
+				<a href="{path}.json" target="_blank" rel="external" class="article-footer-link">
+					<img class="article-source-link-icon" src="/icons/info.svg" alt="Info">
+					View Article Metadata
 				</a>
 			</footer>
 		</article>
@@ -103,126 +93,99 @@
 			<slot/>
 		</main>
 	{/if}
-
-	<ThemeSwitch/>
 </div>
 
 <style lang="scss">
 	@use "static/style/vars";
-	@use "static/style/mixins";
+	@use "static/style/mixins" as *;
 	@use "static/style/markdown-hints";
+	@use "static/style/syntax-highlighting";
 
 	#page {
-		@include mixins.page;
-
 		display: grid;
-		grid-template-rows: 0fr 1fr min-content;
+		grid-template-rows: min-content fit-content(100%);
 		min-width: 100%;
 		max-width: 50%;
-		font-size: 1.13em;
+		min-height: 100vh;
+		font-size: 1.1rem;
 
 		.navbar {
 			display: flex;
-			align-items: baseline;
+			align-items: center;
+			justify-content: space-between;
 			gap: 1rem;
 
-			header.title {
-				margin-block-start: 1em;
-				margin-inline-start: 1em;
-			}
-
-			#search-bar {
-				@include mixins.accent-border($outset: true);
-
-				justify-self: end;
-				margin-block-start: 1.5rem;
-				margin-inline: auto 1rem;
-				padding: .5rem;
-				background: inherit;
-				color: vars.$light-color;
-				font: {
-					family: vars.$font-family;
-					weight: 500;
-					size: .75em;
-				}
-
-				&.isLight { color: inherit }
-
-				&:focus-visible {
-					outline: none;
-					box-shadow: 2.5px 2.5px 7.5px 0 #f70;
-				}
-
-				@media (prefers-reduced-motion: no-preference) {
-					transition: box-shadow .25s ease-in-out;
-				}
-
-				// remove the dropdown arrow
-				&::-webkit-calendar-picker-indicator { display: none !important }
-			}
+			padding-block-start: 1em;
+			padding-inline: 1em;
 		}
 
 		hr {
-			@include mixins.accent-border;
+			@include accent-border;
 
-			margin: 1em;
+			margin: 1rem;
 			border-radius: 1rem;
 			color: vars.$accent;
 		}
 
-		main, article {
+		main,
+		article {
 			@include markdown-hints.hints;
 
 			padding: 0 1rem;
 			overflow: auto;
 
+			h1 {
+				margin-block: 2rem .5rem;
+				font-size: 2.5rem;
+				text-align: center;
+			}
+
 			.post-info {
 				display: flex;
-				gap: .75rem;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+				margin-block-end: 2rem;
 
-				.post-date, .post-author {
-					@include mixins.accent-border($outset: true);
+				.post-date,
+				.post-author {
+					@include accent-border;
 
 					max-width: fit-content;
-					padding: .5rem;
-					border-radius: .4rem;
+					padding: 0.75rem;
+					border-radius: 100vh;
 					color: vars.$accent;
 					font-size: 1rem;
 				}
 			}
 		}
 
+		.footer-divider {
+			margin-block: 2rem;
+		}
+
 		.footer {
-			margin-block-end: 1rem;
+			display: flex;
+			justify-content: center;
+			margin-block-end: 2rem;
 
-			&-divider {
-				margin: 2rem 1.5em 1em 0;
-				border-width: .15rem;
-			}
-
-			.article-source-link {
+			.article-footer-link {
+				display: flex;
+				align-items: center;
 				justify-content: center;
+				gap: .5rem;
 				margin-inline-start: 1.25rem;
 
-				&:link, &:visited {
+				&:link,
+				&:visited {
 					color: vars.$light-color;
-					font-size: .9rem;
-					transition: color .5s ease;
+					transition: inherit, color 0.5s ease;
 				}
-			}
-		}
 
-		&:not(.isLight) {
-			main, article {
-				@include markdown-hints.hints;
-			}
-		}
-
-		&.isLight {
-			.footer .article-source-link:is(:link, :visited) { color: vars.$dark-color }
-
-			main, article {
-				@include markdown-hints.hints($is-light: true);
+				&-icon {
+					width: 2ch;
+					aspect-ratio: 1;
+				}
 			}
 		}
 	}

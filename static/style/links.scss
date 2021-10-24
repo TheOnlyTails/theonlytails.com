@@ -1,20 +1,21 @@
 @use "vars";
 
-a {
-	color: vars.$accent;
-	font-weight: bold;
-	transition: text-decoration-color 300ms;
+:global {
+	a {
+		color: vars.$accent;
+		font-weight: bold;
+		transition: text-decoration-color 300ms;
 
-	&:link, &:visited {
-		text-decoration: underline transparent;
+		&:link, &:visited {
+			text-decoration: underline transparent;
 
-		@media (prefers-reduced-motion: reduce) {
+			@media (prefers-reduced-motion: reduce) {
+				text-decoration-color: currentColor;
+			}
+		}
+
+		&:hover, &:active {
 			text-decoration-color: currentColor;
 		}
 	}
-
-	&:hover, &:active {
-		text-decoration-color: currentColor;
-	}
-
 }
