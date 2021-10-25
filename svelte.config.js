@@ -8,7 +8,6 @@ import remarkHint from "remark-hint"
 import remarkGithub from "remark-github"
 import remarkGemoji from "remark-gemoji"
 import rehypeExternalLinks from "rehype-external-links"
-import autoprefixer from "autoprefixer"
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
@@ -19,12 +18,7 @@ const config = {
 
   preprocess: [
     sveltePreprocess({
-      scss: {
-        outputStyle: "compressed",
-        postcss: {
-          plugins: [autoprefixer()],
-        },
-      },
+      postcss: true,
     }),
     mdsvex({
       extensions: [".svx"],
