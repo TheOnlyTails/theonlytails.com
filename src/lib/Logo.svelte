@@ -16,7 +16,7 @@
 		border-radius: 50%;
 		user-select: none;
 		aspect-ratio: 1 / 1;
-		user-drag: none;
+		-webkit-user-drag: none;
 
 		@media screen and (width <= 470px) { display: none }
 	}
