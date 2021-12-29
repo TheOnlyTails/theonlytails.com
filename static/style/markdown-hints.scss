@@ -12,11 +12,10 @@ $error-color: hsl(0, 83%, 50%);
 			&.warn {
 				line-height: 1.6rem;
 				background: darken(transparentize(vars.$dark-color, .5), 5%);
-				border: solid 4px;
-				border-radius: 100vh;
-				inline-size: fit-content;
+				border-radius: 5vh;
+				inline-size: 100%;
 				padding-block: .5rem;
-				padding-inline: 1.5rem 1rem;
+				padding-inline: 1rem;
 
 				&:before {
 					border-radius: 50%;
@@ -25,31 +24,19 @@ $error-color: hsl(0, 83%, 50%);
 				}
 			}
 
-			&.tip {
-				border-color: $tip-color;
-
-				&:before {
-					content: "*";
-					background-color: $tip-color;
-				}
+			&.tip:before {
+				content: "*";
+				background-color: $tip-color;
 			}
 
-			&.warn {
-				border-color: $warn-color;
-
-				&:before {
-					content: "?";
-					background-color: $warn-color;
-				}
+			&.warn:before {
+				content: "?";
+				background-color: $warn-color;
 			}
 
-			&.error {
-				border-color: $error-color;
-
-				&:before {
-					content: "!";
-					background-color: $error-color;
-				}
+			&.error:before {
+				content: "!";
+				background-color: $error-color;
 			}
 		}
 	}

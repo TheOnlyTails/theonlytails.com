@@ -80,7 +80,7 @@
 				font-weight: 600;
 			}
 
-			@media screen and (max-width: 700px) {
+			@media screen and (width <= 700px) {
 				&-info, &-description .post-read-more { display: none }
 			}
 		}

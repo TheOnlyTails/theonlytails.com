@@ -1,23 +1,21 @@
 <script lang="ts">
-	import SocialIcon from "$lib/SocialIcon.svelte"
-	import ProjectEntry from "$lib/ProjectEntry.svelte"
-	import BlogButton from "$lib/BlogButton.svelte"
+	import { BlogButton, ProjectEntry, SocialIcon } from "$lib"
 
 	const projects: Project[] = [
 		{
-			name: "DataGoblin",
-			href: "/blog/data-goblin",
-			description: `A group of Kotlin DSLs aimed at creating Minecraft assets using code while sticking to the familiar JSON structure.`
+			name: "Fluent Svelte",
+			href: "https://github.com/tropix126/fluent-svelte",
+			description: "A faithful implementation of Microsoft's Fluent Design System in Svelte.",
 		},
 		{
-			name: "Cryptic Cosmos",
-			href: "https://github.com/Team-Cryptic-Cosmos/Cryptic-Cosmos",
-			description: `A Minecraft mod for 1.16 that introduces exciting new dimensions, mobs, and blocks, made by the Cryptic Cosmos Team.`
+			name: "Files",
+			href: "https://files.community/",
+			description: "A website for Files, A modern file explorer that pushes the boundaries of the platform.",
 		},
 		{
-			name: "This website",
+			name: "theonlytails.com",
 			href: "https://github.com/theonlytails/theonlytails.com",
-			description: `<i>You're looking at it</i>. Built with SvelteKit, TypeScript, and SCSS.`
+			description: `<i>You're looking at it</i>. Built with SvelteKit, TypeScript, and SCSS.`,
 		},
 	]
 </script>
@@ -56,9 +54,9 @@
 		@include accent-border;
 
 		grid-row-gap: 0;
-		max-width: 50%;
+		max-width: 65%;
 		margin: 0.1em;
-		padding: .25rem;
+		padding: .5rem;
 		border-radius: 1rem;
 
 		#projects-title {
@@ -69,7 +67,7 @@
 			text-align: center;
 		}
 
-		@media screen and (max-width: 1000px) {
+		@media screen and (width <= 1000px) {
 			max-width: 75%;
 		}
 	}

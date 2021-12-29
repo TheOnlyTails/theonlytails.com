@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Logo from "$lib/Logo.svelte"
+	import { Logo } from "$lib"
 
 	export let logoSize = 32
 	export let fontSize = 1
@@ -20,7 +20,7 @@
 		margin-block: 0;
 		color: vars.$light-color;
 
-		@media screen and (max-width: 470px) { margin-inline-start: auto }
+		@media screen and (width <= 470px) { margin-inline-start: auto }
 
 		a {
 			color: currentColor;

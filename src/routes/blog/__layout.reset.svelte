@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit"
+  import type { Load } from "@sveltejs/kit"
 
-	// noinspection JSUnusedGlobalSymbols
+  // noinspection JSUnusedGlobalSymbols
 	export const load: Load = async ({ fetch, page }) => {
 		const posts: BlogPost[] = await fetch("/posts.json").then(r => r.json())
 
@@ -20,10 +20,7 @@
 </script>
 
 <script lang="ts">
-	import Title from "$lib/Title.svelte"
-	import Metadata from "$lib/Metadata.svelte"
-	import Searchbar from "$lib/Searchbar.svelte"
-	import BlogButton from "$lib/BlogButton.svelte"
+	import { Title, Metadata, Searchbar, BlogButton } from "$lib"
 
 	export let posts: BlogPost[] = []
 	export let postMetadata: PostData
@@ -33,8 +30,8 @@
 <svelte:head>
 	{#if !postMetadata}
 		<Metadata
-				title="TheOnlyTails • Blog"
-				description="TheOnlyTails' blog about all kinds of programming stuff"
+			title="TheOnlyTails • Blog"
+			description="TheOnlyTails' blog about all kinds of programming stuff"
 		/>
 	{:else}
 		<Metadata title="TheOnlyTails • {postMetadata.title}" description={postMetadata.description}/>
@@ -75,9 +72,9 @@
 			<hr class="footer-divider"/>
 			<footer class="footer">
 				<a
-						class="article-footer-link"
-						href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.md"
-						target="_blank"
+					class="article-footer-link"
+					href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.md"
+					target="_blank"
 				>
 					<img class="article-source-link-icon" src="/icons/code.svg" alt="GitHub">
 					View Article Source
@@ -96,10 +93,11 @@
 </div>
 
 <style lang="scss">
+	@use "static/style/global";
 	@use "static/style/vars";
 	@use "static/style/mixins" as *;
-	@use "static/style/markdown-hints";
 	@use "static/style/syntax-highlighting";
+	@use "static/style/markdown-hints";
 
 	#page {
 		display: grid;

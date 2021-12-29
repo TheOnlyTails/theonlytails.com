@@ -9,7 +9,7 @@
 </a>
 
 <style lang="scss">
-	@use "static/style/vars";
+	@use "static/style/vars" as *;
 
 	a {
 		// align with icon
@@ -28,7 +28,7 @@
 		border-block-start-color, border-block-end-color;
 
 		&:hover, &:focus, &:focus-visible {
-			border-color: vars.$accent;
+			border-color: $accent;
 			outline: none;
 		}
 

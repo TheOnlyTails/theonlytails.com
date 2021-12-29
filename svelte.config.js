@@ -36,14 +36,7 @@ const config = {
         remarkGithub,
         remarkGemoji,
       ],
-      rehypePlugins: [
-        [
-          rehypeExternalLinks,
-          {
-            target: "_blank",
-          },
-        ],
-      ],
+      rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
     }),
   ],
 

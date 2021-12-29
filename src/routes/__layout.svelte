@@ -1,14 +1,13 @@
 <script lang="ts">
-	import Metadata from "$lib/Metadata.svelte"
 	import { page } from "$app/stores"
-	import Title from "$lib/Title.svelte"
+	import { Metadata, Title } from "$lib"
 </script>
 
 <svelte:head>
 	{#if $page.path === "/"}
 		<Metadata
-				title="TheOnlyTails"
-				description="TheOnlyTails' personal site and portfolio with all kinds of programming stuff."
+			title="TheOnlyTails"
+			description="TheOnlyTails' personal site and portfolio with all kinds of programming stuff."
 		/>
 	{/if}
 </svelte:head>
@@ -19,7 +18,7 @@
 	</header>
 
 	<main>
-		<slot/>
+		<slot />
 	</main>
 </div>
 

@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { fade } from "svelte/transition"
+  import { fade } from "svelte/transition"
 
-	export let src: string
-	export let alt = "TheOnlyTails logo"
-	export let size = 32
-	export let id = "logo"
+  export let src: string
+  export let alt = "TheOnlyTails logo"
+  export let size = 32
+  export let id = "logo"
 </script>
 
 <!--suppress RequiredAttributes, HtmlRequiredAltAttribute -->
-<img {alt} {id} in:fade={{ duration: 300 }} {src} width={size}/>
+<img {alt} {id} in:fade={{ duration: 300 }} {src} width={size} />
 
 <style lang="scss">
 	// Makes the logo image circular
@@ -16,8 +16,8 @@
 		border-radius: 50%;
 		user-select: none;
 		aspect-ratio: 1 / 1;
-		-webkit-user-drag: none;
+		user-drag: none;
 
-		@media screen and (max-width: 470px) { display: none }
+		@media screen and (width <= 470px) { display: none }
 	}
 </style>

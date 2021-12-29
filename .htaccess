@@ -1,9 +1,0 @@
-<FilesMatch "\.(woff2|ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)(\.gz)?$">
-  Header set Expires "Sun, 04 Apr 2021 18:45:00 GMT+2"
-</FilesMatch>
-
-<IfModule mod_expires.c>
-  ExpiresActive on
-  ExpiresByType text/css                  "access plus 1 year"
-  ExpiresByType application/javascript    "access plus 1 year"
-</IfModule>
