@@ -8,6 +8,9 @@ import remarkHint from "remark-hint"
 import remarkGithub from "remark-github"
 import remarkGemoji from "remark-gemoji"
 import rehypeExternalLinks from "rehype-external-links"
+import autoprefixer from "autoprefixer"
+import cssnano from "cssnano"
+import mediaMinMax from "postcss-media-minmax"
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
@@ -18,7 +21,9 @@ const config = {
 
   preprocess: [
     sveltePreprocess({
-      postcss: true,
+      postcss: {
+        plugins: [autoprefixer, cssnano, mediaMinMax],
+      },
     }),
     mdsvex({
       extensions: [".svx"],
