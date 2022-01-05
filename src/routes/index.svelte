@@ -4,7 +4,7 @@
 	const projects: Project[] = [
 		{
 			name: "Fluent Svelte",
-			href: "https://github.com/tropix126/fluent-svelte",
+			href: "https://fluent-svelte.vercel.app/",
 			description: "A faithful implementation of Microsoft's Fluent Design System in Svelte.",
 		},
 		{
