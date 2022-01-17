@@ -73,7 +73,7 @@
 			<footer class="footer">
 				<a
 					class="article-footer-link"
-					href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.md"
+					href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/{postMetadata.slug}.svx"
 					target="_blank"
 				>
 					<img class="article-source-link-icon" src="/icons/code.svg" alt="GitHub">
