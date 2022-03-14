@@ -20,7 +20,7 @@
 	]
 </script>
 
-<p id="subtitle">A curious Java and Kotlin programmer.</p>
+<p id="subtitle">A curious frontend programmer</p>
 
 <BlogButton/>
 <div id="projects">
