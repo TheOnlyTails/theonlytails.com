@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { Logo } from "$lib"
+  import { Logo } from "$lib"
 
-	export let logoSize = 32
-	export let fontSize = 1
+  export let logoSize = 32
+  export let fontSize = 1
 </script>
 
-<h1 style="font-size: {fontSize}em">
-	<Logo size={logoSize} src="/favicon.svg"/>
-	<a href="/">TheOnlyTails</a>
+<h1 style:font-size="{fontSize}em">
+  <Logo size={logoSize} src="/favicon.svg" />
+  <a href="/">TheOnlyTails</a>
 </h1>
 
 <style lang="scss">
-	@use "static/style/vars";
+	@use "src/styles/vars";
 
 	h1 {
 		display: flex;

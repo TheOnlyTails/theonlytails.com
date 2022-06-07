@@ -1,25 +1,25 @@
 <script context="module" lang="ts">
-	import type { ErrorLoad } from "@sveltejs/kit"
+  import type { Load } from "@sveltejs/kit"
 
-	export const load: ErrorLoad = ({ error, status }) => ({
-		props: {
-			title: `${ status }: ${ error.message }`
-		}
-	})
+  export const load: Load = ({ error, status }) => ({
+    props: {
+      title: `${ status }: ${ error.message }`,
+    },
+  })
 </script>
 
 <script lang="ts">
-	import { goto } from "$app/navigation"
+  import { goto } from "$app/navigation"
 
-	export let title
+  export let title
 </script>
 
 <h2>{title}</h2>
 <button class="back" on:click={() => goto("/")}>Return Home</button>
 
 <style lang="scss">
-	@use "static/style/vars";
-	@use "static/style/mixins" as *;
+	@use "src/styles/vars";
+	@use "src/styles/mixins" as *;
 
 	h2 {
 		color: vars.$accent;

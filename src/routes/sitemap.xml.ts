@@ -1,4 +1,4 @@
-import type { RequestHandler } from "@sveltejs/kit"
+import type { RequestHandler } from "./__types/sitemap.xml"
 import { getPosts } from "$lib/data/posts"
 
 export const get: RequestHandler = async () => {
@@ -8,7 +8,7 @@ export const get: RequestHandler = async () => {
     .map((post) => {
       return `
 		<url>
-        <loc>https://www.theonlytails.com/${post.path}</loc>
+        <loc>https://www.theonlytails.com/${ post.path }</loc>
     </url>
 `
     })
@@ -27,7 +27,7 @@ export const get: RequestHandler = async () => {
     <url>
         <loc>https://www.theonlytails.com/blog</loc>
     </url>
-    ${postUrls}
+    ${ postUrls }
 </urlset>`,
   }
 }

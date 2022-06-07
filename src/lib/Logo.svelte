@@ -8,14 +8,14 @@
 </script>
 
 <!--suppress RequiredAttributes, HtmlRequiredAltAttribute -->
-<img {alt} {id} in:fade={{ duration: 300 }} {src} width={size} />
+<img {src} {alt} {id} in:fade={{ duration: 300 }} width={size} />
 
 <style lang="scss">
 	// Makes the logo image circular
 	#logo {
 		border-radius: 50%;
 		user-select: none;
-		aspect-ratio: 1 / 1;
+		aspect-ratio: 1;
 		-webkit-user-drag: none;
 
 		@media screen and (width <= 470px) { display: none }

@@ -1,0 +1,64 @@
+@use "vars";
+@use "../../static/fonts/jb-mono";
+@use "mixins";
+
+*, *::before, *::after { box-sizing: border-box }
+
+// styles the main page
+body {
+	margin: auto;
+	background: vars.$dark-color;
+	color: vars.$light-color;
+	font-family: vars.$font-family;
+	min-inline-size: fit-content;
+	scroll-behavior: smooth;
+	accent-color: vars.$accent;
+}
+
+a {
+	color: vars.$accent;
+	font-weight: bold;
+	transition: text-decoration-color 300ms;
+
+	&:link, &:visited {
+		text-decoration: underline transparent;
+
+		@media (prefers-reduced-motion: reduce) {
+			text-decoration-color: currentColor;
+		}
+	}
+
+	&:hover, &:active {
+		text-decoration-color: currentColor;
+	}
+}
+
+hr {
+	margin-block-start: 1.5em;
+	border: .25rem solid vars.$accent;
+	border-radius: 100vh;
+	color: vars.$accent;
+}
+
+::-webkit-scrollbar {
+	inline-size: 1rem;
+
+	&-track {
+		border-radius: 100vh;
+		background: darken(vars.$dark-color, 10%);
+	}
+
+	&-thumb {
+		border: 4px solid darken(vars.$dark-color, 10%);
+		border-radius: 14px;
+		background: vars.$accent;
+	}
+
+	&-corner {
+		background: vars.$dark-color;
+	}
+
+	&:horizontal {
+		background: transparent;
+	}
+}

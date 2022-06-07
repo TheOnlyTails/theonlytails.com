@@ -1,16 +1,10 @@
 ---
 slug: data-goblin
-
 title: The Story of DataGoblin
-
 author: Tails
-
 description: How I made Minecraft data generation Kotlin-oriented with DSLs.
-
 date: 2021/08/18
-
 published: true
-
 ---
 
 The story starts with me sitting at my desk, working on my mod, [RubyMod](https://github.com/theonlytails/rubymod), and

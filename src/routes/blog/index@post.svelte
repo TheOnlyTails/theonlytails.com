@@ -11,24 +11,24 @@
 
 <script lang="ts">
   import { searchQuery } from "$lib/data/search"
+  import type { BlogPost } from "$lib/data/types"
 
   export let posts: BlogPost[] = []
 
   $: filteredPosts = posts.filter(item => item.metadata.title
+    .trim()
+    .replace(/\s+/gi, "")
+    .toLowerCase()
+    .includes(($searchQuery ?? "")
       .trim()
-      .replace(/[\s]+/gi, "")
-      .toLowerCase()
-      .includes(
-          ($searchQuery ?? "")
-              .trim()
-              .replace(/[\s]+/gi, "")
-              .toLowerCase(),
-      ),
+      .replace(/\s+/gi, "")
+      .toLowerCase(),
+    ),
   )
 </script>
 
 <section class="posts">
-  {#each ($searchQuery === "" ? posts : filteredPosts) as {path, metadata} (metadata.slug)}
+  {#each ($searchQuery === "" ? posts : filteredPosts) as { path, metadata } (metadata.slug)}
     <article class="post-card">
       <h2 class="post-card-title">
         <a class="post-card-title" href={path}>{metadata.title}</a>
@@ -46,7 +46,7 @@
 </section>
 
 <style lang="scss">
-	@use "../../../static/style/vars";
+	@use "src/styles/vars";
 
 	.post {
 		&s {
@@ -56,26 +56,26 @@
 		}
 
 		&-card {
-      margin: 1rem;
-      padding: .7rem .9rem;
-      border: vars.$accent .25rem outset;
-      border-radius: .4rem;
-      line-height: 1.5;
+			margin: 1rem;
+			padding: .7rem .9rem;
+			border: vars.$accent .25rem outset;
+			border-radius: .4rem;
+			line-height: 1.5;
 
-      &-title {
-        margin: 0;
-        color: vars.$accent;
-        font-size: 1.8rem;
-      }
+			&-title {
+				margin: 0;
+				color: vars.$accent;
+				font-size: 1.8rem;
+			}
 
-      &-author {
-        margin-inline-end: .5rem;
-        font-weight: bold;
-      }
+			&-author {
+				margin-inline-end: .5rem;
+				font-weight: bold;
+			}
 
-      &-title, &-info { text-align: center }
+			&-title, &-info { text-align: center }
 
-      &-date {
+			&-date {
 				color: vars.$accent;
 				font-weight: 600;
 			}

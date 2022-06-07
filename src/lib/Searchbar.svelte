@@ -1,24 +1,25 @@
 <script lang="ts">
-	import { searchQuery } from "$lib/data/search"
+  import { searchQuery } from "$lib/data/search"
+  import type { BlogPost } from "$lib/data/types"
 
-	export let posts: BlogPost[] = []
+  export let posts: BlogPost[] = []
 </script>
 
 <input
-		bind:value={$searchQuery}
-		id="search-bar"
-		list="search-post-options"
-		placeholder="Search for articles..."
-		type="search"
+  bind:value={$searchQuery}
+  id="search-bar"
+  list="search-post-options"
+  placeholder="Search for articles..."
+  type="search"
 />
 <datalist id="search-post-options">
-	{#each posts.map((item) => item.metadata.title) as postName}
-		<option value={postName}></option>
-	{/each}
+  {#each posts.map((item) => item.metadata.title) as postName}
+    <option value={postName}></option>
+  {/each}
 </datalist>
 
 <style lang="scss">
-	@use "static/style/vars" as *;
+	@use "src/styles/vars" as *;
 
 	#search-bar {
 		padding: 0.75rem;

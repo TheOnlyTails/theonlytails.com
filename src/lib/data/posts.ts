@@ -1,15 +1,17 @@
+import type { BlogPost } from "$lib/data/types"
+
 type Posts = Record<string, () => Promise<{ [p: string]: any }>>
 
-export const getPosts: (pathToPosts: Posts) => Promise<BlogPost[]> = async (posts: Posts) => {
+export const getPosts = async (posts: Posts): Promise<BlogPost[]> => {
   let blog = []
   for (let path in posts) {
     blog.push(
       posts[path]().then(({ metadata }) => ({
         path: path
-          .replace(/(?<=[\w-])\.svx/gi, "") // remove file extension
+          .replace(/(?<=[\w-])@post\.md/gi, "") // remove file extension
           .replace(/\.(?=\/blog)/gi, ""), // remove leading dot
         metadata,
-      }))
+      })),
     )
   }
 
