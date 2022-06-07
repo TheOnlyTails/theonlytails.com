@@ -9,5 +9,5 @@ export const handle: Handle = async ({ event, resolve }) => {
       ...response.headers,
       "Accept-Encoding": "gzip, compress, br",
     },
-  }
+  } as Response
 }
