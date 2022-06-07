@@ -20,7 +20,7 @@
 	},
 	"devDependencies": {
 		"@fec/remark-a11y-emoji": "^3.1.0",
-		"@sveltejs/adapter-vercel": "next",
+		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.7",
 		"cssnano": "^5.1.11",

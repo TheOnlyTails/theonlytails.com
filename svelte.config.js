@@ -1,6 +1,6 @@
 import { mdsvex } from "mdsvex"
 import sveltePreprocess from "svelte-preprocess"
-import vercel from "@sveltejs/adapter-vercel"
+import adapter from "@sveltejs/adapter-auto"
 import remarkA11yEmoji from "@fec/remark-a11y-emoji"
 import remarkSlug from "remark-slug"
 import remarkGfm from "remark-gfm"
@@ -47,7 +47,7 @@ const config = {
 
   kit: {
     trailingSlash: "ignore",
-    adapter: vercel(),
+    adapter: adapter(),
   },
 }
 
