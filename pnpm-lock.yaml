@@ -4,10 +4,10 @@ specifiers:
   '@fec/remark-a11y-emoji': ^3.1.0
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
-  autoprefixer: ^10.4.8
-  cssnano: ^5.1.13
+  autoprefixer: ^10.4.7
+  cssnano: ^5.1.12
   mdsvex: ^0.9.8
-  postcss: ^8.4.16
+  postcss: ^8.4.14
   postcss-media-minmax: ^5.0.0
   prettier: ^2.7.1
   prettier-plugin-svelte: ^2.7.0
@@ -17,13 +17,13 @@ specifiers:
   remark-gfm: ^2.0.0
   remark-github: ^11.2.4
   remark-hint: ^1.0.10
-  sass: ^1.54.4
+  sass: ^1.53.0
   svelte: ^3.49.0
-  svelte-check: ^2.8.1
+  svelte-check: ^2.8.0
   svelte-preprocess: ^4.10.7
   tslib: ^2.4.0
   typescript: ^4.7.4
-  vite: ^3.0.8
+  vite: ^3.0.2
 
 devDependencies:
   '@fec/remark-a11y-emoji': 3.1.0
