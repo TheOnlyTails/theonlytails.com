@@ -3,7 +3,6 @@
 @use "markdown-hints";
 @use "syntax-highlighting";
 
-main,
 article {
   @include markdown-hints.hints;
 

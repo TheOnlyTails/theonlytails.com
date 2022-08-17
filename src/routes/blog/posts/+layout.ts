@@ -5,6 +5,6 @@ export const load: LayoutLoad = async ({ routeId }) => {
   const slug = routeId?.replace("blog/posts/", "")
 
   return {
-    post: (await import("./" + slug + "/+page.md")).metadata as PostData
+    post: (await import(`./${slug}/+page.md`)).metadata as PostData
   }
 }
