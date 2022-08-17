@@ -1,11 +1,11 @@
 .DS_Store
 node_modules
-/.svelte-kit
+.svelte-kit
 /package
-/.idea
-/.vercel
+.idea
+.vercel
 /.vercel_build_output
-/.vscode
+.vscode
 
 .sass-cache/
 *.css.map

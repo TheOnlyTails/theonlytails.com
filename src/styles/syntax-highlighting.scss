@@ -13,6 +13,7 @@ $code-block-bg: hsl(0, 0%, 27%);
 
 :global {
 	pre[class*="language-"] {
+		font-family: "JetBrains Mono", jetbrains-mono, "Cascadia Code", monospace;
 		padding: .75rem;
 		border: .25rem solid lighten($code-block-bg, 10%);
 		border-radius: 1rem;

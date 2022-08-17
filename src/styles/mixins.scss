@@ -1,12 +1,14 @@
 @use "vars";
 
 // centers an element using CSS grid
-@mixin center($row-gap: .75rem) {
-	display: grid;
-	place-items: center;
-	grid-row-gap: $row-gap;
+@mixin center($dir: column, $gap: .75rem, $place: space-evenly) {
+	display: flex;
+	flex-direction: $dir;
+	justify-content: $place;
+	align-items: center;
+	gap: $gap;
 }
 
-@mixin accent-border {
-	border: .2rem solid vars.$accent;
+@mixin accent-border($width: .2rem) {
+	outline: $width solid vars.$accent;
 }

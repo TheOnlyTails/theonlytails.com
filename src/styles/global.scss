@@ -1,18 +1,25 @@
 @use "vars";
-@use "../../static/fonts/jb-mono";
-@use "mixins";
+@use "mixins" as *;
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 *, *::before, *::after { box-sizing: border-box }
 
 // styles the main page
 body {
-	margin: auto;
+	margin: 0;
 	background: vars.$dark-color;
 	color: vars.$light-color;
 	font-family: vars.$font-family;
 	min-inline-size: fit-content;
 	scroll-behavior: smooth;
 	accent-color: vars.$accent;
+	color-scheme: dark;
+
+	min-block-size: 100dvh;
+
+	@supports not (min-block-size: 100dvh) {
+		min-block-size: 100vh;
+	}
 }
 
 a {
@@ -34,9 +41,10 @@ a {
 }
 
 hr {
-	margin-block-start: 1.5em;
-	border: .25rem solid vars.$accent;
-	border-radius: 100vh;
+	@include accent-border;
+
+	border-style: solid;
+	border-radius: 1rem;
 	color: vars.$accent;
 }
 

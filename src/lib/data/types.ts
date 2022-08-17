@@ -4,11 +4,6 @@ export type Project = {
   description: string
 }
 
-export type BlogPost = {
-  path: string
-  metadata: PostData
-}
-
 export type PostData = {
   slug: string
   title: string

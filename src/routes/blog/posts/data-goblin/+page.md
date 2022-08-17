@@ -8,7 +8,7 @@ published: true
 ---
 
 The story starts with me sitting at my desk, working on my mod, [RubyMod](https://github.com/theonlytails/rubymod), and
-being very bored.  
+being very bored.
 I was working on implementing JSON asset generation (AKA datagen) for my mod's loot tables, and I thought - "There must
 be a better way to do this."
 
@@ -52,8 +52,8 @@ lootTable(LootParameterSets.BLOCK) {
         }
 
         function {
-            // this is a shortened form of setCount(constantCount(2)) 
-            setConstantCount(2) 
+            // this is a shortened form of setCount(constantCount(2))
+            setConstantCount(2)
         }
     }
 }

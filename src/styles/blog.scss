@@ -1,0 +1,66 @@
+@use "vars" as *;
+@use "mixins" as *;
+@use "markdown-hints";
+@use "syntax-highlighting";
+
+main,
+article {
+  @include markdown-hints.hints;
+
+  padding: 0 1rem;
+  overflow: auto;
+
+  h1 {
+    margin-block: 2rem 0.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .post-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-block-end: 2rem;
+
+    .post-date,
+    .post-author {
+      @include accent-border;
+
+      max-inline-size: fit-content;
+      padding: 0.75rem;
+      border-radius: 100vh;
+      color: $accent;
+      font-size: 1rem;
+    }
+  }
+}
+
+.footer-divider {
+  margin-block: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-block-end: 2rem;
+
+  .article-footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1ch;
+    margin-inline-start: 2ch;
+
+    &:link,
+    &:visited {
+      color: $light-color;
+      transition: inherit, color 0.5s ease;
+    }
+
+    &-icon {
+      inline-size: 2ch;
+      aspect-ratio: 1;
+    }
+  }
+}

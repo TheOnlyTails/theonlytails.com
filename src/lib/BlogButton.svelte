@@ -18,18 +18,15 @@
 		gap: .5ch;
 
 		padding: .5rem;
-		border: .2rem solid transparent;
+		outline: .2rem solid transparent;
 
 		// border animation
 		border-radius: 100vh;
 		font-size: 1.25rem;
-		transition-duration: .75s;
-		transition-property: border-inline-start-color, border-inline-end-color,
-		border-block-start-color, border-block-end-color;
+		transition: outline-color .75s;
 
 		&:hover, &:focus, &:focus-visible {
-			border-color: $accent;
-			outline: none;
+			outline-color: $accent;
 		}
 
 		&:link, &:hover, &:active, &:visited {

@@ -11,22 +11,26 @@
 </h1>
 
 <style lang="scss">
-	@use "src/styles/vars";
+  @use "src/styles/vars";
 
-	h1 {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		margin-block: 0;
-		color: vars.$light-color;
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-block: 0;
+    color: vars.$light-color;
 
-		@media screen and (width <= 470px) { margin-inline-start: auto }
+    @media screen and (width <= 470px) {
+      margin-inline-start: auto;
+    }
 
-		a {
-			color: currentColor;
-			font-weight: bold;
+    a {
+      color: currentColor;
+      font-weight: bold;
 
-			&:link, &:hover, &:active, &:visited { text-decoration: none }
-		}
-	}
+      &:any-link {
+        text-decoration: none;
+      }
+    }
+  }
 </style>

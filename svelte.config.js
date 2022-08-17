@@ -2,12 +2,11 @@ import { mdsvex } from "mdsvex"
 import sveltePreprocess from "svelte-preprocess"
 import adapter from "@sveltejs/adapter-auto"
 import remarkA11yEmoji from "@fec/remark-a11y-emoji"
-import remarkSlug from "remark-slug"
 import remarkGfm from "remark-gfm"
 import remarkHint from "remark-hint"
 import remarkGithub from "remark-github"
-import remarkGemoji from "remark-gemoji"
 import rehypeExternalLinks from "rehype-external-links"
+import rehypeSlug from "rehype-slug"
 import autoprefixer from "autoprefixer"
 import cssnano from "cssnano"
 import mediaMinMax from "postcss-media-minmax"
@@ -35,13 +34,11 @@ const config = {
 
       remarkPlugins: [
         remarkA11yEmoji,
-        remarkSlug,
         remarkGfm,
         remarkHint,
         remarkGithub,
-        remarkGemoji,
       ],
-      rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
+      rehypePlugins: [rehypeSlug, [rehypeExternalLinks, { target: "_blank" }]],
     }),
   ],
 
