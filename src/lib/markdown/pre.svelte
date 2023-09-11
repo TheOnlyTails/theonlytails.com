@@ -2,6 +2,7 @@
   import CopyButton from "$lib/CopyButton.svelte"
   import { cn } from "$lib/utils"
 
+  export let rawCode: string
   let className: string | undefined | null = undefined
   export { className as class }
 
@@ -12,13 +13,15 @@
   }
 </script>
 
-<pre
-  use:copyCodeToClipboard
-  class={cn(
-    "relative flex mb-4 mt-2 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-    className
-  )}
-  {...$$restProps}>
-	<slot />
-  <CopyButton value={codeString} class={cn("absolute right-4 top-4 pre-copy-btn")} />
-</pre>
+<div class="relative">
+  <pre
+    use:copyCodeToClipboard
+    class={cn(
+      "flex flex-1 mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
+      className
+    )}
+    {...$$restProps}>
+      {@html decodeURIComponent(rawCode)}
+  </pre>
+  <CopyButton value={codeString} />
+</div>

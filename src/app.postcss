@@ -64,7 +64,7 @@
   }
 
   :not(:empty):has(> .icon) {
-    @apply flex gap-[1ch] items-center;
+    @apply flex gap-[1ch] items-center align-middle;
   }
 
   ::view-transition-old(*),
@@ -95,22 +95,18 @@
   }
 }
 
-.markdown {
-  & pre {
-    & code {
-      @apply relative grid min-w-full break-words rounded-none border-0 bg-transparent p-0 font-mono text-sm;
-      box-decoration-break: clone;
-      counter-reset: line;
+.markdown pre code {
+  @apply relative grid min-w-full break-words rounded-none border-0 bg-transparent p-0;
+  counter-reset: line;
+  box-decoration-break: clone;
 
-      .line {
-        @apply inline-block min-h-[1.5rem] w-full py-0.5 px-2;
+  .line {
+    @apply px-2 min-h-[1.5rem] py-0.5 w-full inline-block;
 
-        &::before {
-          @apply inline-block w-7 mr-6 text-right text-zinc-50/40 text-xs;
-          counter-increment: line;
-          content: counter(line);
-        }
-      }
+    &::before {
+      @apply inline-block w-7 mr-6 text-right text-zinc-50/40 text-xs;
+      counter-increment: line;
+      content: counter(line);
     }
   }
 }

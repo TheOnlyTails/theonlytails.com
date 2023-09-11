@@ -1,14 +1,25 @@
 <script lang="ts">
-  import { BlogButton, Metadata } from "$lib"
+  import { Metadata } from "$lib"
   import { Avatar, AvatarFallback, AvatarImage } from "$lib/components/ui/avatar"
   import { Button } from "$lib/components/ui/button"
+  import { Card } from "$lib/components/ui/card"
+  import CardContent from "$lib/components/ui/card/card-content.svelte"
+  import CardDescription from "$lib/components/ui/card/card-description.svelte"
+  import CardFooter from "$lib/components/ui/card/card-footer.svelte"
+  import CardHeader from "$lib/components/ui/card/card-header.svelte"
+  import CardTitle from "$lib/components/ui/card/card-title.svelte"
+  import { Separator } from "$lib/components/ui/separator"
   import { Skeleton } from "$lib/components/ui/skeleton"
-  import type { Project } from "$lib/data/types"
-  import AtSignIcon from "~icons/lucide/at-sign"
-  import GithubIcon from "~icons/lucide/github"
-  import TwitterIcon from "~icons/lucide/twitter"
+  import type { Project, Technology } from "$lib/data/types"
+  import Navbar from "./Navbar.svelte"
 
-  const projects: Project[] = [
+  import ArrowRightIcon from "~icons/lucide/arrow-right"
+  import SvelteIcon from "~icons/simple-icons/svelte"
+  import TypescriptIcon from "~icons/simple-icons/typescript"
+  import RustIcon from "~icons/simple-icons/rust"
+  import KotlinIcon from "~icons/simple-icons/kotlin"
+
+  const projects = [
     {
       name: "Fluent Svelte",
       href: "https://fluent-svelte.vercel.app/",
@@ -25,7 +36,30 @@
       href: "https://github.com/theonlytails/theonlytails.com",
       description: `<i>You're looking at it</i>. Built with SvelteKit, TypeScript, and SCSS.`,
     },
-  ]
+  ] as const satisfies Readonly<Project[]>
+
+  const technologies = [
+    {
+      name: "Svelte",
+      icon: SvelteIcon,
+      href: "https://svelte.dev/",
+    },
+    {
+      name: "TypeScript",
+      icon: TypescriptIcon,
+      href: "https://typescriptlang.org/",
+    },
+    {
+      name: "Rust",
+      icon: RustIcon,
+      href: "https://www.rust-lang.org/",
+    },
+    {
+      name: "Kotlin",
+      icon: KotlinIcon,
+      href: "https://kotlinlang.org/",
+    },
+  ] as const satisfies Readonly<Technology[]>
 </script>
 
 <svelte:head>
@@ -35,10 +69,14 @@
   />
 </svelte:head>
 
-<div id="page">
-  <header class="header title">
-    <h1 class="flex items-center gap-4 my-0 text-primary sm:ml-auto">
-      <Avatar>
+<Navbar />
+
+<Separator />
+
+<main class="flex-grow flex flex-col items-center gap-4 p-4">
+  <header class="mb-6 mt-10">
+    <h1 class="flex items-center gap-4 text-5xl text-primary sm:ml-auto">
+      <Avatar class="h-12 w-12">
         <AvatarImage src="/favicon.svg" alt="TheOnlyTails avatar" />
         <AvatarFallback><Skeleton class="w-10 h-10 rounded-full" /></AvatarFallback>
       </Avatar>
@@ -46,35 +84,44 @@
     </h1>
   </header>
 
-  <p class="">A curious frontend programmer</p>
+  <p class="text-xl font-medium text-center">A curious fullstack programmer</p>
 
-  <BlogButton />
-  <section
-    class="flex flex-col justify-evenly items-center gap-0 max-w-[65%] sm:max-w-[75%] m-1 p-2 rounded-2xl outline-4 outline-accent"
-  >
-    <p class="header text-lg font-semibold text-center">Some of my projects!</p>
-    <ul class="projects">
-      {#each projects as { href, name, description }}
-        <li class="project">
-          <a {href}>{name}</a> - {@html description}
-        </li>
-      {/each}
-    </ul>
-  </section>
+  <ul class="flex gap-4">
+    {#each technologies as { name, icon: Icon, href }}
+      <Button
+        {href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={name}
+        variant="ghost"
+        size="icon"
+      >
+        <Icon />
+      </Button>
+    {/each}
+  </ul>
 
-  <div class="social">
-    <Button href="https://github.com/theonlytails" variant="ghost" size="icon">
-      <GithubIcon class="h-4 w-4" />
-    </Button>
-    <Button href="https://twitter.com/the_only_tails" variant="ghost" size="icon">
-      <TwitterIcon class="h-4 w-4" />
-    </Button>
-    <Button href="mailto:theonlytails@theonlytails.com" variant="ghost" size="icon">
-      <AtSignIcon class="h-4 w-4" />
-    </Button>
-  </div>
-</div>
-
-<style>
-  @import "../styles/main.css";
-</style>
+  <ul class="my-auto px-4 flex max-lg:flex-col gap-4">
+    {#each projects as { href, name, description }}
+      <li>
+        <Card
+          class="w-96 rounded-3xl bg-gradient-to-b from-neutral-50/90 to-neutral-100/90 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90 lg:bg-gradient-to-br"
+        >
+          <CardHeader>
+            <CardTitle>{name}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              {@html description}
+            </CardDescription>
+          </CardContent>
+          <CardFooter>
+            <Button variant="link" target="_blank" rel="noopener noreferrer" class="ml-auto" {href}>
+              Check it out <ArrowRightIcon />
+            </Button>
+          </CardFooter>
+        </Card>
+      </li>
+    {/each}
+  </ul>
+</main>

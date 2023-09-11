@@ -24,6 +24,6 @@ export const GET: RequestHandler = async () => {
         "Cache-Control": "max-age=0, s-maxage=3600",
         "Content-Type": "application/xml",
       },
-    }
+    },
   )
 }

@@ -19,15 +19,17 @@
   export let data
   $: ({ posts, tag } = data)
 
-  $: queriedPosts = posts.filter((item) =>
-    $searchQuery
-      ? item.title
-          .trim()
-          .replace(/\s+/gi, "")
-          .toLowerCase()
-          .includes(($searchQuery ?? "").trim().replace(/\s+/gi, "").toLowerCase())
-      : true
-  )
+  $: queriedPosts = posts
+    .filter((item) =>
+      $searchQuery
+        ? item.title
+            .trim()
+            .replace(/\s+/gi, "")
+            .toLowerCase()
+            .includes(($searchQuery ?? "").trim().replace(/\s+/gi, "").toLowerCase())
+        : true
+    )
+    .filter((p) => (tag ? p.tags.includes(tag) : true))
 </script>
 
 <svelte:head>
@@ -37,7 +39,7 @@
   />
 </svelte:head>
 
-<main class="m-4 flex flex-col gap-4">
+<main class="flex-grow m-4 flex flex-col gap-4">
   <div class="flex items-center gap-2">
     <TagsIcon />
     <Button href="/blog" variant="outline" class="flex items-center gap-[1ch]">All tags</Button>
@@ -49,7 +51,7 @@
   </div>
 
   <div class="grid grid-cols-3 max-sm:grid-cols-1 gap-4">
-    {#each filteredPosts as post (post.slug)}
+    {#each queriedPosts as post (post.slug)}
       <Card>
         <CardHeader>
           <CardTitle>
@@ -63,6 +65,7 @@
         </CardHeader>
         <CardContent class="flex flex-col gap-4 text-muted-foreground">
           <time
+            class="text-xs font-semibold"
             datetime={post.date.replace(/\//g, "-")}
             style="view-transition-name: post-date-{post.slug}"
           >

@@ -36,16 +36,12 @@ const config = {
             kt: "kotlin",
           }
 
-          const highlighter = await getHighlighter({
-            theme: JSON.parse(readFileSync("./themes/dark.json", "utf-8")),
-          })
-          return highlighter
-            .codeToHtml(code, {
-              lang: langAliases[lang] ?? lang,
-            })
-            .replace(/{/g, "&lcub;")
-            .replace(/<pre ([^>]+)>/, "<Components.pre>")
-            .replace("</pre>", "</Components.pre>")
+          const highlightedCode = (await getHighlighter({ theme: "material-theme-palenight" }))
+            .codeToHtml(code, { lang: langAliases[lang] ?? lang })
+            .replace(/<pre ([^>]+)>/, "")
+            .replace("</pre>", "")
+
+          return `<Components.pre rawCode={\`${encodeURIComponent(highlightedCode)}\`} />`
         },
       },
     }),

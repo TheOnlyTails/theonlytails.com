@@ -1,13 +1,13 @@
 <script lang="ts">
   import { Metadata } from "$lib"
   import { Badge } from "$lib/components/ui/badge"
-  import { Button } from "$lib/components/ui/button/"
+  import { Button } from "$lib/components/ui/button"
   import * as Markdown from "$lib/markdown"
   import CalendarIcon from "~icons/lucide/calendar-days"
   import MiddleDot from "~icons/lucide/dot"
   import GithubIcon from "~icons/lucide/github"
-  import PencilIcon from "~icons/lucide/pencil"
   import TagsIcon from "~icons/lucide/tags"
+  import ShareMenu from "./ShareMenu.svelte"
 
   export let data
   $: ({ post } = data)
@@ -43,6 +43,10 @@
         </li>
       {/each}
     </ul>
+
+    <MiddleDot />
+
+    <ShareMenu />
   </div>
   <Button
     class="absolute top-6 right-4"
