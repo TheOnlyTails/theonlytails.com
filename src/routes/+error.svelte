@@ -1,38 +1,33 @@
 <script lang="ts">
   import { goto } from "$app/navigation"
-	import { page } from "$app/stores"
+  import { page } from "$app/stores"
 </script>
 
 <main>
-	<h1>Error: Status Code {$page.status}</h1>
-	<h2>{$page.error.message}</h2>
-	<button class="back" on:click={() => goto("/")}>Return Home</button>
+  <h1>Error: Status Code {$page.status}</h1>
+  <p>{$page.error?.message}</p>
+  <button class="back" on:click={() => goto("/")}>Return Home</button>
 </main>
 
-<style lang="scss">
-	@use "src/styles/vars" as *;
-	@use "src/styles/mixins" as *;
+<style lang="postcss">
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 
-	main {
-		@include center;
-		block-size: 100vh;
-	}
+  h1 {
+    color: var(--accent);
+  }
 
-	h1 {
-		color: $accent;
-	}
-
-	.back {
-		padding: 1rem;
-		border: .2rem solid $accent;
-		border-radius: 100vh;
-		background: transparent;
-		color: $accent;
-		font: {
-			family: $font-family;
-			size: 1.5rem;
-			weight: 500;
-		}
-		cursor: pointer;
-	}
+  .back {
+    padding: 1ch;
+    outline: 0.2rem solid var(--accent);
+    border-radius: 100vh;
+    color: var(--accent);
+    text-align: center;
+    font-weight: 500;
+  }
 </style>

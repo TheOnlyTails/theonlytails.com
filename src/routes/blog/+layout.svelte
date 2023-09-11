@@ -1,7 +1,16 @@
 <script lang="ts">
-  import { BlogButton, Metadata, Searchbar, Title } from "$lib"
-  import type { LayoutData } from "./$types"
   import { page } from "$app/stores"
+  import { Metadata } from "$lib"
+  import { Avatar, AvatarFallback, AvatarImage } from "$lib/components/ui/avatar"
+  import { Button } from "$lib/components/ui/button"
+  import { Input } from "$lib/components/ui/input"
+  import { Separator } from "$lib/components/ui/separator"
+  import { Skeleton } from "$lib/components/ui/skeleton"
+  import { searchQuery } from "$lib/data/search"
+  import BookMarked from "~icons/lucide/book-marked"
+
+  export let data
+  $: ({ posts } = data)
 </script>
 
 <svelte:head>
@@ -12,50 +21,34 @@
   <meta content="blog" name="og:type" />
 </svelte:head>
 
-<div id="page">
-  <nav class="navbar">
-    <header class="header title">
-      <Title fontSize={1.2} logoSize={36} />
-    </header>
+<nav class="flex items-center justify-between gap-4 p-4">
+  <header class="header title">
+    <h1 class="flex items-center gap-4 my-0 sm:ml-auto">
+      <Avatar>
+        <AvatarImage src="/favicon.svg" alt="TheOnlyTails avatar" />
+        <AvatarFallback><Skeleton class="w-10 h-10 rounded-full" /></AvatarFallback>
+      </Avatar>
+      <a class="text-current font-semibold" href="/">TheOnlyTails</a>
+    </h1>
+  </header>
 
-    {#if $page.data.posts}
-      <Searchbar posts={$page.data.posts} />
-    {:else if $page.data.post}
-      <BlogButton />
-    {/if}
-  </nav>
+  {#if $page.route.id === "/blog"}
+    <Input
+      bind:value={$searchQuery}
+      list="search-post-options"
+      placeholder="Search for articles..."
+      type="search"
+    />
+    <datalist id="search-post-options">
+      {#each posts.map((item) => item.title) as postName}
+        <option value={postName} />
+      {/each}
+    </datalist>
+  {:else if $page.data.post}
+    <Button variant="link" href="/blog/"><BookMarked /> Blog</Button>
+  {/if}
+</nav>
 
-  <hr />
+<Separator />
 
-  <slot />
-</div>
-
-<style lang="scss">
-  @use "src/styles/mixins" as *;
-  @use "src/styles/vars" as *;
-
-  #page {
-    display: grid;
-    grid-template-rows: min-content min-content fit-content(100%);
-    min-inline-size: 100%;
-    max-inline-size: 50%;
-    min-block-size: 100vh;
-    font-size: 1.1rem;
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-
-      padding-block-start: 1em;
-      padding-inline: 1em;
-    }
-
-    hr {
-      margin: 1rem;
-      border-style: solid;
-      color: $accent;
-    }
-  }
-</style>
+<slot />

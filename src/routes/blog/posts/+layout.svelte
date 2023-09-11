@@ -1,8 +1,15 @@
 <script lang="ts">
-  import type { LayoutData } from "./$types"
   import { Metadata } from "$lib"
+  import { Badge } from "$lib/components/ui/badge"
+  import { Button } from "$lib/components/ui/button/"
+  import * as Markdown from "$lib/markdown"
+  import CalendarIcon from "~icons/lucide/calendar-days"
+  import MiddleDot from "~icons/lucide/dot"
+  import GithubIcon from "~icons/lucide/github"
+  import PencilIcon from "~icons/lucide/pencil"
+  import TagsIcon from "~icons/lucide/tags"
 
-  export let data: LayoutData
+  export let data
   $: ({ post } = data)
 </script>
 
@@ -10,34 +17,45 @@
   <Metadata title="TheOnlyTails • {post.title}" description={post.description} />
 </svelte:head>
 
-<article>
-  <h1 class="post-title">{post.title}</h1>
-  <div class="post-info">
-    <p class="post-author" title="Author: {post.author}">
-      Written by: {post.author}
-    </p>
-    <p class="post-date" title="Publication Date: {post.date}">
-      Published at: {post.date}
-    </p>
-  </div>
+<article class="relative flex flex-col gap-4 p-4">
+  <Markdown.h1 style="view-transition-name: post-title-{post.slug}">{post.title}</Markdown.h1>
+  <div class="flex items-center gap-4 text-muted-foreground">
+    <time
+      datetime={post.date.replace(/\//g, "-")}
+      style="view-transition-name: post-date-{post.slug}"
+    >
+      <CalendarIcon />
+      Published on {post.date}
+    </time>
 
-  <main>
+    <MiddleDot />
+
+    <ul
+      class="flex flex-wrap gap-4 items-center"
+      style="view-transition-name: post-tags-{post.slug}"
+    >
+      <TagsIcon />
+      {#each post.tags as tag}
+        <li>
+          <a href="/blog?tag={tag}">
+            <Badge>{tag}</Badge>
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
+  <Button
+    class="absolute top-6 right-4"
+    href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/posts/{post.slug}/+page.md"
+    target="_blank"
+    variant="outline"
+    style="view-transition-name: none"
+  >
+    <GithubIcon />
+    View Article Source
+  </Button>
+
+  <main class="markdown">
     <slot />
   </main>
-
-  <hr class="footer-divider" />
-  <footer class="footer">
-    <a
-      class="article-footer-link"
-      href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/posts/{post.slug}/+page.md"
-      target="_blank"
-    >
-      <img class="article-footer-link-icon" src="/icons/code.svg" alt="GitHub" />
-      View Article Source
-    </a>
-  </footer>
 </article>
-
-<style lang="scss">
-  @use "src/styles/blog";
-</style>

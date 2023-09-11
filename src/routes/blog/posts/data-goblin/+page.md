@@ -1,9 +1,9 @@
 ---
 slug: data-goblin
 title: The Story of DataGoblin
-author: Tails
 description: How I made Minecraft data generation Kotlin-oriented with DSLs.
 date: 2021/08/18
+tags: [kotlin, minecraft, forge]
 published: true
 ---
 
@@ -31,8 +31,6 @@ DataGoblin isn't a project on its own, but a collection of Kotlin DSLs (all of w
 made to create idiomatic Kotlin code for [MinecraftForge](https://github.com/MinecraftForge/MinecraftForge) datagen.
 
 !> As for the time of writing (will be updated in the future), DataGoblin has 2 DSLs: LootGoblin and ModelGoblin.
-
----
 
 ## LootGoblin
 
@@ -72,8 +70,6 @@ After about a week of work, I've learned some lessons:
 - Models are _way more_ complex than loot tables.
 - Taking my old code was a huge time-saver.
 - I should make more of these.
-
----
 
 ## So what's next?
 

@@ -8,29 +8,32 @@
   Blog
 </a>
 
-<style lang="scss">
-	@use "src/styles/vars" as *;
+<style lang="postcss">
+  a {
+    /* align with icon */
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
 
-	a {
-		// align with icon
-		display: flex;
-		align-items: center;
-		gap: .5ch;
+    padding: 0.5rem;
+    outline: 0.2rem solid transparent;
 
-		padding: .5rem;
-		outline: .2rem solid transparent;
+    /* border animation */
+    border-radius: 100vh;
+    font-size: 1.25rem;
+    transition: outline-color 0.75s;
 
-		// border animation
-		border-radius: 100vh;
-		font-size: 1.25rem;
-		transition: outline-color .75s;
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      outline-color: var(--accent);
+    }
 
-		&:hover, &:focus, &:focus-visible {
-			outline-color: $accent;
-		}
-
-		&:link, &:hover, &:active, &:visited {
-			text-decoration: none;
-		}
-	}
+    &:link,
+    &:hover,
+    &:active,
+    &:visited {
+      text-decoration: none;
+    }
+  }
 </style>

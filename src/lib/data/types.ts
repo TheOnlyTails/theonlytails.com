@@ -7,8 +7,8 @@ export type Project = {
 export type PostData = {
   slug: string
   title: string
-  author: string
   description: string
   date: string
+  tags: string[]
   published: boolean
 }

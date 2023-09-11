@@ -5,9 +5,7 @@ export const GET: RequestHandler = async () => {
   const posts = import.meta.glob<PostData>(`./blog/*/+page.md`, { eager: true })
 
   const postUrls = Object.entries(posts)
-    .map(
-      ([_, post]) => `<url><loc>https://www.theonlytails.com/blog/${post.slug}</loc></url>`
-    )
+    .map(([_, post]) => `<url><loc>https://www.theonlytails.com/blog/${post.slug}</loc></url>`)
     .join("\n")
 
   return new Response(
