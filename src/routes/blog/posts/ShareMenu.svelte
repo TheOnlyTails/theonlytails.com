@@ -15,8 +15,8 @@
 
 <DropdownMenu>
   <DropdownMenuTrigger asChild let:builder>
-    <Button class="rounded-full" variant="outline" size="icon" builders={[builder]}>
-      <ShareIcon />
+    <Button variant="outline" builders={[builder]}>
+      <ShareIcon /> Share Post
     </Button>
   </DropdownMenuTrigger>
   <DropdownMenuContent>

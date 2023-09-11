@@ -105,7 +105,7 @@
     {#each projects as { href, name, description }}
       <li>
         <Card
-          class="w-96 rounded-3xl bg-gradient-to-b from-neutral-50/90 to-neutral-100/90 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90 lg:bg-gradient-to-br"
+          class="sm:w-96 rounded-3xl bg-gradient-to-b from-neutral-50/90 to-neutral-100/90 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90 lg:bg-gradient-to-br"
         >
           <CardHeader>
             <CardTitle>{name}</CardTitle>

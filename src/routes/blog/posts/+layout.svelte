@@ -17,9 +17,23 @@
   <Metadata title="TheOnlyTails • {post.title}" description={post.description} />
 </svelte:head>
 
-<article class="relative flex flex-col gap-4 p-4">
-  <Markdown.h1 style="view-transition-name: post-title-{post.slug}">{post.title}</Markdown.h1>
-  <div class="flex items-center gap-4 text-muted-foreground">
+<article class="flex flex-col gap-4 p-4">
+  <header class="flex items-center justify-between gap-4 flex-wrap">
+    <Markdown.h1 class="max-md:text-center" style="text-wrap: balance; view-transition-name: post-title-{post.slug}">
+      {post.title}
+    </Markdown.h1>
+
+    <Button
+      href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/posts/{post.slug}/+page.md"
+      target="_blank"
+      variant="outline"
+      style="view-transition-name: none"
+    >
+      <GithubIcon />
+      View Article Source
+    </Button>
+  </header>
+  <div class="flex items-center max-md:flex-col max-md:!items-start gap-4 text-muted-foreground">
     <time
       datetime={post.date.replace(/\//g, "-")}
       style="view-transition-name: post-date-{post.slug}"
@@ -28,7 +42,7 @@
       Published on {post.date}
     </time>
 
-    <MiddleDot />
+    <MiddleDot class="max-md:!hidden" />
 
     <ul
       class="flex flex-wrap gap-4 items-center"
@@ -44,20 +58,10 @@
       {/each}
     </ul>
 
-    <MiddleDot />
+    <MiddleDot class="max-md:!hidden" />
 
     <ShareMenu />
   </div>
-  <Button
-    class="absolute top-6 right-4"
-    href="https://github.com/TheOnlyTails/theonlytails.com/blob/main/src/routes/blog/posts/{post.slug}/+page.md"
-    target="_blank"
-    variant="outline"
-    style="view-transition-name: none"
-  >
-    <GithubIcon />
-    View Article Source
-  </Button>
 
   <main class="markdown">
     <slot />

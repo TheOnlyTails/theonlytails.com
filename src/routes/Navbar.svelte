@@ -14,10 +14,10 @@
   export let posts: PostData[] | undefined = undefined
 </script>
 
-<nav class="flex items-center justify-between gap-4 p-4">
-  <header class="header title">
+<nav class="flex flex-wrap items-center justify-between gap-4 p-4">
+  <header class="max-sm:mx-auto">
     <h1 class="flex items-center gap-4 my-0 sm:ml-auto">
-      <Avatar>
+      <Avatar class="max-sm:hidden">
         <AvatarImage src="/favicon.svg" alt="TheOnlyTails avatar" />
         <AvatarFallback><Skeleton class="w-10 h-10 rounded-full" /></AvatarFallback>
       </Avatar>
@@ -42,7 +42,7 @@
     <Button variant="link" href="/blog/"><BookMarkedIcon /> Blog</Button>
   {/if}
 
-  <div>
+  <div class="max-sm:mx-auto">
     <Button href="https://github.com/theonlytails" variant="ghost" size="icon">
       <GithubIcon class="h-4 w-4" />
     </Button>

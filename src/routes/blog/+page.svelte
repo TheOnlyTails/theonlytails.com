@@ -40,9 +40,11 @@
 </svelte:head>
 
 <main class="flex-grow m-4 flex flex-col gap-4">
-  <div class="flex items-center gap-2">
+  <div class="flex flex-wrap items-center gap-2">
     <TagsIcon />
-    <Button href="/blog" variant="outline" class="flex items-center gap-[1ch]">All tags</Button>
+    <Button href="/blog" variant="ghost" class="p-0 hover:bg-transparent">
+      <Badge><TagIcon /> All tags</Badge>
+    </Button>
     {#each posts.flatMap((p) => p.tags).flat() as tag}
       <a href="/blog?tag={tag}">
         <Badge class="m-0"><TagIcon /> {tag}</Badge>
