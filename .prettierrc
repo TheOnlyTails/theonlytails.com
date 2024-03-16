@@ -1,4 +1,5 @@
 {
-  "semi": false,
-  "printWidth": 100
+	"useTabs": true,
+	"printWidth": 100,
+	"plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-svelte"]
 }

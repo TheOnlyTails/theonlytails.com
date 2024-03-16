@@ -1,16 +1,16 @@
 {
-  "redirects": [
-    {
-      "source": "/github",
-      "destination": "https://github.com/theonlytails"
-    },
-    {
-      "source": "/twitter",
-      "destination": "https://twitter.com/the_only_tails"
-    },
-    {
-      "source": "/reddit",
-      "destination": "https://reddit.com/u/theonlytails"
-    }
-  ]
+	"redirects": [
+		{
+			"source": "/github",
+			"destination": "https://github.com/theonlytails"
+		},
+		{
+			"source": "/twitter",
+			"destination": "https://twitter.com/the_only_tails"
+		},
+		{
+			"source": "/reddit",
+			"destination": "https://reddit.com/u/theonlytails"
+		}
+	]
 }
