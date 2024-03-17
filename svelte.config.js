@@ -1,5 +1,5 @@
 import remarkA11yEmoji from "@fec/remark-a11y-emoji";
-import adapter from "@sveltejs/adapter-vercel";
+import adapter from "@sveltejs/adapter-cloudflare";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex } from "mdsvex";
 import rehypeExternalLinks from "rehype-external-links";
@@ -42,7 +42,7 @@ const config = {
 		}),
 	],
 	kit: {
-		adapter: adapter({ runtime: "edge" }),
+		adapter: adapter(),
 		alias: {
 			"$lib/components": "src/lib/components",
 			"$lib/utils": "src/lib/utils",

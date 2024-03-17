@@ -22,7 +22,7 @@
 	"devDependencies": {
 		"@fec/remark-a11y-emoji": "^4.0.2",
 		"@iconify/json": "^2.2.192",
-		"@sveltejs/adapter-vercel": "^5.1.1",
+		"@sveltejs/adapter-cloudflare": "^4.2.0",
 		"@sveltejs/kit": "^2.5.4",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"@total-typescript/ts-reset": "^0.5.1",
