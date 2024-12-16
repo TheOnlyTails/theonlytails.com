@@ -4,8 +4,8 @@
 	import { Metadata } from "$lib";
 	import { Separator } from "$lib/components/ui/separator";
 
-	export let data;
-	$: ({ posts } = data);
+	let { data, children } = $props();
+	let { posts } = $derived(data);
 </script>
 
 <svelte:head>
@@ -20,4 +20,4 @@
 
 <Separator />
 
-<slot />
+{@render children()}

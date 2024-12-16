@@ -16,20 +16,22 @@
 	import TagIcon from "~icons/lucide/tag";
 	import TagsIcon from "~icons/lucide/tags";
 
-	export let data;
-	$: ({ posts, tag } = data);
+	let { data } = $props();
+	let { posts, tag } = $derived(data);
 
-	$: queriedPosts = posts
-		.filter((item) =>
-			$searchQuery
-				? item.title
-						.trim()
-						.replace(/\s+/gi, "")
-						.toLowerCase()
-						.includes(($searchQuery ?? "").trim().replace(/\s+/gi, "").toLowerCase())
-				: true,
-		)
-		.filter((p) => (tag ? p.tags.includes(tag) : true));
+	let queriedPosts = $derived(
+		posts
+			.filter((item) =>
+				$searchQuery
+					? item.title
+							.trim()
+							.replace(/\s+/gi, "")
+							.toLowerCase()
+							.includes(($searchQuery ?? "").trim().replace(/\s+/gi, "").toLowerCase())
+					: true,
+			)
+			.filter((p) => (tag ? p.tags.includes(tag) : true)),
+	);
 </script>
 
 <svelte:head>
@@ -57,7 +59,7 @@
 			<Card>
 				<CardHeader>
 					<CardTitle>
-						<a style="view-transition-name: post-title-{post.slug}" href="/blog/posts/{post.slug}">
+						<a href="/blog/posts/{post.slug}">
 							{post.title}
 						</a>
 					</CardTitle>
@@ -66,19 +68,12 @@
 					</CardDescription>
 				</CardHeader>
 				<CardContent class="flex flex-col gap-4 text-muted-foreground">
-					<time
-						class="text-xs font-semibold"
-						datetime={post.date.replace(/\//g, "-")}
-						style="view-transition-name: post-date-{post.slug}"
-					>
+					<time class="text-xs font-semibold" datetime={post.date.replace(/\//g, "-")}>
 						<Calendar />
 						Published on {new Date(post.date).toLocaleDateString("en-US", { dateStyle: "long" })}
 					</time>
 
-					<ul
-						class="flex flex-wrap gap-4 items-center"
-						style="view-transition-name: post-tags-{post.slug}"
-					>
+					<ul class="flex flex-wrap gap-4 items-center">
 						<TagsIcon />
 						{#each post.tags as tag}
 							<li><Badge>{tag}</Badge></li>

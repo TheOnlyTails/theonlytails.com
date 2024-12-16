@@ -1,17 +1,10 @@
 <script lang="ts">
-	import { onNavigate } from "$app/navigation";
-	import "../app.postcss";
+	import { ModeWatcher } from "mode-watcher";
+	import "../app.css";
 
-	onNavigate(async (nav) => {
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			document.startViewTransition(async () => {
-				resolve();
-				await nav.complete;
-			});
-		});
-	});
+	let { children } = $props();
 </script>
 
-<slot />
+<ModeWatcher />
+
+{@render children()}

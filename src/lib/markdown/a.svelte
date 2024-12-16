@@ -1,13 +1,20 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
+	import { cn } from "$lib/utils.svelte";
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
-	export let href: string;
-	$: internal = href.startsWith("/") || href.startsWith("#");
+	import type { Snippet } from "svelte";
+	import type { SvelteHTMLElements } from "svelte/elements";
 
-	$: rel = !internal ? "noopener noreferrer" : undefined;
-	$: target = !internal ? "_blank" : undefined;
+	type Props = SvelteHTMLElements["a"] & {
+		href: string;
+		class?: string;
+		children: Snippet;
+	};
+
+	let { class: className = undefined, href, children, ...rest }: Props = $props();
+	let internal = $derived(href.startsWith("/") || href.startsWith("#"));
+
+	let rel = $derived(!internal ? "noopener noreferrer" : undefined);
+	let target = $derived(!internal ? "_blank" : undefined);
 </script>
 
 <a
@@ -15,7 +22,7 @@
 	{target}
 	{rel}
 	class={cn("font-medium underline underline-offset-4", className)}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </a>

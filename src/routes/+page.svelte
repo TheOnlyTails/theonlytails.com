@@ -14,16 +14,18 @@
 	import Navbar from "./Navbar.svelte";
 
 	import ArrowRightIcon from "~icons/lucide/arrow-right";
+	import KotlinIcon from "~icons/simple-icons/kotlin";
+	import RustIcon from "~icons/simple-icons/rust";
 	import SvelteIcon from "~icons/simple-icons/svelte";
 	import TypescriptIcon from "~icons/simple-icons/typescript";
-	import RustIcon from "~icons/simple-icons/rust";
-	import KotlinIcon from "~icons/simple-icons/kotlin";
+	import GleamIcon from "~icons/vscode-icons/file-type-gleam";
 
 	const projects = [
 		{
-			name: "Fluent Svelte",
-			href: "https://fluent-svelte.vercel.app/",
-			description: "A faithful implementation of Microsoft's Fluent Design System in Svelte.",
+			name: "sona Linku & lipu Linku",
+			href: "https://linku.la/",
+			description:
+				"A free and open-source dictionary project for Toki Pona, a human minimalist language.",
 		},
 		{
 			name: "Files",
@@ -55,6 +57,11 @@
 			href: "https://www.rust-lang.org/",
 		},
 		{
+			name: "Gleam",
+			icon: GleamIcon,
+			href: "https://gleam.run/",
+		},
+		{
 			name: "Kotlin",
 			icon: KotlinIcon,
 			href: "https://kotlinlang.org/",
@@ -64,8 +71,8 @@
 
 <svelte:head>
 	<Metadata
-		title="TheOnlyTails"
-		description="TheOnlyTails' personal site and portfolio with all kinds of programming stuff."
+		title="Shachar Zidon"
+		description="Shachar Zidon's personal site and portfolio with all kinds of programming stuff."
 	/>
 </svelte:head>
 
@@ -76,11 +83,11 @@
 <main class="flex-grow flex flex-col items-center gap-4 p-4">
 	<header class="mb-6 mt-10">
 		<h1 class="flex items-center gap-4 text-5xl text-primary sm:ml-auto">
-			<Avatar class="h-12 w-12">
-				<AvatarImage src="/favicon.svg" alt="TheOnlyTails avatar" />
-				<AvatarFallback><Skeleton class="w-10 h-10 rounded-full" /></AvatarFallback>
+			<Avatar class="size-12">
+				<AvatarImage src="/favicon.svg" alt="Shachar Zidon avatar" />
+				<AvatarFallback><Skeleton class="size-10 rounded-full" /></AvatarFallback>
 			</Avatar>
-			<a class="text-current font-semibold" href="/">TheOnlyTails</a>
+			<a class="text-current font-semibold" href="/">Shachar Zidon</a>
 		</h1>
 	</header>
 
@@ -96,32 +103,37 @@
 				variant="ghost"
 				size="icon"
 			>
-				<Icon />
+				<!-- a bit of a hack until Simple Icons add a gleam icon -->
+				<Icon class={name === "Gleam" ? "grayscale scale-125 -translate-y-0.5" : ""} />
 			</Button>
 		{/each}
 	</ul>
 
 	<ul class="my-auto px-4 flex max-lg:flex-col gap-4">
-		{#each projects as { href, name, description }}
+		{#each projects as project}
 			<li>
-				<Card
-					class="sm:w-96 rounded-3xl bg-gradient-to-b from-neutral-50/90 to-neutral-100/90 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90 lg:bg-gradient-to-br"
-				>
-					<CardHeader>
-						<CardTitle>{name}</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<CardDescription>
-							{@html description}
-						</CardDescription>
-					</CardContent>
-					<CardFooter>
-						<Button variant="link" target="_blank" rel="noopener noreferrer" class="ml-auto" {href}>
-							Check it out <ArrowRightIcon />
-						</Button>
-					</CardFooter>
-				</Card>
+				{@render projectCard(project)}
 			</li>
 		{/each}
 	</ul>
 </main>
+
+{#snippet projectCard({ name, href, description }: Project)}
+	<Card
+		class="transition-transform motion-safe:hover:-translate-y-2 sm:w-96 rounded-3xl bg-gradient-to-b from-neutral-50/90 to-neutral-100/90 duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90 lg:bg-gradient-to-br"
+	>
+		<CardHeader>
+			<CardTitle>{name}</CardTitle>
+		</CardHeader>
+		<CardContent>
+			<CardDescription>
+				{@html description}
+			</CardDescription>
+		</CardContent>
+		<CardFooter>
+			<Button variant="link" target="_blank" rel="noopener noreferrer" class="ml-auto" {href}>
+				Check it out <ArrowRightIcon />
+			</Button>
+		</CardFooter>
+	</Card>
+{/snippet}

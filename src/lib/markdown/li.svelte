@@ -1,10 +1,17 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
+	import { cn } from "$lib/utils.svelte";
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
+	import type { Snippet } from "svelte";
+	import type { SvelteHTMLElements } from "svelte/elements";
+
+	type Props = SvelteHTMLElements["tlir"] & {
+		class?: string;
+		children: Snippet;
+	};
+
+	let { class: className = undefined, children, ...rest }: Props = $props();
 </script>
 
-<li class={cn("mt-2", className)} {...$$restProps}>
-	<slot />
+<li class={cn("mt-2", className)} {...rest}>
+	{@render children?.()}
 </li>

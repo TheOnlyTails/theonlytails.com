@@ -45,7 +45,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			"$lib/components": "src/lib/components",
-			"$lib/utils": "src/lib/utils",
+			"$lib/utils": "src/lib/utils.svelte",
 		},
 	},
 	vitePlugin: {

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-background: light-dark(hsl(0 0% 100%), hsl(240 10% 3.9%));
+	--color-foreground: light-dark(hsl(240 10% 3.9%), hsl(0 0% 98%));
+	--color-card: light-dark(hsl(0 0% 100%), hsl(240 10% 3.9%));
+	--color-card-foreground: light-dark(hsl(240 10% 3.9%), hsl(0 0% 98%));
+	--color-popover: light-dark(hsl(0 0% 100%), hsl(240 10% 3.9%));
+	--color-popover-foreground: light-dark(hsl(240 10% 3.9%), hsl(0 0% 98%));
+	--color-primary: light-dark(hsl(240 5.9% 10%), hsl(0 0% 98%));
+	--color-primary-foreground: light-dark(hsl(0 0% 98%), hsl(240 5.9% 10%));
+	--color-secondary: light-dark(hsl(240 4.8% 95.9%), hsl(240 3.7% 15.9%));
+	--color-secondary-foreground: light-dark(hsl(240 5.9% 10%), hsl(0 0% 98%));
+	--color-muted: light-dark(hsl(240 4.8% 95.9%), hsl(240 3.7% 15.9%));
+	--color-muted-foreground: light-dark(hsl(240 3.8% 46.1%), hsl(240 5% 64.9%));
+	--color-accent: light-dark(hsl(240 4.8% 95.9%), hsl(240 3.7% 15.9%));
+	--color-accent-foreground: light-dark(hsl(240 5.9% 10%), hsl(0 0% 98%));
+	--color-destructive: light-dark(hsl(0 72.22% 50.59%), hsl(0 62.8% 30.6%));
+	--color-destructive-foreground: light-dark(hsl(0 0% 98%), hsl(0 0% 98%));
+	--color-border: light-dark(hsl(240 5.9% 90%), hsl(240 3.7% 15.9%));
+	--color-input: light-dark(hsl(240 5.9% 90%), hsl(240 3.7% 15.9%));
+	--color-ring: light-dark(hsl(240 5.9% 10%), hsl(240 4.9% 83.9%));
+
+	--radius-lg: 0.5rem;
+	--radius-md: calc(var(--radius-lg) - 2px);
+	--radius-sm: calc(var(--radius-lg) - 4px);
+}
+
+@utility container {
+	margin-inline: auto;
+	padding-inline: 2rem;
+
+	@media (width >= 1400px) {
+		max-width: 1400px;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	input::-webkit-calendar-picker-indicator {
+		display: none;
+	}
+
+	:not(:empty):has(> .icon) {
+		@apply flex items-center gap-[1ch] align-middle;
+	}
+
+	::-webkit-scrollbar {
+		@apply size-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply !bg-muted;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply !bg-muted-foreground/30 rounded-sm;
+	}
+
+	/* Firefox */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
+	html {
+		scrollbar-color: hsl(215.4 16.3% 46.9% / 0.3);
+
+		@media (prefers-color-scheme: dark) {
+			scrollbar-color: hsl(215.4 16.3% 56.9% / 0.3);
+		}
+	}
+}
+
+.markdown pre code {
+	@apply relative grid min-w-full rounded-none border-0 bg-transparent p-0 break-words;
+	counter-reset: line;
+	box-decoration-break: clone;
+
+	.line {
+		@apply inline-block min-h-[1.5rem] w-full px-2 py-0.5;
+
+		&::before {
+			@apply mr-6 inline-block w-7 text-right text-xs text-zinc-50/40;
+			counter-increment: line;
+			content: counter(line);
+		}
+	}
+}

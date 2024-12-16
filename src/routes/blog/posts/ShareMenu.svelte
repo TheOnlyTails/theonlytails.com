@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-	import { Button } from "$lib/components/ui/button";
+	import { page } from "$app/state";
+	import { Button, buttonVariants } from "$lib/components/ui/button";
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -14,10 +14,8 @@
 </script>
 
 <DropdownMenu>
-	<DropdownMenuTrigger asChild let:builder>
-		<Button variant="outline" builders={[builder]}>
-			<ShareIcon /> Share Post
-		</Button>
+	<DropdownMenuTrigger class={buttonVariants({ variant: "outline" })}>
+		<ShareIcon /> Share Post
 	</DropdownMenuTrigger>
 	<DropdownMenuContent>
 		<DropdownMenuItem>
@@ -25,7 +23,7 @@
 				size="sm"
 				variant="link"
 				href="https://twitter.com/intent/tweet?text={encodeURIComponent(
-					'Check out this blog post: ' + $page.url,
+					'Check out this blog post: ' + page.url,
 				)}"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -37,7 +35,7 @@
 			<Button
 				size="sm"
 				variant="link"
-				on:click={() => navigator.clipboard.writeText($page.url.toString())}
+				onclick={() => navigator.clipboard.writeText(page.url.toString())}
 			>
 				<LinkIcon /> Copy Link
 			</Button>
@@ -47,7 +45,7 @@
 				<Button
 					size="sm"
 					variant="link"
-					on:click={() => navigator.share({ url: $page.url.toString() })}
+					onclick={() => navigator.share({ url: page.url.toString() })}
 				>
 					<ShareVariantIcon /> OS Sharing
 				</Button>

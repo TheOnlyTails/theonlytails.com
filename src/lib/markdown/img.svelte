@@ -1,11 +1,14 @@
 <script lang="ts">
-	import type { HTMLImgAttributes } from "svelte/elements";
-	import { cn } from "$lib/utils";
+	import { cn } from "$lib/utils.svelte";
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
-	export let src: HTMLImgAttributes["src"] = undefined;
-	export let alt: HTMLImgAttributes["alt"] = undefined;
+	import type { Snippet } from "svelte";
+	import type { SvelteHTMLElements } from "svelte/elements";
+
+	type Props = SvelteHTMLElements["img"] & {
+		class?: string;
+		children: Snippet;
+	};
+	let { class: className = undefined, src = undefined, alt = undefined, ...rest }: Props = $props();
 </script>
 
-<img {src} {alt} class={cn("rounded-md", className)} {...$$restProps} />
+<img {src} {alt} class={cn("rounded-md", className)} {...rest} />

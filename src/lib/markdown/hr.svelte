@@ -1,8 +1,15 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
+	import { cn } from "$lib/utils.svelte";
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
+	import type { Snippet } from "svelte";
+	import type { SvelteHTMLElements } from "svelte/elements";
+
+	type Props = SvelteHTMLElements["hr"] & {
+		class?: string;
+		children: Snippet;
+	};
+
+	let { class: className = undefined, ...rest }: Props = $props();
 </script>
 
-<hr class={cn("my-4 md:my-8", className)} {...$$restProps} />
+<hr class={cn("my-4 md:my-8", className)} {...rest} />

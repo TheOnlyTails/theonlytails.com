@@ -1,4 +1,4 @@
-import type { SvelteComponent } from "svelte";
+import type { Component, Snippet } from "svelte";
 import type { SvelteHTMLElements } from "svelte/elements";
 
 export type Project = {
@@ -9,7 +9,7 @@ export type Project = {
 
 export type Technology = {
 	name: string;
-	icon: typeof SvelteComponent<SvelteHTMLElements["svg"]>;
+	icon: Component<SvelteHTMLElements["svg"]> | Snippet;
 	href: string;
 };
 
