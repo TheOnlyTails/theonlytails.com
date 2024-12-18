@@ -2,12 +2,7 @@
 	import { Metadata } from "$lib";
 	import { Avatar, AvatarFallback, AvatarImage } from "$lib/components/ui/avatar";
 	import { Button } from "$lib/components/ui/button";
-	import { Card } from "$lib/components/ui/card";
-	import CardContent from "$lib/components/ui/card/card-content.svelte";
-	import CardDescription from "$lib/components/ui/card/card-description.svelte";
-	import CardFooter from "$lib/components/ui/card/card-footer.svelte";
-	import CardHeader from "$lib/components/ui/card/card-header.svelte";
-	import CardTitle from "$lib/components/ui/card/card-title.svelte";
+	import * as Card from "$lib/components/ui/card";
 	import { Separator } from "$lib/components/ui/separator";
 	import { Skeleton } from "$lib/components/ui/skeleton";
 	import type { Project, Technology } from "$lib/data/types";
@@ -119,21 +114,21 @@
 </main>
 
 {#snippet projectCard({ name, href, description }: Project)}
-	<Card
+	<Card.Root
 		class="transition-transform motion-safe:hover:-translate-y-2 sm:w-96 rounded-3xl bg-gradient-to-b from-neutral-50/90 to-neutral-100/90 duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90 lg:bg-gradient-to-br"
 	>
-		<CardHeader>
-			<CardTitle>{name}</CardTitle>
-		</CardHeader>
-		<CardContent>
-			<CardDescription>
+		<Card.Header>
+			<Card.Title>{name}</Card.Title>
+		</Card.Header>
+		<Card.Content>
+			<Card.Description>
 				{@html description}
-			</CardDescription>
-		</CardContent>
-		<CardFooter>
+			</Card.Description>
+		</Card.Content>
+		<Card.Footer>
 			<Button variant="link" target="_blank" rel="noopener noreferrer" class="ml-auto" {href}>
 				Check it out <ArrowRightIcon />
 			</Button>
-		</CardFooter>
-	</Card>
+		</Card.Footer>
+	</Card.Root>
 {/snippet}
