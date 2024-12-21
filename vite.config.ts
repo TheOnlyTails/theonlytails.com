@@ -5,15 +5,12 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
 	plugins: [
-		tailwindcss(),
 		sveltekit(),
+		tailwindcss(),
 		Icons({
 			compiler: "svelte",
 			defaultStyle: "display: inline; height: 1rem; width: 1rem;",
 			defaultClass: "icon",
 		}),
 	],
-	build: {
-		cssMinify: "lightningcss",
-	},
 });

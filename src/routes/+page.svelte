@@ -6,6 +6,7 @@
 	import { Separator } from "$lib/components/ui/separator";
 	import { Skeleton } from "$lib/components/ui/skeleton";
 	import type { Project, Technology } from "$lib/data/types";
+	import { cn } from "$lib/utils.svelte";
 	import Navbar from "./Navbar.svelte";
 
 	import ArrowRightIcon from "~icons/lucide/arrow-right";
@@ -75,18 +76,37 @@
 
 <Separator />
 
-<main class="flex-grow flex flex-col items-center gap-4 p-4">
-	<header class="mb-6 mt-10">
-		<h1 class="flex items-center gap-4 text-5xl text-primary sm:ml-auto">
-			<Avatar class="size-12">
-				<AvatarImage src="/favicon.svg" alt="Shachar Zidon avatar" />
-				<AvatarFallback><Skeleton class="size-10 rounded-full" /></AvatarFallback>
-			</Avatar>
-			<a class="text-current font-semibold" href="/">Shachar Zidon</a>
-		</h1>
-	</header>
+<main class="grow flex flex-col lg:justify-center items-center gap-6 p-6">
+	<h1 class="flex items-center gap-4 text-5xl text-primary">
+		<Avatar class="group size-12 hidden sm:block">
+			<AvatarImage src="/favicon.svg" fetchpriority="high" alt="Shachar Zidon avatar" />
+			<img
+				class="transition-transform group-hover:-translate-y-10"
+				src="/trans_flag_anim.gif"
+				alt="a pixelated waving trans flag"
+				fetchpriority="low"
+				loading="lazy"
+			/>
+			<AvatarFallback><Skeleton class="size-10 rounded-full" /></AvatarFallback>
+		</Avatar>
+		<a class="font-semibold text-center" href="/">Shachar Zidon</a>
+	</h1>
 
-	<p class="text-xl font-medium text-center">A curious fullstack programmer</p>
+	<ul
+		class="flex flex-col text-center sm:text-start sm:list-disc sm:list-outside gap-2 text-lg font-medium"
+	>
+		<li>A curious fullstack programmer</li>
+		<li>she/her</li>
+
+		<li>
+			<img
+				class="mx-auto sm:mx-0"
+				src="https://badge.les.bi/88x31/trans/bi/75-degree/outset.svg"
+				alt="trans bi"
+				loading="lazy"
+			/>
+		</li>
+	</ul>
 
 	<ul class="flex gap-4">
 		{#each technologies as { name, icon: Icon, href }}
@@ -99,12 +119,14 @@
 				size="icon"
 			>
 				<!-- a bit of a hack until Simple Icons add a gleam icon -->
-				<Icon class={name === "Gleam" ? "grayscale scale-125 -translate-y-0.5" : ""} />
+				<Icon
+					class={cn(name === "Gleam" && "grayscale brightness-125 scale-125 -translate-y-0.5")}
+				/>
 			</Button>
 		{/each}
 	</ul>
 
-	<ul class="my-auto px-4 flex max-lg:flex-col gap-4">
+	<ul class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 		{#each projects as project}
 			<li>
 				{@render projectCard(project)}

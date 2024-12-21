@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap");
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -26,11 +27,12 @@
 	--radius-lg: 0.5rem;
 	--radius-md: calc(var(--radius-lg) - 2px);
 	--radius-sm: calc(var(--radius-lg) - 4px);
+
+	--font-sans: "JetBrains Mono";
 }
 
 @utility container {
-	margin-inline: auto;
-	padding-inline: 2rem;
+	@apply mx-auto px-8;
 
 	@media (width >= 1400px) {
 		max-width: 1400px;
@@ -42,8 +44,15 @@
 		@apply border-border;
 	}
 
+	.light {
+		color-scheme: light;
+	}
+	.dark {
+		color-scheme: dark;
+	}
+
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground min-h-dvh scroll-smooth;
 	}
 
 	input::-webkit-calendar-picker-indicator {
@@ -54,41 +63,18 @@
 		@apply flex items-center gap-[1ch] align-middle;
 	}
 
-	::-webkit-scrollbar {
-		@apply size-2;
-	}
+	.markdown pre code {
+		@apply relative grid min-w-full rounded-none border-0 bg-transparent box-decoration-clone p-0 break-words;
+		counter-reset: line;
 
-	::-webkit-scrollbar-track {
-		@apply !bg-muted;
-	}
+		.line {
+			@apply inline-block min-h-[1.5rem] w-full px-2 py-0.5;
 
-	::-webkit-scrollbar-thumb {
-		@apply !bg-muted-foreground/30 rounded-sm;
-	}
-
-	/* Firefox */
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
-	html {
-		scrollbar-color: hsl(215.4 16.3% 46.9% / 0.3);
-
-		@media (prefers-color-scheme: dark) {
-			scrollbar-color: hsl(215.4 16.3% 56.9% / 0.3);
-		}
-	}
-}
-
-.markdown pre code {
-	@apply relative grid min-w-full rounded-none border-0 bg-transparent p-0 break-words;
-	counter-reset: line;
-	box-decoration-break: clone;
-
-	.line {
-		@apply inline-block min-h-[1.5rem] w-full px-2 py-0.5;
-
-		&::before {
-			@apply mr-6 inline-block w-7 text-right text-xs text-zinc-50/40;
-			counter-increment: line;
-			content: counter(line);
+			&::before {
+				@apply mr-6 inline-block w-7 text-right text-xs text-zinc-50/40;
+				counter-increment: line;
+				content: counter(line);
+			}
 		}
 	}
 }

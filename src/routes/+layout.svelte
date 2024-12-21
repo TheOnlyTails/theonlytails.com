@@ -5,6 +5,8 @@
 	let { children } = $props();
 </script>
 
-<ModeWatcher />
+<ModeWatcher lightClassNames={["light"]} />
 
+<div class="flex flex-col min-h-dvh">
 {@render children()}
+</div>
